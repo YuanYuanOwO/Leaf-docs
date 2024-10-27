@@ -1,0 +1,382 @@
+# Leaf global config
+
+``` yaml
+
+# Leaf Config
+# Github Repo: https://github.com/Winds-Studio/Leaf
+# Discord: https://discord.com/invite/gfgAwdSEuM
+# QQ Group: 619278377
+config-version: 3.0
+
+###########
+#  ASYNC  #
+###########
+async: # (1)!
+  # Make entity tracking saving asynchronously, can improve performance significantly,
+  # especially in some massive entities in small area situations.
+  async-entity-tracker:
+    enabled: true
+    # Enable compat mode ONLY if Citizens or NPC plugins using real entity has installed,
+    # Compat mode fixed visible issue with player type NPCs of Citizens,
+    # But still recommend to use packet based / virtual entity NPC plugin, e.g. ZNPC Plus, Adyeshach, Fancy NPC or else.
+    compat-mode: false
+    max-threads: 6
+    keepalive: 60
+  # Make PlayerData saving asynchronously.
+  async-playerdata-save:
+    enabled: true
+  async-pathfinding:
+    enabled: true
+    max-threads: 0
+    keepalive: 60
+  # Whether or not asynchronous mob spawning should be enabled.
+  # On servers with many entities, this can improve performance by up to 15%. You must have
+  # paper's per-player-mob-spawns setting set to true for this to work.
+  # One quick note - this does not actually spawn mobs async (that would be very unsafe).
+  # This just offloads some expensive calculations that are required for mob spawning.
+  async-mob-spawning:
+    enabled: true
+  # ***Experimental feature, report any bugs you encounter!***
+  # Whether or not asynchronous locator should be enabled.
+  # This offloads structure locating to other threads.
+  # Only for locate command, dolphin treasure finding and eye of ender currently.
+  async-locator:
+    enabled: false
+    threads: 0
+
+##########
+#  PERF  #
+##########
+performance:
+  # Use the new Virtual Thread introduced in JDK 21 for Async Chat Executor.
+  use-virtual-thread-for-async-chat-executor: true
+  # Use the new Virtual Thread introduced in JDK 21 for CraftAsyncScheduler.
+  use-virtual-thread-for-async-scheduler: true
+  # Throttles the AI goal selector in entity inactive ticks.
+  # This can improve performance by a few percent, but has minor gameplay implications.
+  inactive-goal-selector-throttle: true
+  skip-map-item-data-updates-if-map-does-not-have-craftmaprenderer: true
+  skip-ai-for-non-aware-mob: true
+  # Enable to run a JVM recommendation on boot,
+  # which gives you advice on select JAVA distribution,
+  # and add appropriate JVM flags to improve performance.
+  run-jvm-recommendation-on-boot: true
+  reduce-packets:
+    reduce-entity-move-packets: true
+  optimized-powered-rails: true
+  optimize-minecart:
+    # Enable this feature to handle a large amount of stacked minecarts better.
+    # By skipping tick collisions to reduce expensive getEntities
+    # and bukkit event calls, useful for anarchy servers.
+    enabled: true
+    skip-tick-count: 30
+  # Only tick entity tracker if players are tracking or if at entity ticking,
+  # may have issues with some plugins.
+  # This feature will not function if async entity tracker ans compat mode are both enabled
+  reduce-entity-tracker-update: false
+  shrink-find-supporting-block-check-y-range: true
+  # May cause the inconsistent order of future compose tasks.
+  faster-structure-gen-future-sequencing: true
+  # Use faster random generator? (Up to 100X faster)
+  # Requires a JVM that supports RandomGenerator and the LXM generators.
+  # Some JREs don't support this and will cause a crash.
+  faster-random-generator:
+    enabled: true
+    # Warn if you are not using legacy random source for slime chunk generation.
+    warn-for-slime-chunk: false
+    # Use legacy random source for slime chunk generation,
+    # to follow vanilla behavior.
+    use-legacy-random-for-slime-chunk: true
+  # These values define a entity's maximum lifespan. If an
+  # entity is in this list and it has survived for longer than
+  # that number of ticks, then it will be removed. Setting a value to
+  # -1 disables this feature.
+  entity-timeouts:
+    SNOWBALL: 200
+    LLAMA_SPIT: 200
+    ALLAY: -1
+    AREA_EFFECT_CLOUD: -1
+    ARMADILLO: -1
+    ARMOR_STAND: -1
+    ARROW: 200
+    AXOLOTL: -1
+    BAT: -1
+    BEE: -1
+    BLAZE: -1
+    BLOCK_DISPLAY: -1
+    BOAT: -1
+    BOGGED: -1
+    BREEZE: -1
+    BREEZE_WIND_CHARGE: 200
+    CAMEL: -1
+    CAT: -1
+    CAVE_SPIDER: -1
+    CHEST_BOAT: -1
+    CHEST_MINECART: -1
+    CHICKEN: -1
+    COD: -1
+    COMMAND_BLOCK_MINECART: -1
+    COW: -1
+    CREEPER: -1
+    DOLPHIN: -1
+    DONKEY: -1
+    DRAGON_FIREBALL: -1
+    DROWNED: -1
+    EGG: -1
+    ELDER_GUARDIAN: -1
+    END_CRYSTAL: -1
+    ENDER_DRAGON: -1
+    ENDER_PEARL: -1
+    ENDERMAN: -1
+    ENDERMITE: -1
+    EVOKER: -1
+    EVOKER_FANGS: -1
+    EXPERIENCE_BOTTLE: -1
+    EXPERIENCE_ORB: -1
+    EYE_OF_ENDER: -1
+    FALLING_BLOCK: -1
+    FIREWORK_ROCKET: -1
+    FOX: -1
+    FROG: -1
+    FURNACE_MINECART: -1
+    GHAST: -1
+    GIANT: -1
+    GLOW_ITEM_FRAME: -1
+    GLOW_SQUID: -1
+    GOAT: -1
+    GUARDIAN: -1
+    HOGLIN: -1
+    HOPPER_MINECART: -1
+    HORSE: -1
+    HUSK: -1
+    ILLUSIONER: -1
+    INTERACTION: -1
+    IRON_GOLEM: -1
+    ITEM: -1
+    ITEM_DISPLAY: -1
+    ITEM_FRAME: -1
+    OMINOUS_ITEM_SPAWNER: -1
+    FIREBALL: 200
+    LEASH_KNOT: -1
+    LIGHTNING_BOLT: -1
+    LLAMA: -1
+    MAGMA_CUBE: -1
+    MARKER: -1
+    MINECART: -1
+    MOOSHROOM: -1
+    MULE: -1
+    OCELOT: -1
+    PAINTING: -1
+    PANDA: -1
+    PARROT: -1
+    PHANTOM: -1
+    PIG: -1
+    PIGLIN: -1
+    PIGLIN_BRUTE: -1
+    PILLAGER: -1
+    POLAR_BEAR: -1
+    POTION: -1
+    PUFFERFISH: -1
+    RABBIT: -1
+    RAVAGER: -1
+    SALMON: -1
+    SHEEP: -1
+    SHULKER: -1
+    SHULKER_BULLET: -1
+    SILVERFISH: -1
+    SKELETON: -1
+    SKELETON_HORSE: -1
+    SLIME: -1
+    SMALL_FIREBALL: 200
+    SNIFFER: -1
+    SNOW_GOLEM: -1
+    SPAWNER_MINECART: -1
+    SPECTRAL_ARROW: 200
+    SPIDER: -1
+    SQUID: -1
+    STRAY: -1
+    STRIDER: -1
+    TADPOLE: -1
+    TEXT_DISPLAY: -1
+    TNT: -1
+    TNT_MINECART: -1
+    TRADER_LLAMA: -1
+    TRIDENT: -1
+    TROPICAL_FISH: -1
+    TURTLE: -1
+    VEX: -1
+    VILLAGER: -1
+    VINDICATOR: -1
+    WANDERING_TRADER: -1
+    WARDEN: -1
+    WIND_CHARGE: 200
+    WITCH: -1
+    WITHER: -1
+    WITHER_SKELETON: -1
+    WITHER_SKULL: 200
+    WOLF: -1
+    ZOGLIN: -1
+    ZOMBIE: -1
+    ZOMBIE_HORSE: -1
+    ZOMBIE_VILLAGER: -1
+    ZOMBIFIED_PIGLIN: -1
+    FISHING_BOBBER: -1
+  enable-cached-minecraft-to-bukkit-entitytype-convert: true
+  # Optimizes entity brains when
+  # they're far away from the player
+  dab:
+    enabled: true
+    # This value determines how far away an entity has to be
+    # from the player to start being effected by DEAR.
+    start-distance: 8
+    # This value defines how often in ticks, the furthest entity
+    # will get their pathfinders and behaviors ticked. 20 = 1s
+    max-tick-freq: 20
+    # This value defines how much distance modifies an entity's
+    # tick frequency. freq = (distanceToPlayer^2) / (2^value)",
+    # If you want further away entities to tick less often, use 7.
+    # If you want further away entities to tick more often, try 9.
+    activation-dist-mod: 7
+    # A list of entities to ignore for activation
+    blacklisted-entities: []
+  dont-save-entity:
+    # Disable save primed tnt on chunk unloads.
+    # Useful for redstone/technical servers, can prevent machines from being exploded by TNT,
+    # when player disconnected caused by Internet issue.
+    dont-save-primed-tnt: true
+    dont-save-falling-block: true
+  fast-entity-custom-name-process: true
+  check-cactus-can-survive-before-growth: true
+
+###########
+#  FIXES  #
+###########
+fixes:
+  # Don't let player join server if the server is full.
+  # If enable this, you should use 'purpur.joinfullserver' permission instead of
+  # PlayerLoginEvent#allow to let player join full server.
+  dont-place-player-if-server-full: true
+  broadcast-chunk-radius-packet-on-setViewDistance: true
+
+##############
+#  GAMEPLAY  #
+##############
+gameplay-mechanisms:
+  use-spigot-item-merging-mechanism: true
+  # Don't touch this unless you know what you are doing!
+  max-item-stack-count:
+    max-dropped-items-stack-count: 0
+    max-container-destroy-count: 0
+  knockback:
+    # Make snowball can knockback players
+    snowball-knockback-players: false
+    # Make egg can knockback players
+    egg-knockback-players: false
+    # Make players can knockback zombie
+    can-player-knockback-zombie: true
+  player:
+    # Disable moved quickly/wrongly checks
+    disable-moved-wrongly-threshold: false
+    # The max distance of UseItem for players.
+    # Set to -1 to disable max-distance-check.
+    # NOTE: if set to -1 to disable the check,
+    # players are able to use some packet modules of hack clients,
+    # and NoCom Exploit!!
+    max-use-item-distance: 10.0000001
+
+#############
+#  NETWORK  #
+#############
+network:
+  protocol-support:
+    jade-protocol: false
+    appleskin-protocol: false
+    asteorbar-protocol: false
+    chatimage-protocol: false
+    xaero-map-protocol: false
+    xaero-map-server-id: -1828833217
+    syncmatica-protocol: false
+    syncmatica-quota: false
+    syncmatica-quota-limit: 40000000
+  # Whether or not enable chat message signature,
+  # disable will prevent players to report chat messages.
+  # And also disables the popup when joining a server without
+  # 'secure chat', such as offline-mode servers.
+  chat-message-signature: false
+
+##########
+#  MISC  #
+##########
+misc:
+  message:
+    # Unknown command message, using MiniMessage format, set to "default" to use vanilla message,
+    # placeholder: <detail>, shows detail of the unknown command information.
+    unknown-command: <red><lang:command.unknown.command><newline><detail>
+  rebrand:
+    server-mod-name: Leaf
+    server-gui-name: Leaf Console
+  sentry:
+    # Sentry DSN for improved error logging, leave blank to disable,
+    # Obtain from https://sentry.io/
+    dsn: ''
+    # Logs with a level higher than or equal to this level will be recorded
+    log-level: WARN
+    # Only log with a Throwable will be recorded after enabling this
+    only-log-thrown: true
+  # Once you enable secure seed, all ores and structures are generated with 1024-bit seed
+  # instead of using 64-bit seed in vanilla, made seed cracker become impossible.
+  # WARNING! You need to backup your server and prepare a new world if you want to enable it,
+  # at least for now.
+  secure-seed:
+    enabled: false
+  # Remove Vanilla username check
+  # allowing all characters as username
+  remove-vanilla-username-check: true
+  # Enable player enter backend server through proxy
+  # without backend server enabling its bungee mode
+  remove-spigot-check-bungee-config: true
+  # Enable to prevent console spam.
+  remove-change-non-editable-sign-warning: true
+  # Linear is a region file format that uses ZSTD compression instead of
+  # ZLIB.
+  # This format saves about 50% of disk space.
+  # Read Documentation before using: https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools
+  # Disclaimer: This is an experimental feature, there is potential risk to lose chunk data.
+  # So backup your server before switching to Linear.
+  region-format-settings:
+    # Available region formats: MCA, LINEAR
+    region-format: MCA
+    linear-compress-level: 1
+    throw-on-unknown-extension-detected: false
+    flush-interval-seconds: 5
+  including-5s-in-get-tps: true
+  # Controls whether specified component information is sent to clients.
+  # This may break resource packs and mods that rely on this information.
+  # It needs a component type list, incorrect things will not work.
+  # You can fill it with ["custom_data"] to hide components of CUSTOM_DATA.
+  # Also, it can avoid some frequent client animations.
+  # NOTICE: You must know what you're filling in and how it works! It will handle all itemStacks!
+  hidden-item-components: []
+  # Connection message, using MiniMessage format, set to "default" to use vanilla join message.
+  # available placeholders:
+  # %player_name% - player name
+  # %player_displayname% - player display name
+  connection-message:
+    join:
+      enabled: true
+      # Join message of player
+      message: default
+    quit:
+      enabled: true
+      # Quit message of player
+      message: default
+  cache:
+    # Cache the player profile result on they first join.
+    # It's useful if Mojang's verification server is down.
+    cache-player-profile-result: true
+    # The timeout of the cache. Unit: Minutes.
+    cache-player-profile-result-timeout: 1440
+
+```
+
+1. 注释测试
