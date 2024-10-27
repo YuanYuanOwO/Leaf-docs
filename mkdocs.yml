@@ -19,7 +19,7 @@ theme:
         icon: material/brightness-2
         name: Switch to light mode
   icon:
-    annotation: material/plus-circle
+    annotation: material/chevron-right-circle
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -29,6 +29,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - admonition
+  - pymdownx.details
   - attr_list
   - md_in_html
   - pymdownx.superfences
