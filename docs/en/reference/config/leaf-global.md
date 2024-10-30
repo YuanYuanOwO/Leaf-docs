@@ -271,18 +271,22 @@ misc: #(61)!
     cache-player-profile-result-timeout: 1440 #(83)!
 ```
 
-1. Asynchronous features below are aiming to reduce the load on server threads by processing tasks asynchronously.
-2. Make entity tracking saving asynchronously, can improve performance significantly, especially in some massive entities in small area situations.
-3. Enable compat mode ONLY if Citizens or NPC plugins using real entity has installed. Compat mode fixed visibility issue with player type NPCs of Citizens, but still recommend to use packet based / virtual entity NPC plugin, e.g. ZNPC Plus, Adyeshach, Fancy NPC or else.
-4. Maximum number of threads to use, 0 for auto. __(Recommended value: 1/2 of CPU cores)__
+1. Asynchronous features below are aiming to reduce the load on main server (server thread) by processing tasks asynchronously.
+2. Make entity tracking asynchronously, can improve performance significantly, especially in some massive entities in small area situations.
+3. Enable compat mode ONLY if Citizens or NPC plugins using real entity has installed. Compat mode fixed visibility issue with player type NPCs of Citizens,  
+but still recommend to use packet based / virtual entity NPC plugin to gain better performance, e.g. ZNPC Plus, Adyeshach, Fancy NPC or else.
+4. Maximum number of threads to use, 0 for auto.  
+__(Recommended value: 1/2 of CPU cores)__
 5. Thread keepalive time in seconds, threads with no tasks will be terminated if they exceed the time. 
 6. Make PlayerData saving asynchronously.
 7. Make mob pathfinding calculation asynchronously.
-8. Maximum number of threads to use, 0 for auto. __(Recommended value: 1/4 of CPU cores)__
+8. Maximum number of threads to use, 0 for auto.  
+__(Recommended value: 1/4 of CPU cores)__
 9. Thread keepalive time in seconds, threads with no tasks will be terminated if they exceed the time. 
 10. Whether asynchronous mob spawning should be enabled. On servers with many entities, this can improve performance by up to 15%. You must have Paper's `per-player-mob-spawns` config set to true for this to work. One quick note - this does not actually spawn mobs async (that would be very unsafe). This just offloads some expensive calculations that are required for mob spawning.
 11. ___Experimental feature, report any bugs you encounter!___  Whether asynchronous locator should be enabled. This offloads structure locating to other threads. Only for locate command, dolphin treasure finding and eye of ender currently.
-12. Maximum number of threads to use, 0 for auto. __(Recommended value: 1)__
+12. Maximum number of threads to use, 0 for auto.  
+__(Recommended value: 1)__
 
 13. The features below are aiming to reduce unnecessary calculations & use more efficient methods to optimize the server.
 14. Use the new Virtual Thread introduced in JDK 21 for Async Chat Executor.
@@ -293,7 +297,8 @@ misc: #(61)!
 19. This section is for the useless packet reducing features.
 20. Enable this feature to reduce the useless entity movement packets sent to players.
 21. Whether to use optimized powered rails. 
-22. Enable this feature to handle a large amount of stacked minecarts better. By skipping tick collisions to reduce expensive getEntities and bukkit event calls, useful for anarchy servers. __(Recommended value: true)__
+22. Enable this feature to handle a large amount of stacked minecarts better. By skipping tick collisions to reduce expensive getEntities and bukkit event calls, useful for anarchy servers.  
+__(Recommended value: true)__
 23. How many ticks to skip before checking for collisions.
 24. __May cause the inconsistent order of future compose tasks.__
 25. Use faster random generator? (Up to 100X faster) Requires a JVM that supports RandomGenerator and the LXM generators. __Some JREs don't support this and will cause a crash.__
@@ -320,7 +325,8 @@ misc: #(61)!
 44. Make snowball can knockback players.
 45. Make egg can knockback players.
 46. Players can knockback zombie.
-47. Disable moved too quickly/wrongly checks. __(Recommended value: true)__
+47. Disable moved too quickly/wrongly checks.  
+__(Recommended value: true)__
 48. The max distance of UseItem for players. Set to -1 to disable max-distance-check. NOTE: if set to -1 to disable the check, players are able to use some packet modules of hack clients, and NoCom exploit!!
 
 49. Features below are server networking related.
