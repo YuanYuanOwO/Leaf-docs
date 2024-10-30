@@ -21,10 +21,11 @@ async: #(1)!
     keepalive: 60 #(9)!
   async-mob-spawning: #(10)!
     enabled: true
-  # This feature is experimental and may cause issues.
+  # ***Experimental feature, report any bugs you encounter!***
   async-locator: #(11)!
     enabled: false
     threads: 0 #(12)!
+
 ##########
 #  PERF  #
 ##########
@@ -40,7 +41,10 @@ performance: #(13)!
   optimize-minecart:
     enabled: false #(22)!
     skip-tick-count: 30 #(23)!
+  # May cause the inconsistent order of future compose tasks.
   faster-structure-gen-future-sequencing: true #(24)!
+  # Requires a JVM that supports RandomGenerator and the LXM generators.
+  # Some JREs don't support this and will cause a crash.
   faster-random-generator: #(25)!
     enabled: false
     warn-for-slime-chunk: true #(26)!
@@ -61,7 +65,7 @@ performance: #(13)!
     BOAT: -1
     BOGGED: -1
     BREEZE: -1
-    BREEZE_WIND_CHARGE: 200
+    BREEZE_WIND_CHARGE: -1 # Recommended: 200
     CAMEL: -1
     CAT: -1
     CAVE_SPIDER: -1
@@ -145,7 +149,7 @@ performance: #(13)!
     SNIFFER: -1
     SNOW_GOLEM: -1
     SPAWNER_MINECART: -1
-    SPECTRAL_ARROW: 200
+    SPECTRAL_ARROW: -1 # Recommended: 200
     SPIDER: -1
     SQUID: -1
     STRAY: -1
@@ -178,7 +182,7 @@ performance: #(13)!
   enable-cached-minecraft-to-bukkit-entitytype-convert: true #(29)!
   dab: #(30)!
     enabled: true
-    start-distance: 8 #(31)!
+    start-distance: 12 #(31)! # Recommended: 8
     max-tick-freq: 20 #(32)!
     activation-dist-mod: 8 #(33)!
     blacklisted-entities: [] #(34)!
@@ -197,6 +201,7 @@ fixes: #(37)!
 ##############
 gameplay-mechanisms: #(39)!
   use-spigot-item-merging-mechanism: true #(40)!
+  # Don't touch this unless you know what you are doing!
   max-item-stack-count: #(41)!
     max-dropped-items-stack-count: 0 #(42)!
     max-container-destroy-count: 0 #(43)!
@@ -234,10 +239,12 @@ misc: #(61)!
     server-mod-name: Leaf #(63)!
     server-gui-name: Leaf Console #(64)!
   sentry:
+    # Obtain from https://sentry.io/
     dsn: '' #(65)!
     log-level: WARN #(66)!
     only-log-thrown: true #(67)!
-  # WARNING! You need to backup your server and prepare a new save if you want to enable secure seed.
+  # WARNING! You need to backup your server and prepare a new world if you want to enable it,
+  # at least for now.
   secure-seed: #(68)!
     enabled: false
   remove-vanilla-username-check: true #(69)!
@@ -249,6 +256,7 @@ misc: #(61)!
     throw-on-unknown-extension-detected: false #(75)!
     flush-interval-seconds: 5 #(76)!
   including-5s-in-get-tps: true #(77)!
+  # NOTICE: You must know what you're filling in and how it works! It will handle all itemStacks!
   hidden-item-components: [] #(78)!
   connection-message: #(79)!
     join:
@@ -259,6 +267,7 @@ misc: #(61)!
       message: default #(81)!
   cache:
     cache-player-profile-result: true #(82)!
+    # The timeout of the cache. Unit: Minutes.
     cache-player-profile-result-timeout: 1440 #(83)!
 ```
 
@@ -274,6 +283,7 @@ misc: #(61)!
 10. Whether asynchronous mob spawning should be enabled. On servers with many entities, this can improve performance by up to 15%. You must have Paper's `per-player-mob-spawns` config set to true for this to work. One quick note - this does not actually spawn mobs async (that would be very unsafe). This just offloads some expensive calculations that are required for mob spawning.
 11. ___Experimental feature, report any bugs you encounter!___  Whether asynchronous locator should be enabled. This offloads structure locating to other threads. Only for locate command, dolphin treasure finding and eye of ender currently.
 12. Maximum number of threads to use, 0 for auto. __(Recommended value: 1)__
+
 13. The features below are aiming to reduce unnecessary calculations & use more efficient methods to optimize the server.
 14. Use the new Virtual Thread introduced in JDK 21 for Async Chat Executor.
 15. Use the new Virtual Thread introduced in JDK 21 for CraftAsyncScheduler, which could improve performance of plugin that uses async scheduler.
@@ -298,8 +308,10 @@ misc: #(61)!
 34. A list of entities to ignore for activation. Example: [VILLAGER]
 35. Disable save primed tnt on chunk unloads. Useful for redstone/technical servers, can prevent machines from being exploded by TNT when players disconnected.
 36. Disable save falling block on chunk unloads.
+
 37. This section contains bugfixes for specific issues.
 38. Don't let player join server if the server is full. If enable this, you should use 'purpur.joinfullserver' permission instead of PlayerLoginEvent#allow to let player join full server.
+
 39. This section contains the features that modify the game mechanics.
 40. Whether to use Spigot's dropped item merging mechanism.
 41. Don't touch this unless you know what you are doing!
@@ -310,6 +322,7 @@ misc: #(61)!
 46. Players can knockback zombie.
 47. Disable moved too quickly/wrongly checks. __(Recommended value: true)__
 48. The max distance of UseItem for players. Set to -1 to disable max-distance-check. NOTE: if set to -1 to disable the check, players are able to use some packet modules of hack clients, and NoCom exploit!!
+
 49. Features below are server networking related.
 50. This section contains protocol support for some QoL/Utility mods. (All protocols require client-side mod to be installed)
 51. Whether to enable [Jade](https://modrinth.com/mod/jade) protocol support. 
@@ -322,6 +335,7 @@ misc: #(61)!
 58. Enable quota for Syncmatica.
 59. Maximum file size per syncmatica in bytes.
 60. Whether or not enable chat message signature, disable will prevent players to report chat messages. And also disables the popup when joining a server without 'secure chat', such as offline-mode servers.
+
 61. Miscellaneous features
 62. Unknown command message, using [MiniMessage](https://docs.advntr.dev/minimessage/format) format, set to "default" to use vanilla message, placeholder: <detail>, shows detail of the unknown command information.
 63. Server brand name that will show in F3 menu.
