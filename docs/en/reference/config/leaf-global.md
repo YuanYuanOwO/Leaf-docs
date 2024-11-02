@@ -182,6 +182,7 @@ performance: #(13)!
   enable-cached-minecraft-to-bukkit-entitytype-convert: true #(29)!
   dab: #(30)!
     enabled: true
+    dont-enable-if-in-water: false #(84)!
     start-distance: 12 #(31)! # Recommended: 8
     max-tick-freq: 20 #(32)!
     activation-dist-mod: 8 #(33)!
@@ -365,3 +366,6 @@ __(Recommended value: true)__
 81. Quit message of player.
 82. Cache the player profile result on they first join. It's useful if Mojang's verification server is down. 
 83. The timeout of the cache. Unit: Minutes.
+
+84. After enabling this, non-aquatic entities in the water will not be affected by DAB.  
+This could fix entities suffocate in the water. Fixed [Pufferfish issue#58](https://github.com/pufferfish-gg/Pufferfish/issues/58)
