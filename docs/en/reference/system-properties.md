@@ -8,9 +8,11 @@
 	Use this JVM flag to set a specific mirror repository for SpigotLibraryLoader or PaperLibraryLoader,
 
     for example, Use this flag
+
     ˋˋˋ
     -DLeaf.library-download-repo=https://maven.aliyun.com/repository/public
     ˋˋˋ
+
     to define Aliyun's repo as the mirror repo.
 
 ### -DLeaf.nearestEntitySensorBucketCount
