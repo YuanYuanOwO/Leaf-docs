@@ -10,7 +10,7 @@
 
 :	How many buckets will be used if entity count reached the Bucket Sort threshold.
 
-Should be the square root of entity count.
+	Should be the square root of entity count.
 
 ### -DLeaf.nearestEntitySensorBucketSortThresholdRatio
 * default: 2.0
@@ -22,6 +22,6 @@ Should be the square root of entity count.
 
 : Whether to use Fused-Multiply-Add operations to accelerate math calculation.
 
-Requires a CPU which supports FMA instruction set, otherwise it will slower.
+	Requires a CPU which supports FMA instruction set, otherwise it will slower.
 
-You can use tools like [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) to check whehter your machine supports the FMA instruction set.
+	You can use tools like [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) to check whehter your machine supports the FMA instruction set.
