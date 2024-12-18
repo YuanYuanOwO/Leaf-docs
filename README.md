@@ -1,5 +1,6 @@
 # Leaf Docs
 
+The repository of official Leaf docs
 
 ## 📦 Development
 
