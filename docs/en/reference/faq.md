@@ -7,13 +7,16 @@ As of now, we cannot give concrete numbers on performance wise, but stay tuned f
 Yes. If plugin don't work, replace Leaf with Purpur and test again. If issue persists, report it on [Leaf Github](<https://github.com/Winds-Studio/Leaf/issues>)
 
 ### ❓ · Does Leaf include `purpur.yml`?
-Yes.
+Yes. Leaf includes all the Purpur patches, but some purpur settings are moved to configurations of Gale and Leaf.
+
+### ❓ · How often does Leaf update upstream?
+Generally 1 ˜ 3 weeks, depend on the how important a update on upstream. 
 
 ### ❓ · How can I optimize my server?
 You can refer to [YouHaveTrouble's guide](<https://github.com/YouHaveTrouble/minecraft-optimization>)
 
 ### ❓ · Any known incompatibilities?
-* [RealisticVillagers](https://www.spigotmc.org/resources/realisticvillagers.105055/)
+* [RealisticVillagers](https://www.spigotmc.org/resources/realisticvillagers.105055/) (incompatible with Leaf version lower than 1.21.1)
 * In Async Tracker if the server has [Citizens](https://github.com/CitizensDev/Citizens2) the Tracker's compat-mode should be toggled on!
 * Found an incompatible plugin? [Report it here!](<https://github.com/Winds-Studio/Leaf/issues>)
 
