@@ -3,7 +3,11 @@
 ### -DLeaf.library-download-repo
 * default: not set
 
-:	Use specified mirror repository for SpigotLibraryLoader instead of Maven Central.
+:	Download speed of default Maven CPUentral repo is extremely slow in some regions.
+	
+	Use this JVM flag to set a specific mirror repository for SpigotLibraryLoader or PaperLibraryLoader,
+
+    for example, Use flag ˋ-DLeaf.library-download-repo=https://maven.aliyun.com/repository/publicˋ to define Aliyun's repo as the mirror repo.
 
 ### -DLeaf.nearestEntitySensorBucketCount
 * default: 10
