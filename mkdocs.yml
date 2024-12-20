@@ -28,6 +28,10 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences

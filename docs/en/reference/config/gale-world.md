@@ -1,5 +1,13 @@
 # Gale world default config
 
+!!! info
+
+    The YAML config below shows the structure and default config values of Gale's world defaults config (==config/gale-world-defaults.yml==)
+
+    The config bases on the latest 1.21.1 branch of Leaf
+
+    Click arrow button behind the config node to show description of it
+
 ```yaml title="gale-world-defaults.yml"
 # This is the world defaults configuration file for Gale.
 # As you can see, there's a lot to configure. Some options may impact gameplay, so use

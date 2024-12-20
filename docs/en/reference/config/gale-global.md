@@ -1,5 +1,13 @@
 # Gale global config
 
+!!! info
+
+    The YAML config below shows the structure and default config values of Gale's global config (==config/gale-global.yml==)
+
+    The config bases on the latest 1.21.1 branch of Leaf
+
+    Click arrow button behind the config node to show description of it
+
 ```yaml title="gale-global.yml"
 # This is the global configuration file for Gale.
 # As you can see, there's a lot to configure. Some options may impact gameplay, so use

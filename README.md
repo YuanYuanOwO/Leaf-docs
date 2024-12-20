@@ -1,6 +1,8 @@
 # Leaf Docs
 
-The repository of official Leaf docs
+The repository of official Leaf docs site, powered by [Material for MkDocs](https://github.com/squidfunk/mkdocs-material) documentation framework
+
+Visit the docs site in https://docs.leafmc.one/
 
 ## 📦 Development
 
@@ -18,3 +20,11 @@ The repository of official Leaf docs
         en/
         zh/
     ...
+
+## ⚖️ License
+Leaf docs is licensed under GPL-3.0.
+
+## 📜 Credits
+
+- [PaperMC Docs](https://github.com/Dreeam-qwq/Gale)
+- [Gale WIKI](https://github.com/pufferfish-gg/Pufferfish)
