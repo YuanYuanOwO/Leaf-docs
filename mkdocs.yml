@@ -52,3 +52,5 @@ plugins:
         - locale: zh
           name: 简体中文
           build: true
+
+copyright: Copyright &copy; 2022 - 2025 Leaf
