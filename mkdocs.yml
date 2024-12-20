@@ -2,6 +2,8 @@ site_name: Leaf Docs
 theme:
   name: material
   language: en
+  logo: assets/image/leaf_logo.png
+  favicon: assets/image/leaf_logo.png
   features:
     - content.code.annotate
     - content.code.copy
