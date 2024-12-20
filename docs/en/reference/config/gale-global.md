@@ -172,7 +172,7 @@ small-optimizations:
 13. When the plugin library loader finished loading a library
 
     <table>
-    <tr><td></td><td></td><td></td><td><b>Default</b></td><td></td></tr>
+    <tr><td></td><td><b>Default</b></td><td></td></tr>
     <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
@@ -341,7 +341,7 @@ small-optimizations:
     <table>
     <tr><td><b>Values for goals</b></td><td></td></tr>
     <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Paper behavior</i></td><td>- (players can't notice the difference anyway)</td></tr>
+    <tr><td><i>Paper behavior</i></td><td>-&nbsp;(players can't notice the difference anyway)</td></tr>
     </table>
 
 27. Whether to use a xor-shift random generator for the speed boost of using a rocket while gliding.
@@ -382,7 +382,7 @@ small-optimizations:
     <tr><td><i>Paper behavior</i></td><td><code>false</code></td></tr>
     </table>
 
-30. Whether to use a xor-shift random generator for the chance of lightning strike
+30. Whether to use a xor-shift random generator for the chance of lightning strike.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
