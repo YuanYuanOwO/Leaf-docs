@@ -277,21 +277,21 @@ misc: #(70)!
     cache-player-profile-result-timeout: 1440 #(95)!
 ```
 
-1. Asynchronous features below are aiming to reduce the load on main server (server thread) by processing tasks asynchronously.
+1. Asynchronous features below are aiming to reduce the load on main threa (Server Thread) by processing tasks asynchronously.
 2. Make entity tracking asynchronously, can improve performance significantly, especially in some massive entities in small area situations.
-3. Enable compat mode ONLY if Citizens or NPC plugins using real entity has installed. Compat mode fixed visibility issue with player type NPCs of Citizens,  
+3. Enable compat mode ONLY if Citizens or NPC plugins using real entity has installed. Compat mode fixed visibility issue with player type NPCs of Citizens,
 but still recommend to use packet based / virtual entity NPC plugin to gain better performance, e.g. ZNPC Plus, Adyeshach, Fancy NPC or else.
-4. Maximum number of threads to use, 0 for auto.  
+4. Maximum number of threads to use, 0 for auto.
 __(Recommended value: 1/2 of CPU cores)__
-5. Thread keepalive time in seconds, threads with no tasks will be terminated if they exceed the time. 
+5. Thread keepalive time in seconds, threads with no tasks will be terminated if they exceed the time.
 6. Make PlayerData saving asynchronously.
 7. Make mob pathfinding calculation asynchronously.
-8. Maximum number of threads to use, 0 for auto.  
+8. Maximum number of threads to use, 0 for auto.
 __(Recommended value: 1/4 of CPU cores)__
-9. Thread keepalive time in seconds, threads with no tasks will be terminated if they exceed the time. 
+9. Thread keepalive time in seconds, threads with no tasks will be terminated if they exceed the time.
 10. Whether asynchronous mob spawning should be enabled. On servers with many entities, this can improve performance by up to 15%. You must have Paper's `per-player-mob-spawns` config set to true for this to work. One quick note - this does not actually spawn mobs async (that would be very unsafe). This just offloads some expensive calculations that are required for mob spawning.
 11. ___Experimental feature, report any bugs you encounter!___  Whether asynchronous locator should be enabled. This offloads structure locating to other threads. Only for locate command, dolphin treasure finding and eye of ender currently.
-12. Maximum number of threads to use, 0 for auto.  
+12. Maximum number of threads to use, 0 for auto.
 __(Recommended value: 1)__
 13. TODO
 
@@ -307,7 +307,7 @@ __(Recommended value: 1)__
 23. This section is for the useless packet reducing features.
 24. Enable this feature to reduce the useless entity movement packets sent to players.
 25. Whether to use optimized powered rails. 
-26. Enable this feature to handle a large amount of stacked minecarts better. By skipping tick collisions to reduce expensive getEntities and bukkit event calls, useful for anarchy servers.  
+26. Enable this feature to handle a large amount of stacked minecarts better. By skipping tick collisions to reduce expensive getEntities and bukkit event calls, useful for anarchy servers.
 __(Recommended value: true)__
 27. How many ticks to skip before checking for collisions.
 28. __May cause the inconsistent order of future compose tasks.__
@@ -316,10 +316,10 @@ __(Recommended value: true)__
 31. TODO
 32. Warn if you are not using legacy random source for slime chunk generation.
 33. Use legacy random source for slime chunk generation to follow the vanilla behavior.
-34. These values define an entity's maximum lifespan. If an entity is in this list, and it has survived for longer than that number of ticks, then it will be removed. Setting a value to -1 will disable the check. 
+34. These values define an entity's maximum lifespan. If an entity is in this list, and it has survived for longer than that number of ticks, then it will be removed. Setting a value to -1 will disable the check.
 35. Enable this to cache the expensive Minecraft EntityType to Bukkit EntityType conversion.
 36. Optimizes entity brains when they're far away from players.
-37. After enabling this, non-aquatic entities in the water will not be affected by DAB.  
+37. After enabling this, non-aquatic entities in the water will not be affected by DAB.
 This could fix entities suffocate in the water. Fixed [Pufferfish issue#58](https://github.com/pufferfish-gg/Pufferfish/issues/58)
 38. This value determines how far away an entity has to be from the player to start being affected by DEAR.
 39. This value defines how often in ticks, the furthest entity will get their pathfinders and behaviors ticked. 20 = 1s
@@ -341,16 +341,16 @@ This could fix entities suffocate in the water. Fixed [Pufferfish issue#58](http
 53. Make snowball can knockback players.
 54. Make egg can knockback players.
 55. Players can knockback zombie.
-56. Disable moved too quickly/wrongly checks.  
+56. Disable moved too quickly/wrongly checks.
 __(Recommended value: true)__
 57. The max distance of UseItem for players. Set to -1 to disable max-distance-check. NOTE: if set to -1 to disable the check, players are able to use some packet modules of hack clients, and NoCom exploit!!
 
 58. Features below are server networking related.
 59. This section contains protocol support for some QoL/Utility mods. (All protocols require client-side mod to be installed)
-60. Whether to enable [Jade](https://modrinth.com/mod/jade) protocol support. 
-61. Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin) protocol support. 
-62. Whether to enable [AsteorBar](https://modrinth.com/mod/asteorbar) protocol support. 
-63. Whether to enable [ChatImage](https://modrinth.com/mod/chatimage) protocol support. 
+60. Whether to enable [Jade](https://modrinth.com/mod/jade) protocol support.
+61. Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin) protocol support.
+62. Whether to enable [AsteorBar](https://modrinth.com/mod/asteorbar) protocol support.
+63. Whether to enable [ChatImage](https://modrinth.com/mod/chatimage) protocol support.
 64. Whether to enable [XaeroMap](https://modrinth.com/mod/xaeros-minimap) protocol support.
 65. Numeric id for XaeroMap to indentify the server. This will generate randomly on first start.
 66. Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica) protocol support.
@@ -382,5 +382,5 @@ __(Recommended value: true)__
 91. Connection message, using MiniMessage format, set to "default" to use vanilla join message. Available placeholders: __%player_name%__ - player name   __%player_displayname%__ - player display name
 92. Join message of player.
 93. Quit message of player.
-94. Cache the player profile result on they first join. It's useful if Mojang's verification server is down. 
+94. Cache the player profile result on they first join. It's useful if Mojang's verification server is down.
 95. The timeout of the cache. Unit: Minutes.

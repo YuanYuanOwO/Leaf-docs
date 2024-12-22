@@ -10,7 +10,7 @@ Yes, Leaf has exactly same plugin compatibility compared to Paper. If plugin don
 Yes. Leaf includes all the Purpur patches, but some purpur settings are moved to configurations of Gale and Leaf.
 
 ### ❓ · How often does Leaf update upstream?
-Generally 1 ˜ 3 weeks, depend on the how important a update on upstream. 
+Generally 1 ˜ 3 weeks, depend on the how important a update on upstream.
 
 ### ❓ · How can I optimize my server?
 You can refer to [YouHaveTrouble's guide](<https://github.com/YouHaveTrouble/minecraft-optimization>)

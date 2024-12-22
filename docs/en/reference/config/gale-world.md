@@ -146,10 +146,38 @@ small-optimizations:
     <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
     </table>
 
-6. TODO
-7. TODO
-8. TODO
-9. TODO
+6. Whether to fix [MC-110386](https://bugs.mojang.com/browse/MC-110386).
+
+    <table>
+    <tr><td></td><td><b>Default</b></td><td></td></tr>
+    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td><code>true</code></td><td><code>true</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+    </table>
+
+7. Whether to fix [MC-121706](https://bugs.mojang.com/browse/MC-121706).
+
+    <table>
+    <tr><td></td><td><b>Default</b></td><td></td></tr>
+    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td><code>true</code></td><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+    </table>
+
+8. Whether to fix [MC-238526](https://bugs.mojang.com/browse/MC-238526).
+
+    <table>
+    <tr><td></td><td><b>Default</b></td><td></td></tr>
+    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td>-</td><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+    </table>
+
+9. Whether to fix [MC-31819](https://bugs.mojang.com/browse/MC-31819).
+
+    <table>
+    <tr><td></td><td><b>Default</b></td><td></td></tr>
+    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td><code>true</code></td><td><code>true</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+    </table>
+
 10. Whether to hide visual flames for entities that are on fire, but also have the Fire Resistance potion effect.
 
     <table>
@@ -313,7 +341,7 @@ small-optimizations:
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
     <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
-    <tr><td><code>20</code></td><td><code>20</code></td><td><code>1</code></td><td><code>1</code></td></tr>
+    <tr><td><code>20</code></td><td><code>1</code></td><td><code>1</code></td><td><code>1</code></td></tr>
     </table>
     <table>
     <tr><td><b>Values for goals</b></td><td></td></tr>
@@ -326,7 +354,7 @@ small-optimizations:
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
     <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
-    <tr><td><code>20</code></td><td><code>20</code></td><td><code>1</code></td><td><code>1</code></td></tr>
+    <tr><td><code>20</code></td><td><code>1</code></td><td><code>1</code></td><td><code>1</code></td></tr>
     </table>
     <table>
     <tr><td><b>Values for goals</b></td><td></td></tr>
@@ -355,11 +383,11 @@ small-optimizations:
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
     <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
-    <tr><td><code>true</code><br>(setting this value to <code>false</code> is strongly not recommended)</td><td><code>true</code></td><td>-</td><td>-</td></tr>
+    <tr><td><code>true</code><br>(setting this value to <code>false</code> is strongly not recommended)</td><td><code>false</code></td><td>-</td><td>-</td></tr>
     </table>
     <table>
     <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Optimization</i></td><td><code>false</code></td></tr>
     <tr><td><i>Vanilla behavior</i></td><td>- (for vanilla behavior, <code>interval</code> must be set to 1)</td></tr>
     </table>
 
