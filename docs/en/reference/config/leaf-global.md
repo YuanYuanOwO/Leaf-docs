@@ -21,6 +21,7 @@ async: #(1)!
     compat-mode: false #(3)!
     max-threads: 0 #(4)!
     keepalive: 60 #(5)!
+  # **Experimental feature, may cause data lost in some circumstances!**
   async-playerdata-save: #(6)!
     enabled: false
   async-pathfinding: #(7)!
@@ -29,7 +30,6 @@ async: #(1)!
     keepalive: 60 #(9)!
   async-mob-spawning: #(10)!
     enabled: true
-  # ***Experimental feature, report any bugs you encounter!***
   async-locator: #(11)!
     enabled: false
     threads: 0 #(12)!
@@ -277,28 +277,76 @@ misc: #(70)!
     cache-player-profile-result-timeout: 1440 #(95)!
 ```
 
-1. Asynchronous features below are aiming to reduce the load on main threa (Server Thread) by processing tasks asynchronously.
-2. Make entity tracking asynchronously, can improve performance significantly, especially in some massive entities in small area situations.
-3. Enable compat mode ONLY if Citizens or NPC plugins using real entity has installed. Compat mode fixed visibility issue with player type NPCs of Citizens,
-but still recommend to use packet based / virtual entity NPC plugin to gain better performance, e.g. ZNPC Plus, Adyeshach, Fancy NPC or else.
-4. Maximum number of threads to use, 0 for auto.
-__(Recommended value: 1/2 of CPU cores)__
-5. Thread keepalive time in seconds, threads with no tasks will be terminated if they exceed the time.
-6. Make PlayerData saving asynchronously.
-7. Make mob pathfinding calculation asynchronously.
-8. Maximum number of threads to use, 0 for auto.
-__(Recommended value: 1/4 of CPU cores)__
-9. Thread keepalive time in seconds, threads with no tasks will be terminated if they exceed the time.
-10. Whether asynchronous mob spawning should be enabled. On servers with many entities, this can improve performance by up to 15%. You must have Paper's `per-player-mob-spawns` config set to true for this to work. One quick note - this does not actually spawn mobs async (that would be very unsafe). This just offloads some expensive calculations that are required for mob spawning.
-11. ___Experimental feature, report any bugs you encounter!___  Whether asynchronous locator should be enabled. This offloads structure locating to other threads. Only for locate command, dolphin treasure finding and eye of ender currently.
-12. Maximum number of threads to use, 0 for auto.
-__(Recommended value: 1)__
-13. TODO
+1. Asynchronous features below are aiming to reduce the load on main thread (Server Thread) by processing tasks asynchronously.
+2. Make entity tracking asynchronously, can improve performance significantly, especially in some massive entities in small area situations.<br>
+  <br>
+  __Recommended value: `true` (set `enabled` below to true)__
 
-14. The features below are aiming to reduce unnecessary calculations & use more efficient methods to optimize the server.
-15. Use the new Virtual Thread introduced in JDK 21 for Async Chat Executor.
-16. Use the new Virtual Thread introduced in JDK 21 for CraftAsyncScheduler, which could improve performance of plugin that uses async scheduler.
-17. TODO
+    !!! note
+
+        if you installed plugins like Citizens, which uses real, and player type entity as "NPC", also read `compat-mode` below for more infomration.
+
+3. Enable compat mode to be compatibile with plugins like Citizens or NPC plugins that use real, and player-type entity.<br>
+  If `true`,  visibility issue that player-type NPCs may disappear sometimes can be fixed.<br>
+  <br>
+  You should enable `compat-mode` to use async entity tracker feature ==ONLY IF== you installed Citizens or any other kind of real entity NPC plugins.<br>
+  <br>
+  But we still recommend to use packet-based / virtual entity NPC plugin to gain better performance, e.g. [ZNPC Plus](https://github.com/Pyrbu/ZNPCsPlus), [Adyeshach](https://github.com/TabooLib/Adyeshach), [Fancy NPC](https://modrinth.com/plugin/fancynpcs), or else, and then `compat-mode` can be disabled.
+4. Maximum number of threads for async entity tracker to use.<br>
+   If the value is set to `0`, it automatically uses 1/4 of the number of CPU cores and no less than 1.<br>
+  <br>
+  __Recommended value: 1/2 of CPU cores__
+5. Thread keepalive time, threads with no tasks will be terminated if they exceed the time.<br>
+  (Unit: seconds)
+6. Make PlayerData saving asynchronously.
+
+    !!! warning
+
+        Experimental feature, may cause data lost in some circumstances!
+
+7. Make mob pathfinding calculation asynchronously.<br>
+  <br>
+  __Recommended value: `true` (set `enabled` below to true)__
+8. Maximum number of threads for async entity pathfinding to use.<br>
+   If the value is set to `0`, it automatically uses 1/4 of the number of CPU cores and no less than 1.<br>
+  <br>
+  __Recommended value: 1/4 of CPU cores__
+9. Thread keepalive time, threads with no tasks will be terminated if they exceed the time.<br>
+  (Unit: seconds)
+10. Whether asynchronous mob spawning should be enabled.<br>
+  On servers with many entities, this can improve performance by up to 15%. You must have Paper's `per-player-mob-spawns` config set to `true` for this to work.<br>
+  One quick note - this does not actually spawn mobs async (that would be very unsafe). This just offloads some expensive calculations that are required for mob spawning.<br>
+  <br>
+  __Recommended value: `true`__
+11. Whether or not asynchronous locator should be enabled.<br>
+  This offloads structure locating to other threads.<br>
+  Currently available for:
+    * /locate command
+    * Dolphin treasure finding
+    * Eye of ender stronghold finding
+
+12. Maximum number of threads for async locator to use.<br>
+   If a value &leq; `0` is given, it automatically uses 1 thread.<br>
+  <br>
+  __Recommended value: `1`__
+13. Thread keepalive time, threads with no tasks will be terminated if they exceed the time.<br>
+  (Unit: seconds)
+
+14. The features below are aiming to reduce unnecessary calculations and use more efficient methods to optimize the server.
+15. Use the new Virtual Thread introduced in JDK 21 for Async Chat Executor.<br>
+  <br>
+  __Recommended value: `true`__
+16. Use the new Virtual Thread introduced in JDK 21 for CraftAsyncScheduler, which could improve performance of plugin that uses async scheduler.<br>
+  <br>
+  __Recommended value: `true`__
+17. Whether to create the snapshot of TileEntity / BlockState when retirving them.<br>
+  Some plugins may use getHolder to get the holder for a inventory, which invloved getting the blockstate.<br>
+  And it may hurt the performance for example if there are tons of hoppers and plugins use this method under related listeners (e.g. hopper related events).<br>
+  <br>
+  Disable it to disable creation of snapshot (unless plugin defined to use snapshot). Allowing plugins to get real blockstate itself, to avoid cost on re-create blockstate and item parse.<br>
+  See Paper's [API-to-get-a-BlockState-without-a-snapshot.patch#L6](https://github.com/PaperMC/Paper-archive/blob/b48403bd69f534ffd43fe2afb4e8e1f1ffa95fe1/patches/server/0160-API-to-get-a-BlockState-without-a-snapshot.patch#L6) for more information.<br>
+  <br>
+  __Recommended value: `false`__
 18. Throttles the AI goal selector in entity inactive ticks. This can improve performance by a few percent, but has minor gameplay implications.
 19. TODO
 20. TODO

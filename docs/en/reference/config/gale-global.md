@@ -236,7 +236,7 @@ small-optimizations:
     <table>
     <tr><td><b>Values for goals</b></td><td></td></tr>
     <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td>-&nbsp;(this doesn't affect gameplay)</td></tr>
+    <tr><td><i>Vanilla behavior</i></td><td>- (this doesn't affect gameplay)</td></tr>
     </table>
 
 19. Whether to add the oversleep portion of the last tick's time to the `/tps` command.<br>
@@ -344,7 +344,7 @@ small-optimizations:
     <table>
     <tr><td><b>Values for goals</b></td><td></td></tr>
     <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Paper behavior</i></td><td>-&nbsp;(players can't notice the difference anyway)</td></tr>
+    <tr><td><i>Paper behavior</i></td><td>- (players can't notice the difference anyway)</td></tr>
     </table>
 
 27. Whether to use a xor-shift random generator for the speed boost of using a rocket while gliding.
