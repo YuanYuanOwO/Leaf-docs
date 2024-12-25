@@ -4,26 +4,26 @@
 As of now, we cannot give concrete numbers on performance wise, but stay tuned for our upcoming website where we'll dive on the metrics bit more in detail!
 
 ### ❓ · Does Leaf support Bukkit/Spigot/Paper plugins?
-Yes, Leaf has exactly same plugin compatibility compared to Paper. If plugin don't work, replace Leaf with Purpur and test again. If issue persists, report it on [Leaf Github](<https://github.com/Winds-Studio/Leaf/issues>)
+Yes, Leaf has exactly same plugin compatibility compared to Paper. If the plugin doesn't work, replace Leaf with Purpur and test again. If the issue persists, report it on [Leaf GitHub](<https://github.com/Winds-Studio/Leaf/issues>)
 
 ### ❓ · Does Leaf include `purpur.yml`?
-Yes. Leaf includes all the Purpur patches, but some purpur settings are moved to configurations of Gale and Leaf.
+Yes. Leaf includes all the Purpur patches, but some Purpur settings are moved to configurations of Gale and Leaf.
 
 ### ❓ · How often does Leaf update upstream?
-Generally 1 ˜ 3 weeks, depend on the how important a update on upstream.
+Generally 1 ˜ 3 weeks, depends on how important an update on upstream.
 
 ### ❓ · How can I optimize my server?
 You can refer to [YouHaveTrouble's guide](<https://github.com/YouHaveTrouble/minecraft-optimization>)
 
 ### ❓ · Any known incompatibilities?
-* [RealisticVillagers](https://www.spigotmc.org/resources/realisticvillagers.105055/) (incompatible with Leaf version lower than 1.21.1)
-* In Async Tracker if the server has [Citizens](https://github.com/CitizensDev/Citizens2) the Tracker's compat-mode should be toggled on!
+* [RealisticVillagers](https://www.spigotmc.org/resources/realisticvillagers.105055/) (incompatible with the Leaf version lower than 1.21.1)
+* In Async Tracker, if the server has [Citizens](https://github.com/CitizensDev/Citizens2) the Tracker's compat-mode should be toggled on!
 * Found an incompatible plugin? [Report it here!](<https://github.com/Winds-Studio/Leaf/issues>)
 
 ### ❓ · What's the difference between mojmap and reobf? Which should I use?
 It's different mapping. Mojmap uses mojang mapping, and reobf uses spigot mapping. You should use mojmap.
 
-### ❓ · How can i support the project?
+### ❓ · How can I support the project?
 Anyone can donate at [Afdian](https://afdian.com/a/Dreeam) (Supports PayPal and Stripe)
 
 !!! note

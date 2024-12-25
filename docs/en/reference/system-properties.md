@@ -3,7 +3,7 @@
 ### -DLeaf.library-download-repo
 * default: not set
 
-:	Download speed of default Maven CPUentral repo is extremely slow in some regions.
+:	Download speed of default Maven Central repo is extremely slow in some regions.
 	
 	Use this JVM flag to set a specific mirror repository for SpigotLibraryLoader or PaperLibraryLoader,
 
@@ -30,6 +30,6 @@
 
 : Whether to use Fused-Multiply-Add operations to accelerate math calculation.
 
-	Requires a CPU which supports FMA instruction set, otherwise it will slower.
+	Requires a CPU which supports the FMA instruction set, otherwise it will be slower.
 
-	You can use tools like [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) to check whehter your machine supports the FMA instruction set.
+	You can use tools like [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) to check whether your machine supports the FMA instruction set.

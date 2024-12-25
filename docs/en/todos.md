@@ -15,4 +15,3 @@ gale-global
     <tr><td><code>out-of-order-message-warning</code></td><td>When a player's message packets are out of order<br>(this is harmless, it usually happens when the player's client's chat is a bit out-of-sync)</td><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td></tr>
     </table>
 ```
-replace i.e. to e.g.

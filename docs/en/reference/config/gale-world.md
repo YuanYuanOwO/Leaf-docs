@@ -480,11 +480,11 @@ small-optimizations:
 
 34. The minimum delay, given in ticks, for items dropped by villagers to be picked up by (other) entities.<br>
 
-    * Prevents villagers picking up farmed items before hoppers do in certain farm designs, that would otherwise be broken by the `check-nearby-item.hopper` setting described below.
+    * Prevents villagers picking up farmed items before hoppers do in certain farm designs; that would otherwise be broken by the `check-nearby-item.hopper` setting described below.
     * Reduces lag from villagers continuously throwing many items at each other when their inventories are full.
   <br><br>
   For example:
-    * if this value is set to `100`, items dropped by villagers can be picked up by entities after 5 seconds.
+    * if this value is set to `100`, entities can pick up items dropped by villagers after 5 seconds.
     * If a value < `0` is given, it will default to the same as vanilla, which is currently `10` ticks (½ second).
 
       <table>

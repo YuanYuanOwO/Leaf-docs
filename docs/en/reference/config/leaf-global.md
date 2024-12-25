@@ -346,7 +346,7 @@ misc: #(70)!
   Disable it to disable creation of snapshot (unless plugin defined to use snapshot). Allowing plugins to get real blockstate itself, to avoid cost on re-create blockstate and item parse.<br>
   See Paper's [API-to-get-a-BlockState-without-a-snapshot.patch#L6](https://github.com/PaperMC/Paper-archive/blob/b48403bd69f534ffd43fe2afb4e8e1f1ffa95fe1/patches/server/0160-API-to-get-a-BlockState-without-a-snapshot.patch#L6) for more information.<br>
   <br>
-  __Recommended value: `false`__
+  __Recommended value: `false` (Only if you encounter specific lag described above)__
 18. Throttles the AI goal selector in entity inactive ticks. This can improve performance by a few percent, but has minor gameplay implications.
 19. TODO
 20. TODO
