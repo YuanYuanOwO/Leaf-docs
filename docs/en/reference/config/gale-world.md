@@ -1,6 +1,6 @@
 # Gale world default config
 
-!!! info
+!!! info "Info"
 
     The YAML config below shows the structure and default config values of Gale's world defaults config (==config/gale-world-defaults.yml==)
 
@@ -464,7 +464,7 @@ small-optimizations:
   Since after dealing damage, there is an interval (this may change in the future, but approximately 1 second) at which entities cannot take repeated damage, delaying the suffocation check by less than 1 second is almost unnoticeable.<br>
   <br>
   For example:
-    * If this value is set to `10`, entities will check whether they are being suffocated every ½ second.<br>
+    * If this value is set to `10`, entities will check whether they are being suffocated every ½ second.
     * If a value &leq; `0` is given, it will default to the same as Paper.
 
     <table>
@@ -478,8 +478,7 @@ small-optimizations:
     <tr><td><i>Vanilla behavior</i></td><td><code>1</code></td></tr>
     </table>
 
-34. The minimum delay, given in ticks, for items dropped by villagers to be picked up by (other) entities.<br>
-
+34. The minimum delay, given in ticks, for items dropped by villagers to be picked up by (other) entities.
     * Prevents villagers picking up farmed items before hoppers do in certain farm designs; that would otherwise be broken by the `check-nearby-item.hopper` setting described below.
     * Reduces lag from villagers continuously throwing many items at each other when their inventories are full.
   <br><br>

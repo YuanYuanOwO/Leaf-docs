@@ -1,6 +1,6 @@
 # Gale global config
 
-!!! info
+!!! info "Info"
 
     The YAML config below shows the structure and default config values of Gale's global config (==config/gale-global.yml==)
 
@@ -205,8 +205,7 @@ small-optimizations:
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td></tr>
     </table>
 
-17. Whether to ignore any legacy structure data, for which the NBT tag parser returns null for some reason.<br>
-
+17. Whether to ignore any legacy structure data, for which the NBT tag parser returns null for some reason.
     * If `true`, no warning will be given when this happens.
     * If `false`, an exception will be thrown in the console when this happens.
 
@@ -223,8 +222,7 @@ small-optimizations:
 
     > 🛈 = The default value is `false` to prevent any errors going unnoticed by default, but the recommended value is `true` because these errors are usually meaningless and unsolvable anyway.
 
-18. Whether to send more frequent keepalive packets than vanilla.<br>
-
+18. Whether to send more frequent keepalive packets than vanilla.
     * If `true`, a keepalive packet is sent to every client every second, and they are not kicked if they respond to at least one of them within 30 seconds.
     * If `false`, a keepalive packet is sent to every client every 15 seconds, and they are kicked if they do not respond to it within 30 seconds.
 
@@ -267,9 +265,8 @@ small-optimizations:
     <tr><td><i>Paper behavior</i></td><td><code>false</code></td></tr>
     </table>
 
-21. The maximum time, given in ticks, that a premium account login can take.<br>
-
-    * If this time is exceeded, the connection is closed.<br>
+21. The maximum time, given in ticks, that a premium account login can take.
+    * If this time is exceeded, the connection is closed.
     * If a value &leq; `0` is given, it will default to the same as vanilla, which is currently `600` ticks (30 seconds).
 
     <table>
@@ -283,8 +280,7 @@ small-optimizations:
     <tr><td><i>Vanilla behavior</i></td><td><code>-1</code></td></tr>
     </table>
 
-22. Whether to verify the order of chat messages.<br>
-
+22. Whether to verify the order of chat messages.
     * If this option is set to `true`, and a player sends an out-of-order chat packet, they will be kicked.
     * If this option is set to `false`, no verification will occur, and players will not be kicked.
 

@@ -26,5 +26,5 @@ Leaf docs is licensed under GPL-3.0.
 
 ## 📜 Credits
 
-- [PaperMC Docs](https://github.com/Dreeam-qwq/Gale)
-- [Gale WIKI](https://github.com/pufferfish-gg/Pufferfish)
+- [PaperMC Docs](https://docs.papermc.io/paper)
+- [Gale WIKI](https://github.com/GaleMC/Gale/wiki)

@@ -23,12 +23,12 @@
 ### -DLeaf.nearestEntitySensorBucketSortThresholdRatio
 * default: 2.0
 
-:	This value controls the ratio of Bucket Sort threshold (Threshold = bucketCount * ratio)
+:	This value controls the ratio of Bucket Sort threshold `(Threshold = bucketCount * ratio)`
 
 ### -DLeaf.enableFMA
 * default: false
 
-: Whether to use Fused-Multiply-Add operations to accelerate math calculation.
+: Whether to use [Fused-Multiply-Add operations](https://en.wikipedia.org/wiki/Multiply%E2%80%93accumulate_operation) to accelerate math calculation.
 
 	Requires a CPU which supports the FMA instruction set, otherwise it will be slower.
 

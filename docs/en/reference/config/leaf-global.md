@@ -1,6 +1,6 @@
 # Leaf global config
 
-!!! info
+!!! info "Info"
 
     The YAML config below shows the structure and default config values of Leaf's global config (==config/leaf-global.yml==)
 
@@ -282,7 +282,7 @@ misc: #(70)!
   <br>
   __Recommended value: `true` (set `enabled` below to true)__
 
-    !!! note
+    !!! note "Attention"
 
         if you installed plugins like Citizens, which uses real, and player type entity as "NPC", also read `compat-mode` below for more infomration.
 
@@ -300,7 +300,7 @@ misc: #(70)!
   (Unit: seconds)
 6. Make PlayerData saving asynchronously.
 
-    !!! warning
+    !!! warning "Warning"
 
         Experimental feature, may cause data lost in some circumstances!
 
@@ -310,7 +310,7 @@ misc: #(70)!
 8. Maximum number of threads for async entity pathfinding to use.<br>
    If the value is set to `0`, it automatically uses 1/4 of the number of CPU cores and no less than 1.<br>
   <br>
-  __Recommended value: 1/4 of CPU cores__
+  __Recommended value: 1/3 of CPU cores__
 9. Thread keepalive time, threads with no tasks will be terminated if they exceed the time.<br>
   (Unit: seconds)
 10. Whether asynchronous mob spawning should be enabled.<br>
@@ -324,11 +324,12 @@ misc: #(70)!
     * /locate command
     * Dolphin treasure finding
     * Eye of ender stronghold finding
-
+  <br><br>
+  __Recommended value: `true` (set `enabled` below to true)__
 12. Maximum number of threads for async locator to use.<br>
    If a value &leq; `0` is given, it automatically uses 1 thread.<br>
   <br>
-  __Recommended value: `1`__
+  __Recommended value: `1` or `2`__
 13. Thread keepalive time, threads with no tasks will be terminated if they exceed the time.<br>
   (Unit: seconds)
 
@@ -340,25 +341,97 @@ misc: #(70)!
   <br>
   __Recommended value: `true`__
 17. Whether to create the snapshot of TileEntity / BlockState when retirving them.<br>
+  <br>
   Some plugins may use getHolder to get the holder for a inventory, which invloved getting the blockstate.<br>
-  And it may hurt the performance for example if there are tons of hoppers and plugins use this method under related listeners (e.g. hopper related events).<br>
-  <br>
-  Disable it to disable creation of snapshot (unless plugin defined to use snapshot). Allowing plugins to get real blockstate itself, to avoid cost on re-create blockstate and item parse.<br>
-  See Paper's [API-to-get-a-BlockState-without-a-snapshot.patch#L6](https://github.com/PaperMC/Paper-archive/blob/b48403bd69f534ffd43fe2afb4e8e1f1ffa95fe1/patches/server/0160-API-to-get-a-BlockState-without-a-snapshot.patch#L6) for more information.<br>
-  <br>
+  For example, if there are tons of hoppers and plugins call this method when listening some events (e.g. hopper related events). It is very expensive to re-create blockstate and parse item stack in massive and frequently calls.<br>
+  See Paper's [API-to-get-a-BlockState-without-a-snapshot.patch#L6](https://github.com/PaperMC/Paper-archive/blob/b48403bd69f534ffd43fe2afb4e8e1f1ffa95fe1/patches/server/0160-API-to-get-a-BlockState-without-a-snapshot.patch#L6) for more information.
+    * If `true`, it will create snapshot (copy) of blockstate everytime when plugins call related methods.
+    * If `false`, it will get real blockstate itself when plugins call related methods, unless the plugin defines to use snapshot.
+  <br><br>
   __Recommended value: `false` (Only if you encounter specific lag described above)__
-18. Throttles the AI goal selector in entity inactive ticks. This can improve performance by a few percent, but has minor gameplay implications.
-19. TODO
-20. TODO
-21. Skip map item data update if the map doesn't have a renderer.
-22. Skip AI ticks if the mob is inactive and not being aware(e.g. being attacked)
+18. Throttles the AI goal selector in entity inactive ticks. This can improve performance by a few percent, but has minor gameplay implications.<br>
+  <br>
+  __Recommended value: `true`__
+
+    <table>
+    <tr><td><b>Values for goals</b></td><td></td></tr>
+    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    </table>
+
+19. Whether to throttle attempts on moving items for hopper if the target container is full.<br>
+  <br>
+  __Recommended value: `true` (set `enabled` below to true)__
+
+    <table>
+    <tr><td><b>Values for goals</b></td><td></td></tr>
+    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    </table>
+
+20. How many ticks to wait before the next move item attempt when the hopper is throttled.<br>
+  If a value &leq; `0` is given, this throttling feature is disabled.<br>
+  <br>
+  __Recommended value: `5`__
+
+    <table>
+    <tr><td><b>Values for goals</b></td><td></td></tr>
+    <tr><td><i>Optimization</i></td><td><code>5</code></td></tr>
+    <tr><td><i>Vanilla behavior</i></td><td><code>0</code></td></tr>
+    </table>
+
+21. Whether to skip map item data update if the map doesn't have a renderer.<br>
+  This can improve performance if using image map kind of plugins.<br>
+  <br>
+  __Recommended value: `true`__
+
+    <table>
+    <tr><td><b>Values for goals</b></td><td></td></tr>
+    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    </table>
+
+    !!! note "Attention"
+
+        This may cause vanilla map item data to stop be updated.
+
+22. Whether to skip AI ticks if the mob is inactive and not being aware (e.g. being attacked).<br>
+  <br>
+  __Recommended value: `true`__
+
+    <table>
+    <tr><td><b>Values for goals</b></td><td></td></tr>
+    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    </table>
+
 23. This section is for the useless packet reducing features.
-24. Enable this feature to reduce the useless entity movement packets sent to players.
-25. Whether to use optimized powered rails. 
-26. Enable this feature to handle a large amount of stacked minecarts better. By skipping tick collisions to reduce expensive getEntities and bukkit event calls, useful for anarchy servers.
-__(Recommended value: true)__
-27. How many ticks to skip before checking for collisions.
-28. __May cause the inconsistent order of future compose tasks.__
+24. Enable this feature to reduce the useless entity movement packets sent to players.<br>
+  <br>
+  __Recommended value: `true`__
+25. Whether to use optimized powered rails. Uses fully rewritten version of powered rail iteration logic, can achieve 4x faster performance.<br>
+  <br>
+  __Recommended value: `true`__
+26. Wether to optimize minecarts ticking. By skipping tick collisions to reduce expensive `getEntities` calls and bukkit event calls.<br>
+  Enables this feature to handle a large amount of stacked minecarts better which is useful for anarchy servers.<br>
+  <br>
+  __Recommended value: `true`__
+
+    <table>
+    <tr><td><b>Values for goals</b></td><td></td></tr>
+    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    </table>
+
+27. How many ticks to skip before checking for the next minecart collisions.<br>
+  <br>
+  __Recommended value: `30`__
+28. Whether to use faster 
+
+    !!! note "Attention"
+
+        This may cause the inconsistent order of future compose tasks.
+
 29. Use faster random generator? (Up to 100X faster) Requires a JVM that supports RandomGenerator and the LXM generators. __Some JREs don't support this and will cause a crash.__
 30. TODO
 31. TODO
@@ -377,7 +450,8 @@ This could fix entities suffocate in the water. Fixed [Pufferfish issue#58](http
 43. Disable save falling block on chunk unloads.
 
 44. This section contains bugfixes for specific issues.
-45. Don't let player join server if the server is full. If enable this, you should use 'purpur.joinfullserver' permission instead of PlayerLoginEvent#allow to let player join full server.
+45. Whether don't let player to join a server if the server is full.<br>
+  If `true`, you should give player `purpur.joinfullserver` permission instead of using `PlayerLoginEvent#allow` to enable player to join a full server.
 
 46. This section contains the features that modify the game mechanics.
 47. Whether to use Spigot's dropped item merging mechanism.
