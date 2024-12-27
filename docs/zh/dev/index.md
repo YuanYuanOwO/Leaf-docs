@@ -1,5 +1,5 @@
-# Leaf Development Guide
+# Leaf 开发指南
 
-Welcome to Leaf Development Guide!
+欢迎来到 Leaf 开发指南!
 
-In this section, you can learn how to build and get runnable Jar from Leaf source, create Leaf API based plugin, and even about contributing to Leaf!
+在本章节, 你可以了解如何构建 Leaf, 创建基于 Leaf API 的插件, 甚至学习如何给 Leaf 贡献代码!

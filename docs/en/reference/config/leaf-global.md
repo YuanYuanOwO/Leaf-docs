@@ -54,7 +54,7 @@ performance: #(14)!
   optimize-minecart: #(26)!
     enabled: false
     skip-tick-count: 30 #(27)!
-  # May cause the inconsistent order of future compose tasks.
+  # This may cause the inconsistent order of future compose tasks.
   faster-structure-gen-future-sequencing: true #(28)!
   # Requires a JVM that supports RandomGenerator and the LXM generators.
   # Some JREs don't support this and will cause a crash.
@@ -71,13 +71,13 @@ performance: #(14)!
     ARMOR_STAND: -1
     ARROW: -1
     AXOLOTL: -1
-    BAT: -1 # Recommended: 6000
+    BAT: -1
     BEE: -1
     BLAZE: -1
     BOAT: -1
     BOGGED: -1
     BREEZE: -1
-    BREEZE_WIND_CHARGE: -1 # Recommended: 200
+    BREEZE_WIND_CHARGE: -1
     CAMEL: -1
     CAT: -1
     CAVE_SPIDER: -1
@@ -90,9 +90,9 @@ performance: #(14)!
     CREEPER: -1
     DOLPHIN: -1
     DONKEY: -1
-    DRAGON_FIREBALL: -1 # Recommended: 400
+    DRAGON_FIREBALL: -1
     DROWNED: -1
-    EGG: -1 # Recommended: 300
+    EGG: -1
     ELDER_GUARDIAN: -1
     ENDER_DRAGON: -1
     ENDER_PEARL: -1
@@ -120,7 +120,7 @@ performance: #(14)!
     IRON_GOLEM: -1
     ITEM: -1
     OMINOUS_ITEM_SPAWNER: -1
-    FIREBALL: -1 # Recommended: 600
+    FIREBALL: -1
     LIGHTNING_BOLT: -1
     LLAMA: -1
     LLAMA_SPIT: -1
@@ -148,12 +148,12 @@ performance: #(14)!
     SKELETON: -1
     SKELETON_HORSE: -1
     SLIME: -1
-    SMALL_FIREBALL: -1 # Recommended: 400
+    SMALL_FIREBALL: -1
     SNIFFER: -1
     SNOW_GOLEM: -1
     SNOWBALL: -1
     SPAWNER_MINECART: -1
-    SPECTRAL_ARROW: -1 # Recommended: 200
+    SPECTRAL_ARROW: -1
     SPIDER: -1
     SQUID: -1
     STRAY: -1
@@ -169,11 +169,11 @@ performance: #(14)!
     VINDICATOR: -1
     WANDERING_TRADER: -1
     WARDEN: -1
-    WIND_CHARGE: -1 # Recommended: 300
+    WIND_CHARGE: -1
     WITCH: -1
     WITHER: -1
     WITHER_SKELETON: -1
-    WITHER_SKULL: -1 # Recommended: 400
+    WITHER_SKULL: -1
     WOLF: -1
     ZOGLIN: -1
     ZOMBIE: -1
@@ -204,6 +204,7 @@ fixes: #(44)!
 ##############
 gameplay-mechanisms: #(46)!
   use-spigot-item-merging-mechanism: true #(47)!
+  # **Experimental feature, report any bugs you encounter!**
   smooth-teleport: false #(48)!
   # Don't touch this unless you know what you are doing!
   max-item-stack-count: #(49)!
@@ -277,14 +278,14 @@ misc: #(70)!
     cache-player-profile-result-timeout: 1440 #(95)!
 ```
 
-1. Asynchronous features below are aiming to reduce the load on main thread (Server Thread) by processing tasks asynchronously.
+1. This section contains asynchronous features intended to reduce the load on the main thread (Server Thread) by processing tasks asynchronously.
 2. Make entity tracking asynchronously, can improve performance significantly, especially in some massive entities in small area situations.<br>
   <br>
   __Recommended value: `true` (set `enabled` below to true)__
 
     !!! note "Attention"
 
-        if you installed plugins like Citizens, which uses real, and player type entity as "NPC", also read `compat-mode` below for more infomration.
+        if you installed plugins like Citizens, which uses real, and player type entity as "NPC", also read `async-entity-tracker.compat-mode` below for more infomration.
 
 3. Enable compat mode to be compatibile with plugins like Citizens or NPC plugins that use real, and player-type entity.<br>
   If `true`,  visibility issue that player-type NPCs may disappear sometimes can be fixed.<br>
@@ -333,7 +334,9 @@ misc: #(70)!
 13. Thread keepalive time, threads with no tasks will be terminated if they exceed the time.<br>
   (Unit: seconds)
 
-14. The features below are aiming to reduce unnecessary calculations and use more efficient methods to optimize the server.
+
+
+14. This section contains performance tuning intended to reduce unnecessary calculations and use more efficient methods to optimize the server.
 15. Use the new Virtual Thread introduced in JDK 21 for Async Chat Executor.<br>
   <br>
   __Recommended value: `true`__
@@ -426,36 +429,156 @@ misc: #(70)!
 27. How many ticks to skip before checking for the next minecart collisions.<br>
   <br>
   __Recommended value: `30`__
-28. Whether to use faster 
+28. Whether to use faster task sequencing for generating structures.
 
     !!! note "Attention"
 
         This may cause the inconsistent order of future compose tasks.
 
-29. Use faster random generator? (Up to 100X faster) Requires a JVM that supports RandomGenerator and the LXM generators. __Some JREs don't support this and will cause a crash.__
-30. TODO
-31. TODO
-32. Warn if you are not using legacy random source for slime chunk generation.
-33. Use legacy random source for slime chunk generation to follow the vanilla behavior.
-34. These values define an entity's maximum lifespan. If an entity is in this list, and it has survived for longer than that number of ticks, then it will be removed. Setting a value to -1 will disable the check.
-35. Enable this to cache the expensive Minecraft EntityType to Bukkit EntityType conversion.
-36. Optimizes entity brains when they're far away from players.
-37. After enabling this, non-aquatic entities in the water will not be affected by DAB.
-This could fix entities suffocate in the water. Fixed [Pufferfish issue#58](https://github.com/pufferfish-gg/Pufferfish/issues/58)
-38. This value determines how far away an entity has to be from the player to start being affected by DEAR.
-39. This value defines how often in ticks, the furthest entity will get their pathfinders and behaviors ticked. 20 = 1s
-40. This value defines how much distance modifies an entity's tick frequency. freq = (distanceToPlayer^2) / (2^value). If you want further away entities to tick less often, use 7. If you want further away entities to tick more often, try 9.
-41. A list of entities to ignore for activation. Example: [VILLAGER]
-42. Disable save primed tnt on chunk unloads. Useful for redstone/technical servers, can prevent machines from being exploded by TNT when players disconnected.
-43. Disable save falling block on chunk unloads.
+29. Whether to use the faster random generator.<br>
+  Random is used almost everywhere in Minecraft, enable this can get a decent performance improvement.<br>
+  <br>
+  __Recommended value: `true` (set `enabled` below to true)__
+
+    !!! note "Attention"
+
+        Requires a JVM that supports `RandomGenerator` and the LXM generators. Some JREs don't support this and will cause a crash.
+
+30. Which random generator will be used?<br>
+  Avaiable random generators can be found in [Random Number Generators in Java](https://www.baeldung.com/java-17-random-number-generators#1-api-design-1).<br>
+  <br>
+  __Recommended value: `Xoroshiro128PlusPlus`__
+31. Whether to use the faster random generator for world generation.<br>
+    * If `true`, `Random` calls involved in world generation will use faster random generator you chose in `random-generator`. The world generation will be slightly different from vanilla.
+    * If `false`, `Random` calls involved in world generation will use legacy random generator of vanilla.
+  <br><br>
+  __Recommended value: `true`__
+
+    <table>
+    <tr><td><b>Values for goals</b></td><td></td></tr>
+    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    </table>
+
+32. Whether server prints a warning message on startup, if you are using faster random generator for slime chunk generation.
+33. Whether to use legacy random source for slime chunk generation to follow the vanilla behavior.<br>
+  If your server has existing slime farms or related facilities need slime chunk, enable this, otherwise the location of slime chunk will offest.<br>
+  <br>
+  __Recommended value:__ (Depends on your server type, see `Values for goals` below for more.)
+
+    <table>
+    <tr><td><b>Values for goals</b></td><td></td></tr>
+    <tr><td><i>Optimization</i></td><td><code>false</code></td></tr>
+    <tr><td><i>Vanilla behavior</i></td><td><code>true</code></td></tr>
+    </table>
+
+34. These values, in ticks, define an entity's maximum lifespan (i.e. Entity TTL).<br>
+  If an entity is in this list, and it has survived for longer than that number of ticks, then it will be removed. 🛈<br>
+  If a value `-1` is given, the Entity TTL check will disable for specific entity.<br>
+  <br>
+  __Recommended values:__
+
+    | Entity             | Value |
+    | ------------------ | ----- |
+    | SNOWBALL           | 200   |
+    | LLAMA_SPIT         | 150   |
+    | DRAGON_FIREBALL    | 150   |
+    | EGG                | 300   |
+    | FIREBALL           | 600   |
+    | SMALL_FIREBALL     | 400   |
+    | WIND_CHARGE        | 200   |
+    | BREEZE_WIND_CHARGE | 200   |
+    | WITHER_SKULL       | 200   |
+
+    > 🛈 = In here, the time that the entity survived, means the total living time of entity, and will not be reset by chunk unloading or loading.
+
+35. Whether to cache the result of *Minecraft EntityType* to *Bukkit EntityType* conversion. If can get tiny improvements.<br>
+  <br>
+  __Recommended value: `true`__
+36. Dynamic Activation of Brain, optimizes entity's brain when they are far away from players.<br>
+  <br>
+  __Recommended value: `true` (set `enabled` below to true)__
+
+    <table>
+    <tr><td><b>Values for goals</b></td><td></td></tr>
+    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla behavior</i></td><td><code>false</code> (or see <code>dab.blacklisted-entities</code> below)</td></tr>
+    </table>
+
+37. Whether non-aquatic entities in the water will not be affected by DAB.<br>
+  If `true`, this could fix entities suffocate in the water if they are far from the player. This fixed [Pufferfish's issue#58](https://github.com/pufferfish-gg/Pufferfish/issues/58).<br>
+  <br>
+  __Recommended value: `true`__
+38. This value determines how far away an entity has to be from the player to start being affected by DAB.<br>
+  __Recommended value: `8`__
+39. This value defines how often in ticks, the furthest entity will get their pathfinders and behaviors ticked (Note: 20 ticks = 1s).
+40. This value defines how much distance modifies an entity's tick frequency. `freq = (distanceToPlayer^2) / (2^value)`.
+    * If you want further away entities to tick less often, use `7`.
+    * If you want further away entities to tick more often, try `9`.
+  <br><br>
+  __Recommended value: `7`__
+41. A list of entities that will not affected by DAB.<br>
+  <br>
+  Some SMP like servers have mob farms which need mobs to have a target. This kind of "pathfinding" mob farm may broken by DAB. This situation can be solved by adding specifc mob of mob farm into this DAB blacklist.<br>
+  If some specific mob farms are broken in your server, mobs freeze and don't move, and you are not sure whether it is caused by DAB. You can try add them into this blacklist to see if it fix the issue.<br>
+  <br>
+  Format: `[VILLAGER]` or `[VILLAGER, ZOMBIFIED_PIGLIN]` (You can find *EntityType* in [Paper's Javadoc](https://jd.papermc.io/paper/1.21.1/org/bukkit/entity/EntityType.html)).
+
+    ??? note "Want to Go Deeper?"
+
+        For the format of `dab.blacklisted-entities`, it accepts all valid format of a YAML list.<br>
+        <br>
+        If you only need to add one entity into blacklist, these formats below are allowed:
+        ```yaml
+        dab:  
+          blacklisted-entities: [VILLAGER]
+        ```
+        or
+        ```yaml
+        dab:
+          blacklisted-entities:
+            - VILLAGER
+        ```
+        And if you need to add multiple entities into blacklist, these formats below are allowed:
+        ```yaml
+        dab:  
+          blacklisted-entities: [VILLAGER, ZOMBIFIED_PIGLIN]
+        ```
+        or
+        ```yaml
+        dab:
+          blacklisted-entities:
+            - VILLAGER
+            - ZOMBIFIED_PIGLIN
+        ```
+
+        If you are not sure, use [YAML Checker](https://yamlchecker.com/), or any online YAML syntax validator to check your config.
+
+42. Disable save primed tnt on chunk unloads.<br>
+  It can prevent machines from being exploded by TNT, when the player accidently disconnected or chunk unloads when the player are far away. Useful for SMP like servers which have machines involved TNT.<br>
+  <br>
+  __Recommended value: `true`__
+43. Disable save falling block on chunk unloads.<br>
+  <br>
+  __Recommended value: `true`__
+
+
 
 44. This section contains bugfixes for specific issues.
 45. Whether don't let player to join a server if the server is full.<br>
   If `true`, you should give player `purpur.joinfullserver` permission instead of using `PlayerLoginEvent#allow` to enable player to join a full server.
 
+
+
 46. This section contains the features that modify the game mechanics.
 47. Whether to use Spigot's dropped item merging mechanism.
-48. TODO
+48. Whether to make a "smooth teleport" when players changing dimension.<br>
+  This requires original world and target world have same logical height to work.
+
+    !!! warning "Warning"
+
+        Experimental feature, report any bugs you encounter!
+
 49. Don't touch this unless you know what you are doing!
 50. Maximum amount of dropped items to stack.
 51. Maximum count of ItemStack to drop when container is destroyed.
@@ -467,7 +590,9 @@ This could fix entities suffocate in the water. Fixed [Pufferfish issue#58](http
 __(Recommended value: true)__
 57. The max distance of UseItem for players. Set to -1 to disable max-distance-check. NOTE: if set to -1 to disable the check, players are able to use some packet modules of hack clients, and NoCom exploit!!
 
-58. Features below are server networking related.
+
+
+58. This section contains features for server networking related.
 59. This section contains protocol support for some QoL/Utility mods. (All protocols require client-side mod to be installed)
 60. Whether to enable [Jade](https://modrinth.com/mod/jade) protocol support.
 61. Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin) protocol support.
@@ -480,7 +605,9 @@ __(Recommended value: true)__
 68. Maximum file size per syncmatica in bytes.
 69. Whether or not enable chat message signature, disable will prevent players to report chat messages. And also disables the popup when joining a server without 'secure chat', such as offline-mode servers.
 
-70. Miscellaneous features
+
+
+70. This section contains some miscellaneous features.
 71. Unknown command message, using [MiniMessage](https://docs.advntr.dev/minimessage/format) format, set to "default" to use vanilla message, placeholder: <detail>, shows detail of the unknown command information.
 72. Server brand name that will show in F3 menu.
 73. Server GUI window name if you launched server without --nogui option.
