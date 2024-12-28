@@ -263,7 +263,7 @@ misc: #(70)!
     enable-for-water: false #(87)!
     enable-for-lava: false #(88)!
   including-5s-in-get-tps: true #(89)!
-  # NOTICE: You must know what you're filling in and how it works! It will handle all itemStacks!
+  # NOTICE: You must know what you're filling in and how it works! It handles all item stacks!
   hidden-item-components: [] #(90)!
   connection-message: #(91)!
     join:
@@ -274,7 +274,6 @@ misc: #(70)!
       message: default #(93)!
   cache:
     cache-player-profile-result: true #(94)!
-    # The timeout of the cache. Unit: Minutes.
     cache-player-profile-result-timeout: 1440 #(95)!
 ```
 
@@ -492,7 +491,7 @@ misc: #(70)!
 
     > 🛈 = In here, the time that the entity survived, means the total living time of entity, and will not be reset by chunk unloading or loading.
 
-35. Whether to cache the result of *Minecraft EntityType* to *Bukkit EntityType* conversion. If can get tiny improvements.<br>
+35. Whether to cache the result of *Minecraft EntityType* to *Bukkit EntityType* conversion. It can get a tiny improvement.<br>
   <br>
   __Recommended value: `true`__
 36. Dynamic Activation of Brain, optimizes entity's brain when they are far away from players.<br>
@@ -551,8 +550,7 @@ misc: #(70)!
             - VILLAGER
             - ZOMBIFIED_PIGLIN
         ```
-
-        If you are not sure, use [YAML Checker](https://yamlchecker.com/), or any online YAML syntax validator to check your config.
+        If you are not sure, use [YAML Checker](https://yamlchecker.org/), or any online YAML syntax validator to check your config.
 
 42. Disable save primed tnt on chunk unloads.<br>
   It can prevent machines from being exploded by TNT, when the player accidently disconnected or chunk unloads when the player are far away. Useful for SMP like servers which have machines involved TNT.<br>
@@ -579,16 +577,35 @@ misc: #(70)!
 
         Experimental feature, report any bugs you encounter!
 
-49. Don't touch this unless you know what you are doing!
+49. Configurable max stack size of dropped item.
+
+    !!! warning "Warning"
+
+        We __do not__ recommended to use this feature. It is working in progress and has known issues.<br>
+        This feature also maybe remove in the future. __Do not__ touch this unless you know what you are doing!
+
 50. Maximum amount of dropped items to stack.
-51. Maximum count of ItemStack to drop when container is destroyed.
-52. TODO
-53. Make snowball can knockback players.
-54. Make egg can knockback players.
-55. Players can knockback zombie.
-56. Disable moved too quickly/wrongly checks.
-__(Recommended value: true)__
-57. The max distance of UseItem for players. Set to -1 to disable max-distance-check. NOTE: if set to -1 to disable the check, players are able to use some packet modules of hack clients, and NoCom exploit!!
+51. Maximum count of items to drop when container is destroyed.
+52. This section contains options to adjust knockback related behaviors.
+53. Whether the snowball can knockback players.
+54. Whether the egg can knockback players.
+55. Whether the player can knockback zombies.
+56. Whether to disable the Spigot built-in moved too quickly / wrongly checks for players and vehicles.<br>
+  If `true`, players can move or use vehicles to move with abnormal speed.<br>
+  <br>
+  __Recommended value: `true`__
+57. The max distance that the player is allowed to interact with a item.<br>
+  <br>
+  Some [anarchy server](https://minecraftservers.org/type/anarchy) or similar type of servers may allow players to use hacks / cheats. If you want players able to use crystal related modules that are packet-based (e.g. [?I forget]), you may need to adjust the value of this `max-use-item-distance`.<br>
+  It's better to set value to `10.0000001`, to allow using packet-based crystal related hack modules.
+  <br>
+  If a value `-1` is given, the check of max allowed distance to use a item will be disabled.<br>
+  <br>
+  __Recommended value: `10.0000001` (For anarchy server)__
+
+    !!! note "Attention"
+
+        If set to `-1`, players are able to use some packet modules of hack clients, and also [Nocom Exploit](https://github.com/nerdsinspace/nocom-explanation)!
 
 
 
@@ -603,14 +620,25 @@ __(Recommended value: true)__
 66. Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica) protocol support.
 67. Enable quota for Syncmatica.
 68. Maximum file size per syncmatica in bytes.
-69. Whether or not enable chat message signature, disable will prevent players to report chat messages. And also disables the popup when joining a server without 'secure chat', such as offline-mode servers.
+69. Whether to enable chat message signature which introduced in Minecraft, disable will prevent players to report chat messages. And also disables the popup when joining a server without 'secure chat', such as offline-mode servers.
 
 
 
 70. This section contains some miscellaneous features.
-71. Unknown command message, using [MiniMessage](https://docs.advntr.dev/minimessage/format) format, set to "default" to use vanilla message, placeholder: <detail>, shows detail of the unknown command information.
-72. Server brand name that will show in F3 menu.
-73. Server GUI window name if you launched server without --nogui option.
+71. Unknown command message. The message will send to player if they execute an unknown command.<br>
+  The message needs to use [MiniMessage](https://docs.advntr.dev/minimessage/format) format.<br>
+  If set value to `default`, the vanilla unkown command message will be used.<br>
+  <br>
+  Available placeholders:
+    * __`<detail>`__ - the detailed information of the unknown command.
+
+    !!! note "API / Plugin Friendly"
+
+        This feature is API / plugin friendly.
+        It means that this message can be overrided by plugins using `UnknownCommandEvent#message` or `UnknownCommandEvent#setMessage`.
+
+72. Server brand name that shows in F3 menu and server motd.
+73. Server GUI window name, if you launched server without adding `--nogui` option in the startup flag.
 74. Sentry DSN for improved error logging, leave blank to disable, obtain from [sentry.io](https://sentry.io)
 75. Logs with a level higher than or equal to this level will be recorded.
 76. Only log with a Throwable will be recorded after enabling this. 
@@ -626,10 +654,32 @@ __(Recommended value: true)__
 86. TODO
 87. TODO
 88. TODO
-89. Whether to include 5s in get TPS.
-90. Controls whether specified component information is sent to clients. This may break resource packs and mods that rely on this information. It needs a component type list, incorrect things will not work. You can fill it with ["custom_data"] to hide components of CUSTOM_DATA. Also, it can avoid some frequent client animations. __NOTICE: You must know what you're filling in and how it works! It will handle all itemStacks!__
-91. Connection message, using MiniMessage format, set to "default" to use vanilla join message. Available placeholders: __%player_name%__ - player name   __%player_displayname%__ - player display name
-92. Join message of player.
-93. Quit message of player.
-94. Cache the player profile result on they first join. It's useful if Mojang's verification server is down.
-95. The timeout of the cache. Unit: Minutes.
+89. Whether to include 5s in the result of API `Bukkit#getTPS` and `Server#getTPS`.<br>
+    * If `true`, 
+    * If `false`, 
+90. Controls whether specified component information is sent to clients. This may break resource packs and client mods that rely on this information. It needs a component type list, incorrect things will not work. You can fill it with `["custom_data"]` to hide components of *CUSTOM_DATA*. Also, it can avoid some frequent client animations.
+
+    !!! note "Attention"
+
+        You must know what you're filling in and how it works! It handles all item stacks!
+
+91. Connection message that broadcasts to all online players, when they join or quit server.<br>
+  The message needs to use [MiniMessage](https://docs.advntr.dev/minimessage/format) format.<br>
+  If set value to `default`, the vanilla join / quit message will be used.<br>
+  <br>
+  Available placeholders:
+    * __`%player_name%`__ - player name.
+    * __`%player_displayname%`__ - player display name.
+
+    !!! note "API / Plugin Friendly"
+
+        This feature is API / plugin friendly.
+        It means that the connection message can be overrided by plugins using `PlayerJoinEvent` or `PlayerQuitEvent`.
+
+92. Join message of the player.
+93. Quit message of the player.
+94. Whether to cache the player profile result when they first join.<br>
+  It's useful if Mojang's authentication server is down.
+95. The timeout of the player profile cache.<br>
+  If the given timeout is exceed, it will send another request to Mojang's authentication server to get profile data on player's next join.<br>
+  (Unit: minutes)
