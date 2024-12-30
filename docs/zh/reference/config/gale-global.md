@@ -1,4 +1,12 @@
-# Gale global config
+# Gale 全局配置
+
+!!! info "信息"
+
+    以下 YAML 配置展示了 Gale 全局配置（==config/gale-global.yml==）的结构及其默认的值
+
+    此配置文件基于最新的 Leaf 1.21.1 分支
+
+    点击配置项后面的箭头按钮以显示其描述
 
 ```yaml title="gale-global.yml"
 # This is the global configuration file for Gale.
@@ -16,42 +24,42 @@
 
 _version: 1
 gameplay-mechanics:
-  enable-book-writing: true
-log-to-console:
+  enable-book-writing: true #(1)!
+log-to-console: #(2)!
   chat:
-    empty-message-warning: false
-    expired-message-warning: false
-    not-secure-marker: true
-  ignored-advancements: true
-  invalid-pool-element-error-log-level: info
-  invalid-statistics: true
-  legacy-material-initialization: false
-  null-id-disconnections: true
-  player-login-locations: true
+    empty-message-warning: false #(3)!
+    expired-message-warning: false #(4)!
+    not-secure-marker: true #(5)!
+  ignored-advancements: true #(6)!
+  invalid-pool-element-error-log-level: info #(7)!
+  invalid-statistics: true #(8)!
+  legacy-material-initialization: false #(9)!
+  null-id-disconnections: true #(10)!
+  player-login-locations: true #(11)!
   plugin-library-loader:
-    downloads: true
-    library-loaded: true
-    start-load-libraries-for-plugin: true
-  set-block-in-far-chunk: true
-  unrecognized-recipes: false
+    downloads: true #(12)!
+    library-loaded: true #(13)!
+    start-load-libraries-for-plugin: true #(14)!
+  set-block-in-far-chunk: true #(15)!
+  unrecognized-recipes: false #(16)!
 misc:
-  ignore-null-legacy-structure-data: false
+  ignore-null-legacy-structure-data: false #(17)!
   keepalive:
-    send-multiple: true
+    send-multiple: true #(18)!
   last-tick-time-in-tps-command:
-    add-oversleep: false
-    enabled: false
-  premium-account-slow-login-timeout: -1
-  verify-chat-order: true
+    add-oversleep: false #(19)!
+    enabled: false #(20)!
+  premium-account-slow-login-timeout: -1 #(21)!
+  verify-chat-order: true #(22)!
 small-optimizations:
   reduced-intervals:
-    increase-time-statistics: 20
-    update-entity-line-of-sight: 4
-  use-xor-shift-random:
-    auto-replenish-lootable-refill: true
-    elytra-firework-speed: true
-    entity-wake-up-duration: true
-    generate-tree-with-bukkit-api: true
-    lightning-random-tick: true
+    increase-time-statistics: 20 #(23)!
+    update-entity-line-of-sight: 4 #(24)!
+  use-xor-shift-random: #(25)!
+    auto-replenish-lootable-refill: true #(26)!
+    elytra-firework-speed: true #(27)!
+    entity-wake-up-duration: true #(28)!
+    generate-tree-with-bukkit-api: true #(29)!
+    lightning-random-tick: true #(30)!
 
 ```
