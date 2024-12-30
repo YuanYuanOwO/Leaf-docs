@@ -243,38 +243,38 @@ misc: #(70)!
   rebrand:
     server-mod-name: Leaf #(72)!
     server-gui-name: Leaf Console #(73)!
-  sentry:
-    # Obtain from https://sentry.io/
-    dsn: '' #(74)!
-    log-level: WARN #(75)!
-    only-log-thrown: true #(76)!
-  secure-seed: #(77)!
+  sentry: #(74)!
+    # Obtain DSN key from https://sentry.io/
+    dsn: '' #(75)!
+    log-level: WARN #(76)!
+    only-log-thrown: true #(77)!
+  secure-seed: #(78)!
     enabled: false
-  remove-vanilla-username-check: true #(78)!
-  remove-spigot-check-bungee-config: true #(79)!
-  remove-change-non-editable-sign-warning: false #(80)!
-  region-format-settings: #(81)!
-    region-format: MCA #(82)!
-    linear-compress-level: 1 #(83)!
-    throw-on-unknown-extension-detected: false #(84)!
-    flush-interval-seconds: 5 #(85)!
-  lag-compensation: #(86)!
+  remove-vanilla-username-check: true #(79)!
+  remove-spigot-check-bungee-config: true #(80)!
+  remove-change-non-editable-sign-warning: false #(81)!
+  region-format-settings: #(82)!
+    region-format: MCA #(83)!
+    linear-compress-level: 1 #(84)!
+    throw-on-unknown-extension-detected: false #(85)!
+    flush-interval-seconds: 5 #(86)!
+  lag-compensation: #(87)!
     enabled: false
-    enable-for-water: false #(87)!
-    enable-for-lava: false #(88)!
-  including-5s-in-get-tps: true #(89)!
+    enable-for-water: false #(88)!
+    enable-for-lava: false #(89)!
+  including-5s-in-get-tps: true #(90)!
   # NOTICE: You must know what you're filling in and how it works! It handles all item stacks!
-  hidden-item-components: [] #(90)!
-  connection-message: #(91)!
+  hidden-item-components: [] #(91)!
+  connection-message: #(92)!
     join:
       enabled: true
-      message: default #(92)!
+      message: default #(93)!
     quit:
       enabled: true
-      message: default #(93)!
+      message: default #(94)!
   cache:
-    cache-player-profile-result: true #(94)!
-    cache-player-profile-result-timeout: 1440 #(95)!
+    cache-player-profile-result: true #(95)!
+    cache-player-profile-result-timeout: 1440 #(96)!
 ```
 
 1. This section contains asynchronous features intended to reduce the load on the main thread (Server Thread) by processing tasks asynchronously.
@@ -494,7 +494,7 @@ misc: #(70)!
 35. Whether to cache the result of *Minecraft EntityType* to *Bukkit EntityType* conversion. It can get a tiny improvement.<br>
   <br>
   __Recommended value: `true`__
-36. Dynamic Activation of Brain, optimizes entity's brain when they are far away from players.<br>
+36. Dynamic Activation of Brain, optimizes entity's brain to decrease the frequency of their brain ticking when they are far away from players.<br>
   <br>
   __Recommended value: `true` (set `enabled` below to true)__
 
@@ -596,8 +596,8 @@ misc: #(70)!
   __Recommended value: `true`__
 57. The max distance that the player is allowed to interact with a item.<br>
   <br>
-  Some [anarchy server](https://minecraftservers.org/type/anarchy) or similar type of servers may allow players to use hacks / cheats. If you want players able to use crystal related modules that are packet-based (e.g. [?I forget]), you may need to adjust the value of this `max-use-item-distance`.<br>
-  It's better to set value to `10.0000001`, to allow using packet-based crystal related hack modules.
+  Some [Anarchy Server](https://minecraftservers.org/type/anarchy) or similar type of servers may allow players to use hacks / cheats. If you want players able to use crystal related modules that are packet-based (e.g. CEV Breaker, BedAura), you may need to adjust this value.<br>
+  It's better to set value to `10.0000001`, to allow to use related hack modules.
   <br>
   If a value `-1` is given, the check of max allowed distance to use a item will be disabled.<br>
   <br>
@@ -610,24 +610,41 @@ misc: #(70)!
 
 
 58. This section contains features for server networking related.
-59. This section contains protocol support for some QoL/Utility mods. (All protocols require client-side mod to be installed)
-60. Whether to enable [Jade](https://modrinth.com/mod/jade) protocol support.
-61. Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin) protocol support.
-62. Whether to enable [AsteorBar](https://modrinth.com/mod/asteorbar) protocol support.
-63. Whether to enable [ChatImage](https://modrinth.com/mod/chatimage) protocol support.
-64. Whether to enable [XaeroMap](https://modrinth.com/mod/xaeros-minimap) protocol support.
+59. This section contains features that providing extra protocol support for some QoL / Utility mods, which can enhance game experience for your server.<br>
+  <br>
+  The extra protocol support is only functional if there is corresponding client-side mod installed. It means if a specific protocol support is enabled, and a player installed that mod on client, they can get the additional features described in each config below. But for players who have no corresponding mod installed, then the everything is same as before.
+
+    !!! note "Attention"
+
+        The protocol support may cause incompatibility with the [ViaVersion](https://modrinth.com/plugin/viaversion).<br>
+        We recommend players to use client that has same version with the server core and install latest corresponding mod, otherwise they may unable to join the server.
+
+60. Whether to enable [Jade](https://modrinth.com/mod/jade) protocol support.<br>
+  If `true`, player who has Jade mod installed, can display item information inside the storage container, progress of furnace, brewing stand, foods on the campfire, bee data in beehive, and more vanilla-friendly features.
+61. Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin) protocol support.<br>
+  If `true`, player who has AppleSkin mod installed, can display the accurate saturation / exhaustion values on the client.
+62. Whether to enable [AsteorBar](https://modrinth.com/mod/asteorbar) protocol support.<br>
+  If `true`, player who has AsteorBar mod installed, can display the accurate saturation / exhaustion values on the client.
+63. Whether to enable [ChatImage](https://modrinth.com/mod/chatimage) protocol support.<br>
+  If `true`, player who has ChatImage mod installed, can see the image sent by others using ChatImage's CICode format.
+64. Whether to enable [XaeroMap](https://modrinth.com/mod/xaeros-minimap) protocol support.<br>
+  If `true`, player who has Xaero's MiniMap mod or Xaero's WorldMap mod installed, can store players' coordiate points and death points based on server's `protocol-support.xaero-map-server-id` below, to prevent points from been deleted / refreshed if server name or IP address changed.
 65. Numeric id for XaeroMap to indentify the server. This will generate randomly on first start.
-66. Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica) protocol support.
-67. Enable quota for Syncmatica.
-68. Maximum file size per syncmatica in bytes.
-69. Whether to enable chat message signature which introduced in Minecraft, disable will prevent players to report chat messages. And also disables the popup when joining a server without 'secure chat', such as offline-mode servers.
+66. Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica) protocol support.<br>
+  If `true`, player who has Syncmatica mod installed, can upload their [Litematica](https://modrinth.com/mod/litematica) schematics files or download shared schematics files from the server. Every player with Syncmatica mod installed can access shared schematics uploaded by others.
+67. Whether to enable maximum file size limit for each shared schematics file of Litematica mod.
+68. Maximum file size, in bytes, for each shared schematics file uploading to server. (40,000,000 bytes ≈ 38 MB)
+69. Whether to enable chat message signature which introduced since Minecraft 1.19.1.<br>
+  If `false`, players' chat messages become unable to report, and the insecure warning popup when player joined the server will be disabled.<br>
+  <br>
+  __Recommended value: `false`__
 
 
 
 70. This section contains some miscellaneous features.
-71. Unknown command message. The message will send to player if they execute an unknown command.<br>
+71. Unknown command message, will send to player if they execute an unknown command.<br>
   The message needs to use [MiniMessage](https://docs.advntr.dev/minimessage/format) format.<br>
-  If set value to `default`, the vanilla unkown command message will be used.<br>
+  If set message to `default`or leave the default value, the vanilla unkown command message will be used.<br>
   <br>
   Available placeholders:
     * __`<detail>`__ - the detailed information of the unknown command.
@@ -639,33 +656,71 @@ misc: #(70)!
 
 72. Server brand name that shows in F3 menu and server motd.
 73. Server GUI window name, if you launched server without adding `--nogui` option in the startup flag.
-74. Sentry DSN for improved error logging, leave blank to disable, obtain from [sentry.io](https://sentry.io)
-75. Logs with a level higher than or equal to this level will be recorded.
-76. Only log with a Throwable will be recorded after enabling this. 
-77. Once you enable secure seed, all ores and structures are generated with 1024-bit seed instead of using 64-bit seed in vanilla, made seed cracker become impossible. __WARNING! You need to backup your server and prepare a new world if you want to enable it, at least for now.__
-78. Remove Vanilla username check allowing all characters as username.
-79. Enable player enter backend server through proxy without enabling bungeecord mode in spigot.yml.
-80. Enable to prevent console spam. __(Recommended value: true)__
-81. Linear is a region file format that uses ZSTD compression instead of ZLIB. This format saves about 50% of disk space. Read Documentation before using: https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools __Disclaimer: This is an experimental feature, there is potential risk to lose chunk data. Backup your server before switching to Linear.__
-82. Available region formats: MCA, LINEAR
-83. Linear region file format compression level.
-84. Whether to throw error when unknown region format extension is detected.
-85. Linear region file format data flush interval in seconds.
-86. TODO
-87. TODO
-88. TODO
-89. Whether to include 5s in the result of API `Bukkit#getTPS` and `Server#getTPS`.<br>
-    * If `true`, 
-    * If `false`, 
-90. Controls whether specified component information is sent to clients. This may break resource packs and client mods that rely on this information. It needs a component type list, incorrect things will not work. You can fill it with `["custom_data"]` to hide components of *CUSTOM_DATA*. Also, it can avoid some frequent client animations.
+74. [Sentry](https://sentry.io/welcome/) is a apllication monitor service for improved error logging, tracing.<br>
+  <br>
+  After enabled Sentry integration for your server, you don't need to aduit long logs to find errors maunally. Sentry can collect errors happened in your server, enable you to track erros on Sentry's web panel and help you to locate and fix them eaiser and faster.<br>
+  <br>
+  See __[How to Setup Sentry](../../how-to/setup-sentry.md)__ to know how to setup and get DSN key for `sentry.dsn` below.<br>
+75. The DSN key of your Sentry.<br>
+  If an empty value `''` is given, the Sentry will be disabled.
+76. Logs with a level higher than or equal to this level will be recorded.
+77. Only log with a Throwable will be recorded after enabling this. 
+78. Once you enable secure seed, all ores and structures are generated with 1024-bit seed instead of using 64-bit seed in vanilla, made seed cracker become impossible.<br>
+  <br>
+  __Recommended value: `true` (set `enabled` below to true)__
+
+    <table>
+    <tr><td><b>Values for goals</b></td><td></td></tr>
+    <tr><td><i>Optimization</i></td><td>-</td></tr>
+    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    </table>
+
+79. Whether to remove vanilla's username check to allow __all characters__ as username, including Chinese, and etc. (It's only useful for offline servers).<br>
+  If `true`, players are allowed to use non-English name to join the server.
+80. Whether player can enter backend server via proxy, without the backend server to enable bungeecord mode in `spigot.yml`.
+81. Whether the server prints warning when players tried to edit the sign that they are not allowed to edit.<br>
+  Enable this to prevent console spam in some cases.<br>
+  <br>
+  __Recommended value: `true`__
+
+82. Linear is a region file format that uses [ZSTD compression](https://facebook.github.io/zstd/) instead of ZLIB in vanilla Minecraft. This format saves about ~50% of disk space.<br>
+  To use Linear region format, make sure you __Read [Linear Documentation](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools)__, and have done all steps required, then change `region-format-settings.region-format` below to `LINEAR`.
+
+    !!! warning "Warning"
+
+        This is an experimental feature, there is potential risk to lose chunk data. Backup your server before switching to Linear.
+
+83. Available region formats: `"MCA"`, `"LINEAR"`.
+84. The compression level for Linear region format file.
+85. Whether to throw error to crash the server when unknown region format extension is detected.
+86. The flush interval in seconds for Linear region format file data.
+87. Lag compensation, which could ensure the basic game experience for players the when server is lagging or low TPS situation.<br>
+  <br>
+  __Recommended value: `true` (set `enabled` below to true)__
+88. Whether to enable lag compensation for water flowing.<br>
+  <br>
+  __Recommended value: `true`__
+89. Whether to enable lag compensation for lava flowing.<br>
+  <br>
+  __Recommended value: `true`__
+90. Whether to include 5 seconds TPS in the result of API `Bukkit#getTPS` and `Server#getTPS`.<br>
+    * If `true`, you can use `getTPS` method to get TPS long array with 4 elements (5s, 1m, 5m, 15m).
+    * If `false`, you can use `getTPS` method to get TPS long array with 3 elements (1m, 5m, 15m).
+
+    ??? note "Want to Go Deeper?"
+
+        If you are using Gale API or Leaf API for your plugins. Or runinng on Leaf and use reflection to get TPS, you can use `Bukkit#getTPSIncluding5SecondAverage`, to get the TPS array including 5 seconds TPS (5s, 1m, 5m, 15m).<br>
+        Also, you can use `Bukkit#get5SecondTPSAverage` to get the average value of 5 seconds TPS in `double`.
+
+91. Controls whether specified component information is sent to clients. This may break resource packs and client mods that rely on this information. It needs a component type list, incorrect things will not work. For example, you can fill it with `["custom_data"]` to hide components of *CUSTOM_DATA*. Also, it can avoid some frequent client animations.
 
     !!! note "Attention"
 
         You must know what you're filling in and how it works! It handles all item stacks!
 
-91. Connection message that broadcasts to all online players, when they join or quit server.<br>
+92. Connection message, broadcasts to all online players, when they join or quit the server.<br>
   The message needs to use [MiniMessage](https://docs.advntr.dev/minimessage/format) format.<br>
-  If set value to `default`, the vanilla join / quit message will be used.<br>
+  If set message to `default` or leave the default value, the vanilla join / quit message will be used.<br>
   <br>
   Available placeholders:
     * __`%player_name%`__ - player name.
@@ -676,10 +731,10 @@ misc: #(70)!
         This feature is API / plugin friendly.
         It means that the connection message can be overrided by plugins using `PlayerJoinEvent` or `PlayerQuitEvent`.
 
-92. Join message of the player.
-93. Quit message of the player.
-94. Whether to cache the player profile result when they first join.<br>
+93. Join message of the player.
+94. Quit message of the player.
+95. Whether to cache the player profile result when they first join.<br>
   It's useful if Mojang's authentication server is down.
-95. The timeout of the player profile cache.<br>
+96. The timeout of the player profile cache.<br>
   If the given timeout is exceed, it will send another request to Mojang's authentication server to get profile data on player's next join.<br>
   (Unit: minutes)
