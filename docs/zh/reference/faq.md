@@ -16,8 +16,8 @@
 你可以参考 [YouHaveTrouble 的优化指南](https://github.com/YouHaveTrouble/minecraft-optimization), 或者参考由社区为中文用户撰写的 [笨蛋 WIKI 优化指南](https://nitwikit.yizhan.wiki/Java/optimize).
 
 ### ❓ · Leaf 有任何已知的不兼容问题吗?
-* [RealisticVillagers](https://www.spigotmc.org/resources/realisticvillagers.105055/) (不兼容低于 1.21.1 的 Leaf 版本).
-* 如果你的服务器装有 [Citizens](https://github.com/CitizensDev/Citizens2) 插件, 并开启了异步实体跟踪, 请打开 [异步实体跟踪的兼容模式 (`compat-mode`)](./config/leaf-global.md), 或关闭异步实体跟踪!
+* [RealisticVillagers](https://www.spigotmc.org/resources/realisticvillagers.105055) (不兼容低于 1.21.1 的 Leaf 版本).
+* 如果你的服务器装有 [Citizens](https://www.spigotmc.org/resources/citizens.13811) 插件, 并开启了异步实体跟踪, 请打开 [异步实体跟踪的兼容模式 (`compat-mode`)](./config/leaf-global.md), 或关闭异步实体跟踪!
 * 发现有不兼容的插件? [请在这里反馈](https://github.com/Winds-Studio/Leaf/issues)!
 
 ### ❓ · Mojmap 和 Reobf 有什么区别？我该使用哪个?

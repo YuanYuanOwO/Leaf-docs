@@ -16,8 +16,8 @@ Generally 1 ˜ 3 weeks, depends on how important an update on upstream.
 You can refer to [YouHaveTrouble's guide](https://github.com/YouHaveTrouble/minecraft-optimization), or [optimization guide](https://nitwikit.yizhan.wiki/Java/optimize) of NitWikkit made by the community (For Chinese user).
 
 ### ❓ · Any known incompatibilities?
-* [RealisticVillagers](https://www.spigotmc.org/resources/realisticvillagers.105055/) (Incompatible with the Leaf version lower than 1.21.1).
-* In Async Tracker, if the server has [Citizens](https://github.com/CitizensDev/Citizens2) the Tracker's `compat-mode` should be toggled on or disable the async tracker!
+* [RealisticVillagers](https://www.spigotmc.org/resources/realisticvillagers.105055) (Incompatible with the Leaf version lower than 1.21.1).
+* In Async Tracker, if the server has [Citizens](https://www.spigotmc.org/resources/citizens.13811) the Tracker's `compat-mode` should be toggled on or disable the async tracker!
 * Found an incompatible plugin? [Report it here](https://github.com/Winds-Studio/Leaf/issues)!
 
 ### ❓ · What's the difference between mojmap and reobf? Which should I use?

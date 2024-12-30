@@ -16,19 +16,19 @@
 ### -DLeaf.nearestEntitySensorBucketCount
 * default: 10
 
-:	How many buckets will be used if entity count reached the Bucket Sort threshold.
+:	How many buckets will be used if entity count reached the [Bucket Sort](https://en.wikipedia.org/wiki/Bucket_sort) threshold.
 
 	Should be the square root of entity count.
 
 ### -DLeaf.nearestEntitySensorBucketSortThresholdRatio
 * default: 2.0
 
-:	This value controls the ratio of Bucket Sort threshold `(Threshold = bucketCount * ratio)`
+:	This value controls the ratio of Bucket Sort threshold. `(Threshold = bucketCount * ratio)`
 
 ### -DLeaf.enableFMA
 * default: false
 
-: Whether to use [Fused-Multiply-Add operations](https://en.wikipedia.org/wiki/Multiply%E2%80%93accumulate_operation) to accelerate math calculation.
+: Whether to use [Fused-Multiply-Add operations](https://en.wikipedia.org/wiki/Multiply%E2%80%93accumulate_operation) to accelerate some math calculations.
 
 	Requires a CPU which supports the FMA instruction set, otherwise it will be slower.
 
