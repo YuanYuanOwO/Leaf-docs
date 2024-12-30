@@ -17,15 +17,15 @@ You can refer to [YouHaveTrouble's guide](https://github.com/YouHaveTrouble/mine
 
 ### ❓ · Any known incompatibilities?
 * [RealisticVillagers](https://www.spigotmc.org/resources/realisticvillagers.105055/) (Incompatible with the Leaf version lower than 1.21.1).
-* In Async Tracker, if the server has [Citizens](https://github.com/CitizensDev/Citizens2) the Tracker's compat-mode should be toggled on!
+* In Async Tracker, if the server has [Citizens](https://github.com/CitizensDev/Citizens2) the Tracker's `compat-mode` should be toggled on or disable the async tracker!
 * Found an incompatible plugin? [Report it here](https://github.com/Winds-Studio/Leaf/issues)!
 
 ### ❓ · What's the difference between mojmap and reobf? Which should I use?
 It's different mapping. Mojmap uses mojang mapping, and reobf uses spigot mapping. You should use mojmap.
 
 ### ❓ · How can I support the project?
-Anyone can donate at [Afdian](https://afdian.com/a/Dreeam) (Supports PayPal and Stripe).
+Anyone can donate at [Afdian](https://afdian.com/a/Dreeam) (Supports PayPal / Stripe).
 
-!!! note
+!!! note "Note"
 
-    Do we need to add something to this FAQ? [Write it here!](https://discord.com/channels/1145991395388162119/1263102511393542198)
+    Do we need to add something to this *FAQ*? [Write it here](../index.md#-contact)!
