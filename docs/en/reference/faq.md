@@ -4,7 +4,7 @@
 As of now, we cannot give concrete numbers on performance wise, but stay tuned for our upcoming website where we'll dive on the metrics a bit more in detail!
 
 ### ❓ · Does Leaf support Bukkit/Spigot/Paper plugins?
-Yes, Leaf has exactly same plugin compatibility compared to Paper. If the plugin doesn't work, replace Leaf with Purpur and test again. If the issue persists, report it on [Leaf GitHub](https://github.com/Winds-Studio/Leaf/issues).
+Yes, Leaf has exactly the same plugin compatibility compared to Paper. If the plugin doesn't work, replace Leaf with Purpur and test again. If the issue persists, report it on [Leaf GitHub](https://github.com/Winds-Studio/Leaf/issues).
 
 ### ❓ · Does Leaf include `purpur.yml`?
 Yes, Leaf includes all the Purpur patches, but some Purpur settings are moved to configurations of Gale and Leaf.

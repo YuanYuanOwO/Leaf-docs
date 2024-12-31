@@ -286,7 +286,7 @@ misc: #(70)!
 
         if you installed plugins like Citizens, which uses real, and player type entity as "NPC", also read `async-entity-tracker.compat-mode` below for more infomration.
 
-3. Enable compat mode to be compatibile with plugins like Citizens or NPC plugins that use real, and player-type entity.<br>
+3. Enable compat mode to be compatible with plugins like Citizens or NPC plugins that use real, and player-type entity.<br>
   If `true`,  visibility issue that player-type NPCs may disappear sometimes can be fixed.<br>
   <br>
   You should enable `compat-mode` to use async entity tracker feature ==ONLY IF== you installed Citizens or any other kind of real entity NPC plugins.<br>
@@ -318,7 +318,7 @@ misc: #(70)!
   One quick note - this does not actually spawn mobs async (that would be very unsafe). This just offloads some expensive calculations that are required for mob spawning.<br>
   <br>
   __Recommended value: `true`__
-11. Whether or not asynchronous locator should be enabled.<br>
+11. Whether asynchronous locator should be enabled.<br>
   This offloads structure locating to other threads.<br>
   Currently available for:
     * /locate command
@@ -342,12 +342,12 @@ misc: #(70)!
 16. Use the new Virtual Thread introduced in JDK 21 for CraftAsyncScheduler, which could improve performance of plugin that uses async scheduler.<br>
   <br>
   __Recommended value: `true`__
-17. Whether to create the snapshot of TileEntity / BlockState when retirving them.<br>
+17. Whether to create the snapshot of TileEntity / BlockState when retrieving them.<br>
   <br>
-  Some plugins may use getHolder to get the holder for a inventory, which invloved getting the blockstate.<br>
-  For example, if there are tons of hoppers and plugins call this method when listening some events (e.g. hopper related events). It is very expensive to re-create blockstate and parse item stack in massive and frequently calls.<br>
+  Some plugins may use getHolder to get the holder for an inventory, which involved getting the blockstate.<br>
+  For example, if there are tons of hoppers and plugins call this method when listening to some events (e.g. hopper related events). It is very expensive to re-create blockstate and parse item stack in massive and frequent calls.<br>
   See Paper's [API-to-get-a-BlockState-without-a-snapshot.patch#L6](https://github.com/PaperMC/Paper-archive/blob/b48403bd69f534ffd43fe2afb4e8e1f1ffa95fe1/patches/server/0160-API-to-get-a-BlockState-without-a-snapshot.patch#L6) for more information.
-    * If `true`, it will create snapshot (copy) of blockstate everytime when plugins call related methods.
+    * If `true`, it will create snapshot (copy) of blockstate everytime when the plugin call related methods.
     * If `false`, it will get real blockstate itself when plugins call related methods, unless the plugin defines to use snapshot.
   <br><br>
   __Recommended value: `false` (Only if you encounter specific lag described above)__
@@ -414,7 +414,7 @@ misc: #(70)!
 25. Whether to use optimized powered rails. Uses fully rewritten version of powered rail iteration logic, can achieve 4x faster performance.<br>
   <br>
   __Recommended value: `true`__
-26. Wether to optimize minecarts ticking. By skipping tick collisions to reduce expensive `getEntities` calls and bukkit event calls.<br>
+26. Whether to optimize minecart ticking. By skipping tick collisions to reduce expensive `getEntities` calls and bukkit event calls.<br>
   Enables this feature to handle a large amount of stacked minecarts better which is useful for anarchy servers.<br>
   <br>
   __Recommended value: `true`__
@@ -444,7 +444,7 @@ misc: #(70)!
         Requires a JVM that supports `RandomGenerator` and the LXM generators. Some JREs don't support this and will cause a crash.
 
 30. Which random generator will be used?<br>
-  Avaiable random generators can be found in [Random Number Generators in Java](https://www.baeldung.com/java-17-random-number-generators#1-api-design-1).<br>
+  Available random generators can be found in [Random Number Generators in Java](https://www.baeldung.com/java-17-random-number-generators#1-api-design-1).<br>
   <br>
   __Recommended value: `Xoroshiro128PlusPlus`__
 31. Whether to use the faster random generator for world generation.<br>
@@ -459,9 +459,9 @@ misc: #(70)!
     <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
     </table>
 
-32. Whether server prints a warning message on startup, if you are using faster random generator for slime chunk generation.
+32. Whether server prints a warning message on startup if you are using faster random generator for slime chunk generation.
 33. Whether to use legacy random source for slime chunk generation to follow the vanilla behavior.<br>
-  If your server has existing slime farms or related facilities need slime chunk, enable this, otherwise the location of slime chunk will offest.<br>
+  If your server has existing slime farms or related facilities need slime chunk, enable this, otherwise the location of slime chunk will offset.<br>
   <br>
   __Recommended value:__ (Depends on your server type, see `Values for goals` below for more.)
 
@@ -478,7 +478,7 @@ misc: #(70)!
   __Recommended values:__
 
     | Entity             | Value |
-    | ------------------ | ----- |
+    |--------------------|-------|
     | SNOWBALL           | 200   |
     | LLAMA_SPIT         | 150   |
     | DRAGON_FIREBALL    | 150   |
@@ -489,7 +489,7 @@ misc: #(70)!
     | BREEZE_WIND_CHARGE | 200   |
     | WITHER_SKULL       | 200   |
 
-    > 🛈 = In here, the time that the entity survived, means the total living time of entity, and will not be reset by chunk unloading or loading.
+    > 🛈 = In here, the time that the entity survived means the total living time of entity, and will not be reset by chunk unloading or loading.
 
 35. Whether to cache the result of *Minecraft EntityType* to *Bukkit EntityType* conversion. It can get a tiny improvement.<br>
   <br>
@@ -512,14 +512,14 @@ misc: #(70)!
   __Recommended value: `8`__
 39. This value defines how often in ticks, the furthest entity will get their pathfinders and behaviors ticked (Note: 20 ticks = 1s).
 40. This value defines how much distance modifies an entity's tick frequency. `freq = (distanceToPlayer^2) / (2^value)`.
-    * If you want further away entities to tick less often, use `7`.
-    * If you want further away entities to tick more often, try `9`.
+    * If you want entities further away to tick less often, use `7`.
+    * If you want entities further away to tick more often, try `9`.
   <br><br>
   __Recommended value: `7`__
-41. A list of entities that will not affected by DAB.<br>
+41. A list of entities that will not be affected by DAB.<br>
   <br>
-  Some SMP like servers have mob farms which need mobs to have a target. This kind of "pathfinding" mob farm may broken by DAB. This situation can be solved by adding specifc mob of mob farm into this DAB blacklist.<br>
-  If some specific mob farms are broken in your server, mobs freeze and don't move, and you are not sure whether it is caused by DAB. You can try add them into this blacklist to see if it fix the issue.<br>
+  Some SMP like servers have mob farms which need mobs to have a target. This kind of "pathfinding" mob farm may break by DAB. This situation can be solved by adding specific mob of mob farm into this DAB blacklist.<br>
+  If some specific mob farms are broken in your server, mobs freeze and don't move, and you are not sure whether it is caused by DAB. You can try to add them into this blacklist to see if it fixes the issue.<br>
   <br>
   Format: `[VILLAGER]` or `[VILLAGER, ZOMBIFIED_PIGLIN]` (You can find *EntityType* in [Paper's Javadoc](https://jd.papermc.io/paper/1.21.1/org/bukkit/entity/EntityType.html)).
 
@@ -553,7 +553,7 @@ misc: #(70)!
         If you are not sure, use [YAML Checker](https://yamlchecker.org/), or any online YAML syntax validator to check your config.
 
 42. Disable save primed tnt on chunk unloads.<br>
-  It can prevent machines from being exploded by TNT, when the player accidently disconnected or chunk unloads when the player are far away. Useful for SMP like servers which have machines involved TNT.<br>
+  It can prevent machines from being exploded by TNT when the player accidentally disconnected or chunk unloads when the player is far away. Useful for SMP like servers which have machines involved TNT.<br>
   <br>
   __Recommended value: `true`__
 43. Disable save falling block on chunk unloads.<br>
@@ -563,15 +563,15 @@ misc: #(70)!
 
 
 44. This section contains bugfixes for specific issues.
-45. Whether don't let player to join a server if the server is full.<br>
+45. Whether to disallow player join a server if the server is full.<br>
   If `true`, you should give player `purpur.joinfullserver` permission instead of using `PlayerLoginEvent#allow` to enable player to join a full server.
 
 
 
 46. This section contains the features that modify the game mechanics.
 47. Whether to use Spigot's dropped item merging mechanism.
-48. Whether to make a "smooth teleport" when players changing dimension.<br>
-  This requires original world and target world have same logical height to work.
+48. Whether to make a "smooth teleport" when players change dimension.<br>
+  This requires original world and target world that have the same logical height to work.
 
     !!! warning "Warning"
 
@@ -584,7 +584,7 @@ misc: #(70)!
         We __do not__ recommended to use this feature. It is working in progress and has known issues.<br>
         This feature also maybe remove in the future. __Do not__ touch this unless you know what you are doing!
 
-50. Maximum amount of dropped items to stack.
+50. Maximum number of dropped items to stack.
 51. Maximum count of items to drop when container is destroyed.
 52. This section contains options to adjust knockback related behaviors.
 53. Whether the snowball can knockback players.
@@ -594,12 +594,12 @@ misc: #(70)!
   If `true`, players can move or use vehicles to move with abnormal speed.<br>
   <br>
   __Recommended value: `true`__
-57. The max distance that the player is allowed to interact with a item.<br>
+57. The max distance that the player is allowed to interact with an item.<br>
   <br>
   Some [Anarchy Server](https://minecraftservers.org/type/anarchy) or similar type of servers may allow players to use hacks / cheats. If you want players able to use crystal related modules that are packet-based (e.g. CEV Breaker, BedAura), you may need to adjust this value.<br>
-  It's better to set value to `10.0000001`, to allow to use related hack modules.
+  It's better to set value to `10.0000001`, to allow using related hack modules.
   <br>
-  If a value `-1` is given, the check of max allowed distance to use a item will be disabled.<br>
+  If a value `-1` is given, the check of max allowed distance to use an item will be disabled.<br>
   <br>
   __Recommended value: `10.0000001` (For anarchy server)__
 
@@ -610,9 +610,9 @@ misc: #(70)!
 
 
 58. This section contains features for server networking related.
-59. This section contains features that providing extra protocol support for some QoL / Utility mods, which can enhance game experience for your server.<br>
+59. This section contains features that provide extra protocol support for some QoL / Utility mods, which can enhance the game experience for your server.<br>
   <br>
-  The extra protocol support is only functional if there is corresponding client-side mod installed. It means if a specific protocol support is enabled, and a player installed that mod on client, they can get the additional features described in each config below. But for players who have no corresponding mod installed, then the everything is same as before.
+  The extra protocol support is only functional if there is corresponding client-side mod installed. It means if a specific protocol support is enabled, and a player installed that mod on client, they can get the additional features described in each config below. But for players who have no corresponding mod installed, then everything is the same as before.
 
     !!! note "Attention"
 
@@ -628,8 +628,8 @@ misc: #(70)!
 63. Whether to enable [ChatImage](https://modrinth.com/mod/chatimage) protocol support.<br>
   If `true`, player who has ChatImage mod installed, can see the image sent by others using ChatImage's CICode format.
 64. Whether to enable [XaeroMap](https://modrinth.com/mod/xaeros-minimap) protocol support.<br>
-  If `true`, player who has Xaero's MiniMap mod or Xaero's WorldMap mod installed, can store players' coordiate points and death points based on server's `protocol-support.xaero-map-server-id` below, to prevent points from been deleted / refreshed if server name or IP address changed.
-65. Numeric id for XaeroMap to indentify the server. This will generate randomly on first start.
+  If `true`, player who has Xaero's MiniMap mod or Xaero's WorldMap mod installed, can store players' coordinate points and death points based on server's `protocol-support.xaero-map-server-id` below, to prevent points from been deleted / refreshed if server name or IP address changed.
+65. Numeric id for XaeroMap to identify the server. This will generate randomly on first start.
 66. Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica) protocol support.<br>
   If `true`, player who has Syncmatica mod installed, can upload their [Litematica](https://modrinth.com/mod/litematica) schematics files or download shared schematics files from the server. Every player with Syncmatica mod installed can access shared schematics uploaded by others.
 67. Whether to enable maximum file size limit for each shared schematics file of Litematica mod.
@@ -644,7 +644,7 @@ misc: #(70)!
 70. This section contains some miscellaneous features.
 71. Unknown command message, will send to player if they execute an unknown command.<br>
   The message needs to use [MiniMessage](https://docs.advntr.dev/minimessage/format) format.<br>
-  If set message to `default`or leave the default value, the vanilla unkown command message will be used.<br>
+  If set message to `default`or leave the default value, the vanilla unknown command message will be used.<br>
   <br>
   Available placeholders:
     * __`<detail>`__ - the detailed information of the unknown command.
@@ -654,17 +654,17 @@ misc: #(70)!
         This feature is API / plugin friendly.
         It means that this message can be overrided by plugins using `UnknownCommandEvent#message` or `UnknownCommandEvent#setMessage`.
 
-72. Server brand name that shows in F3 menu and server motd.
+72. Server brand name that shows in F3 menu and server MOTD.
 73. Server GUI window name, if you launched server without adding `--nogui` option in the startup flag.
-74. [Sentry](https://sentry.io/welcome/) is a apllication monitor service for improved error logging, tracing.<br>
+74. [Sentry](https://sentry.io/welcome/) is an application monitor service for improved error logging, tracing.<br>
   <br>
-  After enabled Sentry integration for your server, you don't need to aduit long logs to find errors maunally. Sentry can collect errors happened in your server, enable you to track erros on Sentry's web panel and help you to locate and fix them eaiser and faster.<br>
+  After enabled Sentry integration for your server, you don't need to audit long logs to find errors manually. Sentry can collect errors happened in your server, enable you to track errors on Sentry's web panel and help you to locate and fix them easier and faster.<br>
   <br>
-  See __[How to Setup Sentry](../../how-to/setup-sentry.md)__ to know how to setup and get DSN key for `sentry.dsn` below.<br>
+  See __[How to Setup Sentry](../../how-to/setup-sentry.md)__ to know how to set up and get the DSN key for `sentry.dsn` below.<br>
 75. The DSN key of your Sentry.<br>
   If an empty value `''` is given, the Sentry will be disabled.
 76. Logs with a level higher than or equal to this level will be recorded.
-77. Only log with a Throwable will be recorded after enabling this. 
+77. Only to log with a Throwable will be recorded after enabling this. 
 78. Once you enable secure seed, all ores and structures are generated with 1024-bit seed instead of using 64-bit seed in vanilla, made seed cracker become impossible.<br>
   <br>
   __Recommended value: `true` (set `enabled` below to true)__
@@ -675,7 +675,7 @@ misc: #(70)!
     <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
     </table>
 
-79. Whether to remove vanilla's username check to allow __all characters__ as username, including Chinese, and etc. (It's only useful for offline servers).<br>
+79. Whether to remove vanilla's username check to allow __all characters__ as username, including Chinese, etc. (It's only useful for offline servers).<br>
   If `true`, players are allowed to use non-English name to join the server.
 80. Whether player can enter backend server via proxy, without the backend server to enable bungeecord mode in `spigot.yml`.
 81. Whether the server prints warning when players tried to edit the sign that they are not allowed to edit.<br>
@@ -694,7 +694,7 @@ misc: #(70)!
 84. The compression level for Linear region format file.
 85. Whether to throw error to crash the server when unknown region format extension is detected.
 86. The flush interval in seconds for Linear region format file data.
-87. Lag compensation, which could ensure the basic game experience for players the when server is lagging or low TPS situation.<br>
+87. Lag compensation, which could ensure the basic game experience for players when server is lagging or low TPS situation.<br>
   <br>
   __Recommended value: `true` (set `enabled` below to true)__
 88. Whether to enable lag compensation for water flowing.<br>
@@ -703,14 +703,14 @@ misc: #(70)!
 89. Whether to enable lag compensation for lava flowing.<br>
   <br>
   __Recommended value: `true`__
-90. Whether to include 5 seconds TPS in the result of API `Bukkit#getTPS` and `Server#getTPS`.<br>
-    * If `true`, you can use `getTPS` method to get TPS long array with 4 elements (5s, 1m, 5m, 15m).
-    * If `false`, you can use `getTPS` method to get TPS long array with 3 elements (1m, 5m, 15m).
+90. Whether to include 5-second TPS in the result of API `Bukkit#getTPS` and `Server#getTPS`.<br>
+    * If `true`, you can use `getTPS` method to get a TPS long array with 4 elements (`5s, 1m, 5m, 15m`).
+    * If `false`, you can use `getTPS` method to get a TPS long array with 3 elements (`1m, 5m, 15m`).
 
     ??? note "Want to Go Deeper?"
 
-        If you are using Gale API or Leaf API for your plugins. Or runinng on Leaf and use reflection to get TPS, you can use `Bukkit#getTPSIncluding5SecondAverage`, to get the TPS array including 5 seconds TPS (5s, 1m, 5m, 15m).<br>
-        Also, you can use `Bukkit#get5SecondTPSAverage` to get the average value of 5 seconds TPS in `double`.
+        If you are using Gale API or Leaf API for your plugins. Or runinng on Leaf and use reflection to get TPS, you can use `Bukkit#getTPSIncluding5SecondAverage`, to get the TPS array including 5-seconds TPS (`5s, 1m, 5m, 15m`).<br>
+        Also, you can use `Bukkit#get5SecondTPSAverage` to get the average value of 5-seconds TPS in `double`.
 
 91. Controls whether specified component information is sent to clients. This may break resource packs and client mods that rely on this information. It needs a component type list, incorrect things will not work. For example, you can fill it with `["custom_data"]` to hide components of *CUSTOM_DATA*. Also, it can avoid some frequent client animations.
 
@@ -731,10 +731,10 @@ misc: #(70)!
         This feature is API / plugin friendly.
         It means that the connection message can be overrided by plugins using `PlayerJoinEvent` or `PlayerQuitEvent`.
 
-93. Join message of the player.
-94. Quit message of the player.
+93. The join message of the player.
+94. The quit message of the player.
 95. Whether to cache the player profile result when they first join.<br>
   It's useful if Mojang's authentication server is down.
 96. The timeout of the player profile cache.<br>
-  If the given timeout is exceed, it will send another request to Mojang's authentication server to get profile data on player's next join.<br>
+  If the given timeout is exceeded, it will send another request to Mojang's authentication server to get profile data on player's next join.<br>
   (Unit: minutes)

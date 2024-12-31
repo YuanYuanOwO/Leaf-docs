@@ -190,7 +190,7 @@ small-optimizations:
     </table>
 
 15. When a player attempts to set a block that is *very* far away.<br>
-  (this usually indicates a hacker is trying to get information about other players' locations, or is using hack client)
+  (this usually indicates a hacker is trying to get information about other players' locations, or is using the hack client)
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td></tr>
