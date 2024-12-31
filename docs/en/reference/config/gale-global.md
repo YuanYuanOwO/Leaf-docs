@@ -79,7 +79,7 @@ small-optimizations:
     </table>
 
 2. Whether to log specific text and events to the console and the log files.
-3. When a player sends a message packet that is empty<br>
+3. When a player sends a message packet that is empty.<br>
   (this is harmless, it usually happens when the player's client is outdated)
 
     <table>
@@ -88,7 +88,7 @@ small-optimizations:
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td></tr>
     </table>
 
-4. When a player's message packet has expired<br>
+4. When a player's message packet has expired.<br>
   (this is harmless, it usually happens when the player's client's chat is a bit out-of-sync)
 
     <table>
@@ -97,7 +97,7 @@ small-optimizations:
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td></tr>
     </table>
 
-5. Whether to add a [NOT SECURE] marker in front of unsigned chat packets
+5. Whether to add a [NOT SECURE] marker in front of unsigned chat packets.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td></tr>
@@ -105,7 +105,8 @@ small-optimizations:
     <tr><td>-</td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-6. When a player's data is loaded, and they have advancements that don't exist anymore
+6. When a player's data is loaded, and they have advancements that don't exist anymore.
+  (this is harmless, it usually happens when the server upgraded to the newer Minecraft version)
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td></tr>
@@ -121,7 +122,7 @@ small-optimizations:
   <br>
   The error logs are usually pointless: there is nothing you can do about it.<br>
   <br>
-  The valid values for this setting are `"none"`, `"info"`, `"warn"` and `"error"`.
+  The valid values for this setting are: `"none"`, `"info"`, `"warn"` and `"error"`.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
@@ -131,7 +132,7 @@ small-optimizations:
 
     > 🛈 = The default value is `"info"` to prevent any errors going unnoticed by default, but the recommended value is `"none"` because these errors are usually meaningless and unsolvable anyway.
 
-8. When a player's data is loaded, and they have statistics that don't exist anymore
+8. When a player's data is loaded, and they have statistics that don't exist anymore.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td></tr>
@@ -139,7 +140,7 @@ small-optimizations:
     <tr><td><code>false</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-9. When a very old Bukkit plugin is loaded
+9. When a very old Bukkit plugin is loaded.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td></tr>
@@ -147,7 +148,7 @@ small-optimizations:
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td></tr>
     </table>
 
-10. When a player did not send a valid profile during login<br>
+10. When a player did not send a valid profile during login.<br>
   (this usually indicates a hacker is trying to flood your server's joining capacity)
 
     <table>
@@ -156,7 +157,7 @@ small-optimizations:
     <tr><td>-</td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-11. Whether to include a player's coordinates in the join message logged to the console
+11. Whether to include a player's coordinates in the join message logged to the console.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td></tr>
@@ -164,7 +165,7 @@ small-optimizations:
     <tr><td>-</td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-12. When the plugin library loader starts downloading libraries
+12. When the plugin library loader starts downloading libraries.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td></tr>
@@ -172,7 +173,7 @@ small-optimizations:
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-13. When the plugin library loader finished loading a library
+13. When the plugin library loader finished loading a library.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td></tr>
@@ -180,7 +181,7 @@ small-optimizations:
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-14. When the plugin library loader starts loading libraries for a plugin
+14. When the plugin library loader starts loading libraries for a plugin.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td></tr>
@@ -188,8 +189,8 @@ small-optimizations:
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-15. When a player attempts to set a block that is _very_ far away<br>
-  (this usually indicates a hacker is trying to get information about other players' locations)
+15. When a player attempts to set a block that is *very* far away.<br>
+  (this usually indicates a hacker is trying to get information about other players' locations, or is using hack client)
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td></tr>
@@ -197,7 +198,7 @@ small-optimizations:
     <tr><td><code>false</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-16. When a player's data is loaded, and they have recipe book recipes that don't exist anymore
+16. When a player's data is loaded, and they have recipe book recipes that don't exist anymore.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td></tr>
@@ -281,7 +282,7 @@ small-optimizations:
     </table>
 
 22. Whether to verify the order of chat messages.
-    * If this option is set to `true`, and a player sends an out-of-order chat packet, they will be kicked.
+    * If this option is set to `true`, and a player sends an out-of-order chat packet for some reason, they will be kicked.
     * If this option is set to `false`, no verification will occur, and players will not be kicked.
 
     <table>
@@ -328,7 +329,7 @@ small-optimizations:
     <tr><td><i>Vanilla behavior</i></td><td><code>1</code></td></tr>
     </table>
 
-25. Whether to use a [xor-shift random number generator](https://www.codeproject.com/Articles/9187/A-fast-equivalent-for-System-Random) instead of the Java default.
+25. Whether to use a [xor-shift](https://www.codeproject.com/Articles/9187/A-fast-equivalent-for-System-Random) random number generator instead of the Java's default.
 26. Whether to use a xor-shift random generator for refilling lootables for the Paper `auto-replenish` feature.<br>
   This does not affect normal Minecraft lootable chests.
 
