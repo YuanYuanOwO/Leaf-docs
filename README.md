@@ -1,6 +1,8 @@
 # Leaf Docs
+[![CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=flat-square)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)](LICENSE)
 
-The repository of official Leaf docs site, powered by [Material for MkDocs](https://github.com/squidfunk/mkdocs-material) documentation framework
+The repository of official Leaf docs site, powered by [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) documentation framework.
 
 Visit the docs site in https://docs.leafmc.one/
 
@@ -22,7 +24,7 @@ Visit the docs site in https://docs.leafmc.one/
     ...
 
 ## ⚖️ License
-Leaf docs is licensed under GPL-3.0.
+Leaf docs's documentations (e.g. `.md` files under `/docs` folder) are licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/). The supporting code is licensed under [MIT](LICENSE).
 
 ## 📜 Credits
 
