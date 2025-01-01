@@ -122,7 +122,7 @@ small-optimizations:
   <br>
   这些错误通常没有意义: 无法对此采取任何操作.<br>
   <br>
-  此设置的有效值为: `"none"`, `"info"`, `"warn"` 和 `"error"`.
+  此配置项的有效值为: `"none"`, `"info"`, `"warn"` 和 `"error"`.
 
     <table>
     <tr><td></td><td><b>默认值</b></td><td></td><td></td></tr>
@@ -239,7 +239,7 @@ small-optimizations:
     </table>
 
 19. 是否将上一 tick 的超时部分添加到 `/tps` 命令中.<br>
-  仅当上方的 `enabled` 为 `true` 时, 此选项才会生效.
+  仅当上方的 `enabled` 为 `true` 时, 此配置项才会生效.
 
     <table>
     <tr><td></td><td><b>默认值</b></td><td></td><td></td></tr>
@@ -269,7 +269,7 @@ small-optimizations:
 21. 进服时, 允许正版账户成功进入的最大时间.<br>
   (以 tick 为单位)
     * 如果超出此时间, 玩家的连接将被关闭.
-    * 如果设置值为 &leq; `0`, 将默认与原版一致, 目前为 `600` ticks (30 秒).
+    * 如果设为 &leq; `0`, 将默认与原版一致, 目前为 `600` ticks (30 秒).
 
     <table>
     <tr><td></td><td><b>默认值</b></td><td></td><td></td></tr>
@@ -283,8 +283,8 @@ small-optimizations:
     </table>
 
 22. 是否验证聊天消息的顺序.
-    * 如果此选项设置为 `true`, 并且玩家由于某些原因发送了乱序的聊天数据包, 他们将被踢出.
-    * 如果此选项设置为 `false`, 将不会进行验证, 玩家也不会被踢出.
+    * 如果设为 `true`, 并且玩家由于某些原因发送了乱序的聊天数据包, 他们将被踢出.
+    * 如果设为 `false`, 将不会进行验证, 玩家也不会被踢出.
 
     <table>
     <tr><td></td><td><b>默认值</b></td><td></td><td></td></tr>
@@ -297,14 +297,14 @@ small-optimizations:
     <tr><td><i>原版行为</i></td><td><code>true</code></td></tr>
     </table>
 
-23. 与时间相关的统计信息增加的时间间隔 (总游戏时间, 自上次死亡以来的时间等等的时间增长间隔).<br>
+23. 与时间相关的统计信息增加的频率 (总游戏时间, 自上次死亡以来的时间等等的时间增长频率).<br>
   (以 tick 为单位)<br>
   修改此值不会改变统计数据自原版以来的增长速度.<br>
   <br>
   例如:
-    * 如果设置为 `20`, 总游戏时间将每隔 1 秒增加 20 ticks.
-    * 如果设置为 `100`, 总游戏时间将每隔 5 秒增加 100 ticks.
-    * 如果设置值为 &leq; `0`, 将默认与 Paper 一致.
+    * 如果设为 `20`, 总游戏时间将每隔 1 秒增加 20 ticks.
+    * 如果设为 `100`, 总游戏时间将每隔 5 秒增加 100 ticks.
+    * 如果设为 &leq; `0`, 将默认与 Paper 一致.
 
     <table>
     <tr><td></td><td><b>默认值</b></td><td></td><td></td></tr>
@@ -317,9 +317,9 @@ small-optimizations:
     <tr><td><i>原版行为</i></td><td>较低的值更贴合原版<br>(设为 <code>20</code> 就够了, 设为 <code>1</code> 没必要)</td></tr>
     </table>
 
-24. 更新一个实体是否在另一个实体视线内的时间间隔.<br>
+24. 更新一个实体是否在另一个实体视线内的频率.<br>
   (以 tick 为单位)<br>
-  如果设置值为 &leq; `0`, 将默认与 Paper 一致.
+  如果设为 &leq; `0`, 将默认与 Paper 一致.
 
     <table>
     <tr><td></td><td><b>默认值</b></td><td></td><td></td></tr>

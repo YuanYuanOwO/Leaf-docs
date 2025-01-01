@@ -69,7 +69,7 @@ small-optimizations:
   use-optimized-sheep-offspring-color: true #(36)!
 ```
 
-1. Whether the despawn counter of arrows will restart when the arrow starts falling (e.g. when the block it is stuck in gets broken).
+1. Whether the [despawn counter](https://minecraft.wiki/w/Mob_spawning#Despawning) of arrows will restart when the arrow starts falling (e.g. when the block it is stuck in gets broken).
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
@@ -205,7 +205,7 @@ small-optimizations:
     <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
     </table>
 
-12. Whether to attempt to respawn the ender dragon after an end crystal has been placed in one of the right positions on the fountain.
+12. Whether able to attempt to respawn the ender dragon after an end crystal has been placed in one of the right positions on the fountain.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
@@ -225,8 +225,7 @@ small-optimizations:
   To check whether an entity is climbing, the block it is in must be checked.<br>
   This can lead to the entire server having to wait for a chunk to load when an entity moves just over the edge.<br>
   <br>
-  If this value is set to `false`, this is prevented: the server will not check the "climbing" priority for entities that are in unloaded chunks.
-  This prevents unnecessary server hangs.
+  If this value is set to `false`, this is prevented: the server will not check the "climbing" priority for entities that are in unloaded chunks,. This prevents unnecessary server hangs.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
@@ -283,9 +282,9 @@ small-optimizations:
     <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
     </table>
 
-19. Whether to set the planar velocity of projectiles that cross the `max` threshold (described above) to zero, so that they stop attempting to cross chunk boundaries.<br>
+19. Whether to set the planar velocity of projectiles that cross the `max` threshold (described above) to `0`, so that they stop attempting to cross chunk boundaries.<br>
   <br>
-  This has no effect if `remove-from-world-after-reach-limit` (described above) is true.
+  This has no effect if `remove-from-world-after-reach-limit` (described above) is `true`.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
@@ -515,7 +514,8 @@ small-optimizations:
 36. Whether to use a (much) faster way to choose a color when a new baby sheep is born.<br>
   The color chosen is exactly the same as vanilla.<br>
   <br>
-  However, in vanilla, it is possible to change the new color by changing the crafting recipe for combining dyes using a data pack. If this value is set to `true`, any such crafting recipe changes will be ignored.
+  However, in vanilla, it is possible to change the new color by changing the crafting recipe for combining dyes using a data pack.<br>
+  If this value is set to `true`, any such crafting recipe changes will be ignored.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>

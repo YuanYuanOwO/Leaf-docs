@@ -4,12 +4,12 @@
 - [ ] Dev section
 - [ ] Add Contribution.md / contribution writing standard (some raw concepts, like leave one empty line for every docs file?)
 
-removed in latest leaf:
-gale-global
-```
-<table>
-    <tr><td></td><td></td><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Setting</b></td><td><b>Description</b></td><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
-    <tr><td><code>out-of-order-message-warning</code></td><td>When a player's message packets are out of order<br>(this is harmless, it usually happens when the player's client's chat is a bit out-of-sync)</td><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td></tr>
-    </table>
-```
+## Writing standard for Chinese:
+
+在所有语言下, 都需使用英文标点(半角). 用逗号或者句号分隔一句话的时候需要加上空格. 使用括号时需要在两边加上空格, 除非括号后面是标点
+
+If `true` 或者 If < `0` 这类格式的翻译, 因翻译成 "如果设为 `true`" 或 "如果设为 < `0`"
+
+中文中的英语单词应该用空格隔开，如 "使用 Java 默认的逻辑"
+
+指代单个config / setting / option 的, 应翻译成 配置项
