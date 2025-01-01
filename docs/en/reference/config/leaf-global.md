@@ -284,7 +284,7 @@ misc: #(70)!
 
     !!! note "Attention"
 
-        if you installed plugins like Citizens, which uses real, and player type entity as "NPC", also read `async-entity-tracker.compat-mode` below for more infomration.
+        If you installed plugins like Citizens, which uses real, and player type entity as "NPC", also read `async-entity-tracker.compat-mode` below for more infomration.
 
 3. Enable compat mode to be compatible with plugins like Citizens or NPC plugins that use real, and player-type entity.<br>
   If `true`,  visibility issue that player-type NPCs may disappear sometimes can be fixed.<br>
@@ -315,13 +315,13 @@ misc: #(70)!
   (Unit: seconds)
 10. Whether asynchronous mob spawning should be enabled.<br>
   On servers with many entities, this can improve performance by up to 15%. You must have Paper's `per-player-mob-spawns` config set to `true` for this to work.<br>
-  One quick note - this does not actually spawn mobs async (that would be very unsafe). This just offloads some expensive calculations that are required for mob spawning.<br>
+  One quick note: this does not actually spawn mobs async (that would be very unsafe). This just offloads some expensive calculations that are required for mob spawning.<br>
   <br>
   __Recommended value: `true`__
 11. Whether asynchronous locator should be enabled.<br>
   This offloads structure locating to other threads.<br>
   Currently available for:
-    * /locate command
+    * `/locate` command
     * Dolphin treasure finding
     * Eye of ender stronghold finding
   <br><br>
@@ -335,23 +335,23 @@ misc: #(70)!
 
 
 
-14. This section contains performance tuning intended to reduce unnecessary calculations and use more efficient methods to optimize the server.
-15. Use the new Virtual Thread introduced in JDK 21 for Async Chat Executor.<br>
+14. This section contains performance tuning intended to reduce unnecessary calculations or use more efficient methods to optimize the server.
+15. Whether to use the [Virtual Thread](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html) introduced in JDK 21 for Async Chat Executor.<br>
   <br>
   __Recommended value: `true`__
-16. Use the new Virtual Thread introduced in JDK 21 for CraftAsyncScheduler, which could improve performance of plugin that uses async scheduler.<br>
+16. Whether to use the [Virtual Thread](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html) introduced in JDK 21 for CraftAsyncScheduler, which could improve performance of plugin that uses async scheduler.<br>
   <br>
   __Recommended value: `true`__
 17. Whether to create the snapshot of TileEntity / BlockState when retrieving them.<br>
   <br>
-  Some plugins may use getHolder to get the holder for an inventory, which involved getting the blockstate.<br>
-  For example, if there are tons of hoppers and plugins call this method when listening to some events (e.g. hopper related events). It is very expensive to re-create blockstate and parse item stack in massive and frequent calls.<br>
+  Some plugins may use `getHolder` to get the holder for an inventory, which involved getting the BlockState.<br>
+  For example, if there are tons of hoppers and plugins call this method when listening to some events (e.g. hopper related events). It is very expensive to re-create BlockState and parse item stack in massive and frequent calls.<br>
   See Paper's [API-to-get-a-BlockState-without-a-snapshot.patch#L6](https://github.com/PaperMC/Paper-archive/blob/b48403bd69f534ffd43fe2afb4e8e1f1ffa95fe1/patches/server/0160-API-to-get-a-BlockState-without-a-snapshot.patch#L6) for more information.
-    * If `true`, it will create snapshot (copy) of blockstate everytime when the plugin call related methods.
-    * If `false`, it will get real blockstate itself when plugins call related methods, unless the plugin defines to use snapshot.
+    * If `true`, it will create snapshot (copy) of BlockState everytime when the plugin call related methods.
+    * If `false`, it will get real BlockState itself when plugins call related methods, unless the plugin defines to use snapshot.
   <br><br>
   __Recommended value: `false` (Only if you encounter specific lag described above)__
-18. Throttles the AI goal selector in entity inactive ticks. This can improve performance by a few percent, but has minor gameplay implications.<br>
+18. Throttles the *AI goal selector* calculation in entity's *inactive tick* to every second. This can improve performance by a few percent, but has minor gameplay implications.<br>
   <br>
   __Recommended value: `true`__
 
@@ -374,11 +374,11 @@ misc: #(70)!
 20. How many ticks to wait before the next move item attempt when the hopper is throttled.<br>
   If a value &leq; `0` is given, this throttling feature is disabled.<br>
   <br>
-  __Recommended value: `5`__
+  __Recommended value: `8`__
 
     <table>
     <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>5</code></td></tr>
+    <tr><td><i>Optimization</i></td><td><code>8</code></td></tr>
     <tr><td><i>Vanilla behavior</i></td><td><code>0</code></td></tr>
     </table>
 
@@ -397,7 +397,7 @@ misc: #(70)!
 
         This may cause vanilla map item data to stop be updated.
 
-22. Whether to skip AI ticks if the mob is inactive and not being aware (e.g. being attacked).<br>
+22. Whether to skip AI ticks if the mob is *inactive* and *unaware*. Unaware mobs are nerd and will not make actions themselves or when interacted with them.<br>
   <br>
   __Recommended value: `true`__
 
@@ -408,14 +408,14 @@ misc: #(70)!
     </table>
 
 23. This section is for the useless packet reducing features.
-24. Enable this feature to reduce the useless entity movement packets sent to players.<br>
+24. Whether to reduce the useless entity movement packets sent to players.<br>
   <br>
   __Recommended value: `true`__
 25. Whether to use optimized powered rails. Uses fully rewritten version of powered rail iteration logic, can achieve 4x faster performance.<br>
   <br>
   __Recommended value: `true`__
-26. Whether to optimize minecart ticking. By skipping tick collisions to reduce expensive `getEntities` calls and bukkit event calls.<br>
-  Enables this feature to handle a large amount of stacked minecarts better which is useful for anarchy servers.<br>
+26. Whether to optimize minecart ticking. By skipping tick collisions to reduce expensive `getEntities()` calls and bukkit event calls.<br>
+  This can handle a large amount of stacked minecarts better which is useful for [Anarchy servers](https://minecraftservers.org/type/anarchy).<br>
   <br>
   __Recommended value: `true`__
 
@@ -448,7 +448,7 @@ misc: #(70)!
   <br>
   __Recommended value: `Xoroshiro128PlusPlus`__
 31. Whether to use the faster random generator for world generation.<br>
-    * If `true`, `Random` calls involved in world generation will use faster random generator you chose in `random-generator`. The world generation will be slightly different from vanilla.
+    * If `true`, `Random` calls involved in world generation will use faster random generator you chose in `random-generator` above. The world generation will be slightly different from vanilla.
     * If `false`, `Random` calls involved in world generation will use legacy random generator of vanilla.
   <br><br>
   __Recommended value: `true`__
@@ -596,7 +596,7 @@ misc: #(70)!
   __Recommended value: `true`__
 57. The max distance that the player is allowed to interact with an item.<br>
   <br>
-  Some [Anarchy Server](https://minecraftservers.org/type/anarchy) or similar type of servers may allow players to use hacks / cheats. If you want players able to use crystal related modules that are packet-based (e.g. CEV Breaker, BedAura), you may need to adjust this value.<br>
+  Some [Anarchy servers](https://minecraftservers.org/type/anarchy) or similar type of servers may allow players to use hacks / cheats. If you want players able to use crystal related modules that are packet-based (e.g. CEV Breaker, BedAura), you may need to adjust this value.<br>
   It's better to set value to `10.0000001`, to allow using related hack modules.
   <br>
   If a value `-1` is given, the check of max allowed distance to use an item will be disabled.<br>

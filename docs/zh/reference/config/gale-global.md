@@ -114,9 +114,9 @@ small-optimizations:
     <tr><td><code>false</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-7. 当服务器在世界数据中遇到 `无效的池元素` 时的错误日志级别.<br>
+7. 当服务器在世界数据中遇到 *无效的池元素* 时的错误日志级别.<br>
   <br>
-  `无效的池元素` 是生成的结构 (如矿井) 中由于版本更新不完全或损坏的部分.<br>
+  *无效的池元素* 是生成的结构 (如矿井) 中由于版本更新不完全或损坏的部分.<br>
   <br>
   这些错误通常会出现在更新过许多 Minecraft 版本的旧服务器中.<br>
   <br>

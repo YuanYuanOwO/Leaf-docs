@@ -95,7 +95,7 @@ small-optimizations:
     <tr><td><i>原版行为</i></td><td><code>true</code></td></tr>
     </table>
 
-3. 如果将此值设为 > `0`, 则唤醒非活动实体的过程会分布在一段时间内, 而不是同时唤醒大量实体.<br>
+3. 如果将此值设为 > `0`, 则唤醒不活跃实体的过程会分布在一段时间内, 而不是同时唤醒大量实体.<br>
   这使实体的行为更加自然.<br>
   <br>
   此配置项的值应是一个 [变异系数 (Coefficient of Variation)](https://baike.baidu.com/item/%E5%8F%98%E5%BC%82%E7%B3%BB%E6%95%B0/6463621), 或实体不活跃持续时间的 σ / μ (标准差与均值的比率).<br>
