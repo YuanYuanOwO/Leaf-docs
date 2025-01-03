@@ -114,7 +114,7 @@ small-optimizations:
     <tr><td><code>false</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-7. 当服务器在世界数据中遇到 *无效的池元素* 时的错误日志级别.<br>
+7. 当服务器在世界数据中遇到 *无效的池元素* 时的错误日志等级.<br>
   <br>
   *无效的池元素* 是生成的结构 (如矿井) 中由于版本更新不完全或损坏的部分.<br>
   <br>
@@ -266,7 +266,7 @@ small-optimizations:
     <tr><td><i>Paper 行为</i></td><td><code>false</code></td></tr>
     </table>
 
-21. 进服时, 允许正版账户成功进入的最大时间.<br>
+21. 进服时, 允许正版账户成功进入的最长时间.<br>
   (以 tick 为单位)
     * 如果超出此时间, 玩家的连接将被关闭.
     * 如果设为 &leq; `0`, 将默认与原版一致, 目前为 `600` ticks (30 秒).

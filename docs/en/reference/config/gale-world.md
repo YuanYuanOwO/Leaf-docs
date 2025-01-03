@@ -225,7 +225,7 @@ small-optimizations:
   To check whether an entity is climbing, the block it is in must be checked.<br>
   This can lead to the entire server having to wait for a chunk to load when an entity moves just over the edge.<br>
   <br>
-  If this value is set to `false`, this is prevented: the server will not check the "climbing" priority for entities that are in unloaded chunks,. This prevents unnecessary server hangs.
+  If this value is set to `false`, this is prevented: the server will not check the "climbing" priority for entities that are in unloaded chunks. This prevents unnecessary server hangs.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
@@ -377,7 +377,7 @@ small-optimizations:
     <tr><td><i>Vanilla behavior</i></td><td>- (for vanilla behavior, <code>interval</code> must be set to 1)</td></tr>
     </table>
 
-27. Whether to check for hopper minecarts near items that are ==__active__==, to give the minecarts temporary immunity from the `interval` setting.
+27. Whether to check for hopper minecarts near items that are __active__, to give the minecarts temporary immunity from the `interval` setting.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
@@ -390,7 +390,7 @@ small-optimizations:
     <tr><td><i>Vanilla behavior</i></td><td>- (for vanilla behavior, <code>interval</code> must be set to 1)</td></tr>
     </table>
 
-28. Whether to check for hopper minecarts near items that are ==__inactive__==, to give the minecarts temporary immunity from the `interval` setting.
+28. Whether to check for hopper minecarts near items that are __inactive__, to give the minecarts temporary immunity from the `interval` setting.
 
     <table>
     <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>

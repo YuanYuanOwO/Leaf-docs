@@ -501,7 +501,7 @@ misc: #(70)!
     <table>
     <tr><td><b>Values for goals</b></td><td></td></tr>
     <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code> (or see <code>dab.blacklisted-entities</code> below)</td></tr>
+    <tr><td><i>Vanilla behavior</i></td><td><code>false</code> (or see <code>dab.blacklisted-entities</code> below for more)</td></tr>
     </table>
 
 37. Whether non-aquatic entities in the water will not be affected by DAB.<br>
@@ -509,19 +509,20 @@ misc: #(70)!
   <br>
   __Recommended value: `true`__
 38. This value determines how far away an entity has to be from the player to start being affected by DAB.<br>
+  <br>
   __Recommended value: `8`__
 39. This value defines how often in ticks, the furthest entity will get their pathfinders and behaviors ticked (Note: 20 ticks = 1s).
 40. This value defines how much distance modifies an entity's tick frequency. `freq = (distanceToPlayer^2) / (2^value)`.
-    * If you want entities further away to tick less often, use `7`.
-    * If you want entities further away to tick more often, try `9`.
+    * If you want entities further away to tick __less__ often, use `7`.
+    * If you want entities further away to tick __more__ often, try `9`.
   <br><br>
   __Recommended value: `7`__
 41. A list of entities that will not be affected by DAB.<br>
   <br>
-  Some SMP like servers have mob farms which need mobs to have a target. This kind of "pathfinding" mob farm may break by DAB. This situation can be solved by adding specific mob of mob farm into this DAB blacklist.<br>
+  Some survival servers have mob farms which need mobs to have a target. This kind of "pathfinding" mob farm may break by DAB. This situation can be solved by adding specific mob of mob farm into this DAB blacklist.<br>
   If some specific mob farms are broken in your server, mobs freeze and don't move, and you are not sure whether it is caused by DAB. You can try to add them into this blacklist to see if it fixes the issue.<br>
   <br>
-  Format: `[VILLAGER]` or `[VILLAGER, ZOMBIFIED_PIGLIN]` (You can find *EntityType* in [Paper's Javadoc](https://jd.papermc.io/paper/1.21.1/org/bukkit/entity/EntityType.html)).
+  Format: `[VILLAGER]` or `[VILLAGER, ZOMBIFIED_PIGLIN]` (You can find all entity types in [Paper's Javadoc](https://jd.papermc.io/paper/1.21.1/org/bukkit/entity/EntityType.html)).
 
     ??? note "Want to Go Deeper?"
 
@@ -529,7 +530,7 @@ misc: #(70)!
         <br>
         If you only need to add one entity into blacklist, these formats below are allowed:
         ```yaml
-        dab:  
+        dab:
           blacklisted-entities: [VILLAGER]
         ```
         or
@@ -540,7 +541,7 @@ misc: #(70)!
         ```
         And if you need to add multiple entities into blacklist, these formats below are allowed:
         ```yaml
-        dab:  
+        dab:
           blacklisted-entities: [VILLAGER, ZOMBIFIED_PIGLIN]
         ```
         or
@@ -553,7 +554,7 @@ misc: #(70)!
         If you are not sure, use [YAML Checker](https://yamlchecker.org/), or any online YAML syntax validator to check your config.
 
 42. Disable save primed tnt on chunk unloads.<br>
-  It can prevent machines from being exploded by TNT when the player accidentally disconnected or chunk unloads when the player is far away. Useful for SMP like servers which have machines involved TNT.<br>
+  It can prevent machines from being exploded by TNT when the player accidentally disconnected or chunk unloads when the player is far away. Useful for survival servers which have machines involved TNT.<br>
   <br>
   __Recommended value: `true`__
 43. Disable save falling block on chunk unloads.<br>
@@ -610,7 +611,7 @@ misc: #(70)!
 
 
 58. This section contains features for server networking related.
-59. This section contains features that provide extra protocol support for some QoL / Utility mods, which can enhance the game experience for your server.<br>
+59. This section contains features that provide extra protocol support for some QoL / Utility mods.<br>
   <br>
   The extra protocol support is only functional if there is corresponding client-side mod installed. It means if a specific protocol support is enabled, and a player installed that mod on client, they can get the additional features described in each config below. But for players who have no corresponding mod installed, then everything is the same as before.
 
@@ -626,7 +627,7 @@ misc: #(70)!
 62. Whether to enable [AsteorBar](https://modrinth.com/mod/asteorbar) protocol support.<br>
   If `true`, player who has AsteorBar mod installed, can display the accurate saturation / exhaustion values on the client.
 63. Whether to enable [ChatImage](https://modrinth.com/mod/chatimage) protocol support.<br>
-  If `true`, player who has ChatImage mod installed, can see the image sent by others using ChatImage's CICode format.
+  If `true`, player who has ChatImage mod installed, can see the image sent by others using CICode format.
 64. Whether to enable [XaeroMap](https://modrinth.com/mod/xaeros-minimap) protocol support.<br>
   If `true`, player who has Xaero's MiniMap mod or Xaero's WorldMap mod installed, can store players' coordinate points and death points based on server's `protocol-support.xaero-map-server-id` below, to prevent points from been deleted / refreshed if server name or IP address changed.
 65. Numeric id for XaeroMap to identify the server. This will generate randomly on first start.
@@ -656,7 +657,7 @@ misc: #(70)!
 
 72. Server brand name that shows in F3 menu and server MOTD.
 73. Server GUI window name, if you launched server without adding `--nogui` option in the startup flag.
-74. [Sentry](https://sentry.io/welcome/) is an application monitor service for improved error logging, tracing.<br>
+74. [Sentry](https://sentry.io/welcome/) is an application monitor service for improved error logging, tracing. Helping the server dev team to maintain better.<br>
   <br>
   After enabled Sentry integration for your server, you don't need to audit long logs to find errors manually. Sentry can collect errors happened in your server, enable you to track errors on Sentry's web panel and help you to locate and fix them easier and faster.<br>
   <br>
@@ -665,7 +666,9 @@ misc: #(70)!
   If an empty value `''` is given, the Sentry will be disabled.
 76. Logs with a level higher than or equal to this level will be recorded.
 77. Only to log with a Throwable will be recorded after enabling this. 
-78. Once you enable secure seed, all ores and structures are generated with 1024-bit seed instead of using 64-bit seed in vanilla, made seed cracker become impossible.<br>
+78. Whether to use secure seed.<br>
+  All ores and structures are generated with 1024-bit seed instead of using 64-bit seed in vanilla, made seed cracker become impossible.<br>
+  If used in the existing world, then the secure seed will only apply to new generating chunks.<br>
   <br>
   __Recommended value: `true` (set `enabled` below to true)__
 
@@ -688,7 +691,8 @@ misc: #(70)!
 
     !!! warning "Warning"
 
-        This is an experimental feature, there is potential risk to lose chunk data. Backup your server before switching to Linear.
+        Experimental feature, there is potential risk to lose chunk data. Backup your server before switching to Linear.<br>
+        Also, we do not recommend using Linear, since vanilla's ANVIL format (.mca) is enough. Leaf uses the refactored version of the Linear flush system, which is safer but slower to save chunks to make data lost less possible. However this change is worth it, data is invaluable.
 
 83. Available region formats: `"MCA"`, `"LINEAR"`.
 84. The compression level for Linear region format file.
@@ -712,7 +716,8 @@ misc: #(70)!
         If you are using Gale API or Leaf API for your plugins. Or runinng on Leaf and use reflection to get TPS, you can use `Bukkit#getTPSIncluding5SecondAverage`, to get the TPS array including 5-seconds TPS (`5s, 1m, 5m, 15m`).<br>
         Also, you can use `Bukkit#get5SecondTPSAverage` to get the average value of 5-seconds TPS in `double`.
 
-91. Controls whether specified component information is sent to clients. This may break resource packs and client mods that rely on this information. It needs a component type list, incorrect things will not work. For example, you can fill it with `["custom_data"]` to hide components of *CUSTOM_DATA*. Also, it can avoid some frequent client animations.
+91. Controls whether specified component information is sent to clients. This may break resource packs and client mods that rely on this information. It needs a component type list, incorrect things will not work.<br>
+  For example, you can fill it with `["custom_data"]` to hide components of *CUSTOM_DATA*. Also, it can avoid some frequent client animations.
 
     !!! note "Attention"
 
@@ -733,8 +738,8 @@ misc: #(70)!
 
 93. The join message of the player.
 94. The quit message of the player.
-95. Whether to cache the player profile result when they first join.<br>
+95. Whether to cache the player profile result when they joined server.<br>
   It's useful if Mojang's authentication server is down.
 96. The timeout of the player profile cache.<br>
+  (Unit: minutes)<br>
   If the given timeout is exceeded, it will send another request to Mojang's authentication server to get profile data on player's next join.<br>
-  (Unit: minutes)

@@ -380,7 +380,7 @@ small-optimizations:
     <tr><td><i>原版行为</i></td><td>- (如需贴合原版行为, <code>interval</code> 必须设为 1)</td></tr>
     </table>
 
-27. 是否检查 ==__活跃__== 状态的掉落物附近的漏斗矿车, 以给予矿车临时免疫, 免受 `interval` 的影响.
+27. 是否检查 __活跃__ 状态的掉落物附近的漏斗矿车, 以给予矿车临时免疫, 免受 `interval` 的影响.
 
     <table>
     <tr><td></td><td><b>默认值</b></td><td></td><td></td></tr>
@@ -393,7 +393,7 @@ small-optimizations:
     <tr><td><i>原版行为</i></td><td>- (如需贴合原版行为, <code>interval</code> 必须设为 1)</td></tr>
     </table>
 
-28. 是否检查 ==__非活跃__== 状态的掉落物附近的漏斗矿车, 以给予矿车临时免疫, 免受 `interval` 的影响.
+28. 是否检查 __非活跃__ 状态的掉落物附近的漏斗矿车, 以给予矿车临时免疫, 免受 `interval` 的影响.
 
     <table>
     <tr><td></td><td><b>默认值</b></td><td></td><td></td></tr>
@@ -421,7 +421,7 @@ small-optimizations:
     <tr><td><i>原版行为</i></td><td>- (如需贴合原版行为, <code>interval</code> 必须设为 1)</td></tr>
     </table>
 
-30. 漏斗矿车与掉落物的最大水平距离, 在此范围内掉落物可以给予矿车临时免疫, 以此免受 `interval` 的影响.<br>
+30. 漏斗矿车与掉落物的最远水平距离, 在此范围内掉落物可以给予矿车临时免疫, 以此免受 `interval` 的影响.<br>
   (以 方块 为单位)<br>
   如果设为 < `0`, 漏斗矿车将永远不会获得临时免疫.
 
@@ -436,7 +436,7 @@ small-optimizations:
     <tr><td><i>原版行为</i></td><td>- (如需贴合原版行为, <code>interval</code> 必须设为 1)</td></tr>
     </table>
 
-31. 与 `max-item-horizontal-distance` 相同, 但这是掉落物与漏斗矿车之间的最大垂直距离.<br>
+31. 与 `max-item-horizontal-distance` 相同, 但这是掉落物与漏斗矿车之间的最远垂直距离.<br>
   (以 方块 为单位).
 
     <table>
@@ -507,12 +507,12 @@ small-optimizations:
 
 35. 是否在保存区块时保存烟花.<br>
   烟花可能会出现故障而无法引爆, 并且使用发射器可以非常容易的用烟花填满一个区块.<br>
-  如果设为 `true`, 区块卸载时会移除烟花, 从而防止这种情况发生.
+  如果设为 `true`, 区块卸载时会清除烟花, 从而防止这种情况发生.
 
     <table>
     <tr><td></td><td><b>默认值</b></td><td></td><td></td></tr>
     <tr><td><b>推荐值&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>原版</i></td></tr>
-    <tr><td>-<br>(看以下的 <i>优化</i>)</td><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
+    <tr><td>-<br>(参阅下方的 <i>优化</i>)</td><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
     <table>
     <tr><td><b>基于目标的推荐值</b></td><td></td></tr>
