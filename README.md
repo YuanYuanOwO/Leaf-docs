@@ -8,25 +8,30 @@ Visit the docs site in https://docs.leafmc.one/
 
 ## 📦 Development
 
-### Commands
+### Prerequisite
+Python 3.8.2+
 
+### Installtion
+Refer to [Getting started](https://squidfunk.github.io/mkdocs-material/getting-started/) to for more.
+
+### Commands
 * `mkdocs new [dir-name]` - Create a new project.
 * `mkdocs serve` - Start the live-reloading docs server.
 * `mkdocs build` - Build the documentation site.
 * `mkdocs -h` - Print help message and exit.
 
 ### Project layout
-
+```
     mkdocs.yml      # The configuration file.
     docs/           # documentations with different languages
         en/
         zh/
     ...
+```
 
 ## ⚖️ License
 Leaf docs's documentations (e.g. `.md` files under `/docs` folder) are licensed under [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/). The supporting code is licensed under [MIT](LICENSE).
 
 ## 📜 Credits
-
 - [PaperMC Docs](https://docs.papermc.io/paper)
 - [Gale WIKI](https://github.com/GaleMC/Gale/wiki)
