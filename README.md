@@ -12,7 +12,7 @@ Visit the docs site in https://docs.leafmc.one/
 Python 3.8.2+
 
 ### Installtion
-Refer to [Getting started](https://squidfunk.github.io/mkdocs-material/getting-started/) to for more.
+Refer to [Getting started](https://squidfunk.github.io/mkdocs-material/getting-started/) for more.
 
 ### Commands
 * `mkdocs new [dir-name]` - Create a new project.
