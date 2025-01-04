@@ -1,1 +1,1 @@
-# How to setup Sentry
+# Einrichten von Sentry

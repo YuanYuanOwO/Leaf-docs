@@ -1,6 +1,6 @@
 # Wilkommen bei der Dokumentation von Leaf
 
-!!! warning
+!!! warning "Warnung"
 
     Diese Dokumentation ist aktuell noch in Arbeit
     Weitere Informationen sind auf unserem [Discord server](https://discord.gg/gfgAwdSEuM) erhältlich

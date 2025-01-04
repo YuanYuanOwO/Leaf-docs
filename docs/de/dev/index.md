@@ -1,5 +1,5 @@
-# Leaf Development Guide
+# Leaf Enwicklungs-Anleitung
 
-Welcome to Leaf Development Guide!
+Wilkommen in der Leaf Entwicklungs-Anleitung!
 
-In this section, you can learn how to build and get runnable Jar from the Leaf source, create Leaf API based plugin, and even about contributing to Leaf!
+In diesem Abschnitt wird erklärt, wie man eine ausführbare JAR-Datei aus dem Leaf Sourcecode erhält, wie ein Plugin mithilfe der Leaf API erstellt werden kann und wie Mitwirkungen zu Leaf ablaufen!

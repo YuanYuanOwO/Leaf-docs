@@ -1,8 +1,8 @@
-# Useful Websites
+# Nützliche Webseiten
 
-Here is a series of websites. It's better and recommended to read them with Leaf docs, to get more useful, deeper information about Minecraft server maintaining.
+Hier ist eine Liste mit hilfreichen Webseiten. Es wird empfohlen, diese zusammen mit der Leaf Dokumentation zu lesen, um nützlichere und tiefgehendere Informationen über die Verwaltung von Minecraft Servern zu erhalten.
 
-## List of websites
-- [Paper Docs](https://docs.papermc.io/paper)
-- [Purpur Docs](https://purpurmc.org/docs/purpur/)
-- [NitWikit](https://nitwikit.yizhan.wiki/) (Chinese)
+## Liste der Webseiten
+- [Paper Dokumentation](https://docs.papermc.io/paper)
+- [Purpur Dokumentation](https://purpurmc.org/docs/purpur/)
+- [NitWikit](https://nitwikit.yizhan.wiki/) (Chinesisch)

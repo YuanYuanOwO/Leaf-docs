@@ -6,18 +6,18 @@
 
     ---
 
-    [:octicons-arrow-right-24: Read](faq.md)
+    [:octicons-arrow-right-24: Lesen](faq.md)
 
--   __Leaf System Properties__
-
-    ---
-
-    [:octicons-arrow-right-24: Read](system-properties.md)
-
--   __Config__
+-   __Leaf Kommandozeilen-Argumente__
 
     ---
 
-    [:octicons-arrow-right-24: Read](./config)
+    [:octicons-arrow-right-24: Lesen](system-properties.md)
+
+-   __Konfiguration__
+
+    ---
+
+    [:octicons-arrow-right-24: Lesen](./config)
 
 </div>

@@ -1,35 +1,35 @@
-# Leaf System Properties
+# Leaf Kommandozeilen-Argumente
 
 ### -DLeaf.library-download-repo
-* default: not set
+* Standard: Nicht gesetzt
 
-:	Download speed of default Maven Central repo is extremely slow in some regions.
+:	Die Downloadgeschwindigkeit des standardmäßigen Maven Central Repositories ist in manchen Regionen sehr langsam
 	
-	Use this JVM flag to set a specific mirror repository for SpigotLibraryLoader or PaperLibraryLoader,
+	Mithilfe dieses JVM Arguemnts kann ein anderes Mirror Repository for SpigotLibraryLoader oder PaperLibraryLoader gesetzt werden,
 
-    for example, Use this flag
+    Beispiel:
     ```
     -DLeaf.library-download-repo=https://maven.aliyun.com/repository/public
     ```
-    to define Aliyun's repo as the mirror repo.
+    um Aliyun's Repository zu nutzen.
 
 ### -DLeaf.nearestEntitySensorBucketCount
-* default: 10
+* Standard: 10
 
-:	How many buckets will be used if entity count reached the [Bucket Sort](https://en.wikipedia.org/wiki/Bucket_sort) threshold.
+:	Wie viele Buckets beim [Bucket Sort](https://en.wikipedia.org/wiki/Bucket_sort) genutzt werden, wenn die Grenze erreicht wird.
 
-	Should be the square root of entity count.
+	Sollte der Quadratwurzel der Anzahl an Elementen entsprechen.
 
 ### -DLeaf.nearestEntitySensorBucketSortThresholdRatio
-* default: 2.0
+* Standard: 2.0
 
-:	This value controls the ratio of Bucket Sort threshold. `(Threshold = bucketCount * ratio)`
+:   Dieser Wert steuert das Verhältnis für den Bucket-Sort-Schwellenwert. `(Schwellenwert = Anzahl der Buckets * Verhältnis)`
 
 ### -DLeaf.enableFMA
-* default: false
+* Standard: false
 
-: Whether to use [Fused-Multiply-Add operations](https://en.wikipedia.org/wiki/Multiply%E2%80%93accumulate_operation) to accelerate some math calculations.
+: Steuert, ob [Multiply-Accumulate](https://de.wikipedia.org/wiki/Multiply-Accumulate) für manche Operationen genutzt werden sollen,
 
-	Requires a CPU which supports the FMA instruction set, otherwise it will be slower.
+    Erfordert eine CPU, die den FMA Instruktionssatz unterstützt. Ansonsten wird die Berechnung langsamer sein.
 
-	You can use tools like [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) to check whether your machine supports the FMA instruction set.
+    Werkzeuge wie [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) können ausgeben, ob ein Prozessor den nötigen Instruktionssatz unterstützt

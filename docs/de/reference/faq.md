@@ -1,31 +1,31 @@
-# Frequently Asked Questions
+# Häufig gestellte Fragen
 
-### ❓ · How much more performant is Leaf than `"<insert any paper fork>"`?
-As of now, we cannot give concrete numbers on performance wise, but stay tuned for our upcoming website where we'll dive on the metrics a bit more in detail!
+### ❓ · Wie viel schneller ist Leaf als `"<irgendein anderer Paper-Fork>"`?
+Aktuell können wir keine konkreten Zahlen bezüglich der Leistung nennen. In Zukunft wird es jedoch auf unserer Webseite genauere Vergleiche geben!
 
-### ❓ · Does Leaf support Bukkit/Spigot/Paper plugins?
-Yes, Leaf has exactly the same plugin compatibility compared to Paper. If the plugin doesn't work, replace Leaf with Purpur and test again. If the issue persists, report it on [Leaf GitHub](https://github.com/Winds-Studio/Leaf/issues).
+### ❓ · Unterstützt Leaf Bukkit/Spigot/Paper plugins?
+Ja, Leaf hat genau die gleiche Plugin-Unterstützung wie Paper. Sollte ein Plugin mit Purpur aber nicht mit Leaf funktionieren, sollte das Problem auf unserer [GitHub Seite](https://github.com/Winds-Studio/Leaf/issues) gemeldet werden.
 
-### ❓ · Does Leaf include `purpur.yml`?
-Yes, Leaf includes all the Purpur patches, but some Purpur settings are moved to configurations of Gale and Leaf.
+### ❓ · Enthält Leaf die `purpur.yml` Datei?
+Ja, Leaf enthält alle Purpur patches. Allerdings sind manche Optionen von Purpur in den Konfigurationsdateien von Gale und Leaf zu finden.
 
-### ❓ · How often does Leaf update upstream?
-Generally 1 ˜ 3 weeks, depends on how important an update on upstream.
+### ❓ · Wie oft führt Leaf Upstream Updates durch?
+Normalerweise alle 1 bis 3 Wochen, je nachdem wie wichtig die Updates sind.
 
-### ❓ · How can I optimize my server?
-You can refer to [YouHaveTrouble's guide](https://github.com/YouHaveTrouble/minecraft-optimization), or [optimization guide](https://nitwikit.yizhan.wiki/Java/optimize) of NitWikkit made by the community (For Chinese user).
+### ❓ · Wie kann ich meinen Server optimieren?
+Die [Anleitung von YouHaveTrouble](https://github.com/YouHaveTrouble/minecraft-optimization) bietet gute Informationen über die Optimierung.
 
-### ❓ · Any known incompatibilities?
-* [RealisticVillagers](https://www.spigotmc.org/resources/realisticvillagers.105055) (Incompatible with the Leaf version lower than 1.21.1).
-* In Async Tracker, if the server has [Citizens](https://www.spigotmc.org/resources/citizens.13811) the Tracker's `compat-mode` should be toggled on or disable the async tracker!
-* Found an incompatible plugin? [Report it here](https://github.com/Winds-Studio/Leaf/issues)!
+### ❓ · Gibt es bekannte Inkompatibilitäten?
+* [RealisticVillagers](https://www.spigotmc.org/resources/realisticvillagers.105055) (Inkompatibel ab Leaf 1.21.1).
+* Wenn der `async-entity-tracker` aktiv ist, funktioniert [Citizens](https://www.spigotmc.org/resources/citizens.13811) nur, wenn auch der `compat-mode` aktiv ist
+* Weitere Inkompatibilitäten sollten [hier](https://github.com/Winds-Studio/Leaf/issues) gemeldet werden!
 
-### ❓ · What's the difference between mojmap and reobf? Which should I use?
-It's different mapping. Mojmap uses mojang mapping, and reobf uses spigot mapping. You should use mojmap.
+### ❓ · Was ist der Unterschied zwischen mojmap und reobf? Was soll ich nutzen?
+Es handelt sich um Unterschiedliche Mappings. Mojmap nutzt Mappings von Mojang und reobs nutzt Spigot Mappings. Generell sollte eher mojmap genutzt werden.
 
-### ❓ · How can I support the project?
-Anyone can donate at [Afdian](https://afdian.com/a/Dreeam) (Supports PayPal / Stripe).
+### ❓ · Wie kann ich das Projekt unterstützen?
+Jeder kann die Spenden: [Afdian](https://afdian.com/a/Dreeam) (Unterstützt PayPal und Stripe).
 
-!!! note "Note"
+!!! note "Hinweis"
 
-    Do we need to add something to this *FAQ*? [Write it here](../index.md#-contact)!
+    Fehlt etwas in diesem *FAQ*? [Schreib es hier](../index.md#-contact)!
