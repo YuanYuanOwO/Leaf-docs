@@ -1,12 +1,12 @@
-# Gale global config
+# Globale Gale Konfiguration
 
 !!! info "Info"
 
-    The YAML config below shows the structure and default config values of Gale's global config (==config/gale-global.yml==)
+    Diese YAML Konfiguration zeigt die standardmäßige Struktur der Konfigurationswerte der globalen Konfiguration von Gale (==config/gale-global.yml==)
 
-    The config bases on the latest 1.21.1 branch of Leaf
+    Diese Konfiguration basiert auf der neusten 1.21.1 Version von Leaf
 
-    Click arrow button behind the config node to show description of it
+    Klicke auf die Pfeile hinter den Konfigurationswerten um die entsprechende Beschreibung anzusehen
 
 ```yaml title="gale-global.yml"
 # This is the global configuration file for Gale.

@@ -1,12 +1,12 @@
-# Gale world default config
+# Weltspezifische Gale Konfiguration
 
 !!! info "Info"
 
-    The YAML config below shows the structure and default config values of Gale's world defaults config (==config/gale-world-defaults.yml==)
+    Diese YAML Konfiguration zeigt die standardmäßige Struktur der Konfigurationswerte der weltspezifischen Konfiguration von Gale (==config/gale-world-defaults.yml==)
 
-    The config bases on the latest 1.21.1 branch of Leaf
+    Diese Konfiguration basiert auf der neusten 1.21.1 Version von Leaf
 
-    Click arrow button behind the config node to show description of it
+    Klicke auf die Pfeile hinter den Konfigurationswerten um die entsprechende Beschreibung anzusehen
 
 ```yaml title="gale-world-defaults.yml"
 # This is the world defaults configuration file for Gale.

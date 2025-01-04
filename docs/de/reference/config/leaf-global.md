@@ -1,12 +1,12 @@
-# Leaf global config
+# Globale Leaf Konfiguration
 
 !!! info "Info"
 
-    The YAML config below shows the structure and default config values of Leaf's global config (==config/leaf-global.yml==)
+    Diese YAML Konfiguration zeigt die standardmäßige Struktur der Konfigurationswerte der globalen Konfiguration von Leaf (==config/leaf-global.yml==)
 
-    The config bases on the latest 1.21.1 branch of Leaf
+    Diese Konfiguration basiert auf der neusten 1.21.1 Version von Leaf
 
-    Click arrow button behind the config node to show description of it
+    Klicke auf die Pfeile hinter den Konfigurationswerten um die entsprechende Beschreibung anzusehen
 
 ```yaml title="leaf-global.yml"
 # Leaf Global Config

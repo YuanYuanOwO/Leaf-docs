@@ -2,28 +2,28 @@
 
 <div class="grid cards" markdown>
 
--   __Gale Global Config__
+-   __Globale Gale Konfiguration__
 
     ---
 
-    [:octicons-arrow-right-24: Read](gale-global.md)
+    [:octicons-arrow-right-24: Lesen](gale-global.md)
 
--   __Gale World Default Config__
-
-    ---
-
-    [:octicons-arrow-right-24: Read](gale-world.md)
-
--   __Leaf Global Config__
+-   __Weltspezifische Gale Konfiguration__
 
     ---
 
-    [:octicons-arrow-right-24: Read](leaf-global.md)
+    [:octicons-arrow-right-24: Lesen](gale-world.md)
 
--   __Misc Config__
+-   __Globale Leaf Konfiguration__
 
     ---
 
-    [:octicons-arrow-right-24: Read](misc-config.md)
+    [:octicons-arrow-right-24: Lesen](leaf-global.md)
+
+-   __Weitere Konfigurationen__
+
+    ---
+
+    [:octicons-arrow-right-24: Lesen](misc-config.md)
 
 </div>

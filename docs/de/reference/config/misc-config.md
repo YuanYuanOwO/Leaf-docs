@@ -1,8 +1,8 @@
-# Misc Config
+# Weitere Konfigurationen
 
-For some reason, Leaf added or changed some config keys in upstream's config
+Aus irgendeinem Grund verändert Leaf auch Konfigurationseinträge ein den Konfigurationen der Upstreams
 
-## Paper world default config
+## Weltspezifische Paper Konfiguration
 
 ```yaml title="paper-world-defaults.yml"
 entities:
@@ -19,7 +19,7 @@ entities:
         water_creature: -1
 ```
 
-## Purpur config
+## Purpur Konfiguration
 ```yaml title="purpur.yml"
 settings:
   messages:
@@ -33,18 +33,18 @@ settings:
     afk-command-cooldown-msg: <gray>You need to wait %time%s to use /afk.
 ```
 
-## Moved Pufferfish & Purpur config keys
+## Verschobene Pufferfish & Purpur Konfigurationseinträge
 
 ### Pufferfish
-|     | Before | After |
-|-----|--------|-------|
-|     |        |       |
-|     |        |       |
-|     |        |       |
-|     |        |       |
+|     | Vorher | Nachher |
+|-----|--------|---------|
+|     |        |         |
+|     |        |         |
+|     |        |         |
+|     |        |         |
 
 ### Purpur
-|     | Before | After |
+|     | Vorher | Nachher |
 |-----|--------|-------|
 |     |        |       |
 |     |        |       |
