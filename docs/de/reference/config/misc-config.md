@@ -1,6 +1,6 @@
 # Weitere Konfigurationen
 
-Aus irgendeinem Grund verändert Leaf auch Konfigurationseinträge ein den Konfigurationen der Upstreams
+Aus irgendeinem Grund verändert Leaf auch manche Konfigurationseinträge in den Konfigurationen der Upstreams
 
 ## Weltspezifische Paper Konfiguration
 

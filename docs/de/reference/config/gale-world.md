@@ -69,461 +69,462 @@ small-optimizations:
   use-optimized-sheep-offspring-color: true #(36)!
 ```
 
-1. Whether the [despawn counter](https://minecraft.wiki/w/Mob_spawning#Despawning) of arrows will restart when the arrow starts falling (e.g. when the block it is stuck in gets broken).
+1. Gibt an, ob der [Despawn Zähler](https://minecraft.wiki/w/Mob_spawning#Despawning) von Pfeilen neu startet, wenn der Pfeil zu fallen beginnt (z.B. Wenn der Block zerstört wird, in dem der Pfeil steckt).
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td>-<br></td><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>false</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>true</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>false</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>true</code></td></tr>
     </table>
 
-2. Whether entities that are wandering around randomly can also pathfind into non-ticking chunks.
+2. Gibt an, ob Entities, die zufällig umherlaufen auch in nicht-getickte Chunks laufen können.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td>-<br></td><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>true</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>true</code></td></tr>
     </table>
 
-3. If this value is set to any value > `0`, waking up inactive entities happens spread over time, instead of many entities at once.<br>
-  This makes entities feel and behave more natural.<br>
+3. Wenn dieser Wert > `0` ist, wird das Aufwecken inaktiver Entities zeitlich verteilt, anstatt alle auf einmal aufzuwecken.<br>
+  Dadurch verhalten sich Entities natürlicher.<br>
   <br>
-  This setting is the [coefficient of variation](https://en.wikipedia.org/wiki/Coefficient_of_variation), or `σ / μ` (the ratio of the standard deviation to the mean) of the inactivity duration.<br>
+  Dieser Wert ist der [Variationskoeffizient](https://de.wikipedia.org/wiki/Variationskoeffizient) bzw. `σ / μ` (Das Verhältnis der Standardabweichung und dem Mittelwert) der Inaktivitätsdauer.<br>
   <br>
-  In other words, this setting is the value `σ`, so that the regular inactivity duration will be multiplied by a factor `normal_distribution(μ = 1, σ)`.<br>
+  In anderen Worten ist diese Option der Wert `σ`, sodass the reguläre Inaktivitätsdauer mit dem Faktor `normal_distribution(μ = 1, σ)` multipliziert wird.<br>
   <br>
-  If a value &leq; `0` is given, variable entity wake-up is disabled.
+  Wenn der Wert &leq; `0` ist, ist die Variation deaktiviert.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>0.2</code><br></td><td><code>0.2</code></td><td><code>0.0</code></td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Paper behavior</i></td><td><code>0.0</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Paper Verhalten</i></td><td><code>0.0</code></td></tr>
     </table>
 
-4. Whether to broadcast crit animations as the entity being critted.<br>
+4. Gibt an, ob die Animation von kritischen Treffern durch das Entity gezeigt werden soll, das den kritischen Treffer erleidet.<br>
   <br>
-  This does not affect where the crit animation is shown: it is always shown on the entity being critted.<br>
-  However, normally (if this setting is set to `false`), the crit animation is broadcast as the player doing the crit, meaning anyone who cannot see the player cannot see the crit.<br>
+  Dies beeinflusst nicht, wo die Animation gezeigt wird: Sie wird immer bei dem Entity gezeigt, das den kritischen Treffer erleidet.<br>
+  Allerdings wird normalerweise (Wenn die Einstellung auf `false` gestellt ist) die Animation durch den Spieler gezeigt, der den kritischen Treffer landet. Dadurch kann jemand, der den Spieler nicht sehen kann, auch nicht die Animation sehen.<br>
   <br>
-  If this setting is set to `true`, the crit animation is broadcast as the entity being hit, meaning anyone that can see the entity can see the crit.
+  Wenn die Einstellung auf `true` ist, wird die Animation durch das Entity gezeigt, das den kritischen Treffer erleidet. Dadurch kann jeder die Animation sehen, der auch das Entity sehen kann. 
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td>-<br></td><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-5. Whether to make mooshrooms keep their rotation after being sheared (fixes part of [MC-88967](https://bugs.mojang.com/browse/MC-88967)).
+5. Gibt an, ob Pilzkühe ihre Rotation behalten sollen, nachdem die geschoren werden. (Behebt einen Teil von [MC-88967](https://bugs.mojang.com/browse/MC-88967)).
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td>-<br></td><td><code>true</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-6. Whether to fix [MC-110386](https://bugs.mojang.com/browse/MC-110386).
+6. Gibt an, ob [MC-110386](https://bugs.mojang.com/browse/MC-110386) gefixt werden soll.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
 
-7. Whether to fix [MC-121706](https://bugs.mojang.com/browse/MC-121706).
+7. Gibt an, ob [MC-121706](https://bugs.mojang.com/browse/MC-121706) gefixt werden soll.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>true</code></td><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
 
-8. Whether to fix [MC-238526](https://bugs.mojang.com/browse/MC-238526).
+8. Gibt an, ob [MC-238526](https://bugs.mojang.com/browse/MC-238526) gefixt werden soll.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td>-</td><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
 
-9. Whether to fix [MC-31819](https://bugs.mojang.com/browse/MC-31819).
+9. Gibt an, ob [MC-31819](https://bugs.mojang.com/browse/MC-31819) gefixt werden soll.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
 
-10. Whether to hide visual flames for entities that are on fire, but also have the Fire Resistance potion effect.
+10. Gibt an, ob Flammen von Entities versteckt werden sollen, die Brennen und gleichzeitig Feuerresistenz haben.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td>-<br></td><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-11. Whether to fully load chunks before teleporting an entity, when an entity enters a portal.<br>
-  This forces the entire server to wait for the chunk to be loaded.
+11. Gibt an, ob Chunks vollständig geraden werden sollen, bevor ein Entity teleportiert wird, wenn es ein Portal betritt.<br>
+  Dies zwingt den ganzen Server zu warten, bis der Chunk geladen ist.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>false</code><br></td><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>false</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>false</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-12. Whether able to attempt to respawn the ender dragon after an end crystal has been placed in one of the right positions on the fountain.
+12. Gibt an, ob versucht werden soll den Enderdrache zu respawnen, nachdem ein Endkristall an der richtigen Position am Portal platziert wurde.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td>-<br></td><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>true</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>true</code></td></tr>
     </table>
 
-13. Whether to load chunks at certain times.
-14. Whether to load chunks to activate climbing entities.<br>
+13. Gibt an, ob chunks in bestimmten Fällen geladen werden sollen.
+14. Gibt an, ob chunks geladen werden sollen, um kletternde Entities zu laden.<br>
   <br>
-  In Paper, entities, like zombies, that are "climbing" (e.g. going down a ladder) get priority to be activated.<br>
-  To check whether an entity is climbing, the block it is in must be checked.<br>
-  This can lead to the entire server having to wait for a chunk to load when an entity moves just over the edge.<br>
+  In Paper erhalten Entites wie Zombies die klettern (z.B. eine Leiter heruntergehen) eine Priorität um aktiviert zu werden.<br>
+  Um zu überprüfen, ob ein Entity klettert, muss der Block, in dem es sich befindet, überprüft werden.<br>
+  Dadurch kann der ganze Server kurzzeitig stehenbleiben, um dem Chunk zu laden, wenn ein Entity genau an einer Chunkgrenze mit klettern beginnt.<br>
   <br>
-  If this value is set to `false`, this is prevented: the server will not check the "climbing" priority for entities that are in unloaded chunks. This prevents unnecessary server hangs.
+  Wenn dieser Wert `false` ist, wird dies verhindert: Der Server wird nicht überprüfen ob Entities klettern, die in ungeladenen Chunks sind. Dies verhindert unnötige Server Hänger.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>false</code></td></tr>
-    <tr><td><i>Paper behavior</i></td><td><code>true</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>false</code></td></tr>
+    <tr><td><i>Paper Verhalten</i></td><td><code>true</code></td></tr>
     </table>
 
-15. Whether to load chunks to spawn phantoms.<br>
-  If this value is set to `false`, when the server attempts to spawn a phantom in an unloaded chunk, nothing happens.
+15. Gibt an, ob chunks geladen werden sollen um Phantome zu spawnen.<br>
+  Wenn dieser Wert `false` ist, wird nichts passieren, wenn der Server versucht ein Phantom in einem ungeladenen Chunk zu spawnen.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>false</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>true</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>false</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>true</code></td></tr>
     </table>
 
-16. Settings for loading chunks for projectiles (e.g. when an arrow, trident or ender pearl enters an unloaded chunk).
-17. The maximum number of chunks that can be synchronously loaded by a projectile throughout its lifetime.<br>
-  If a value < `0` is given, this setting is disabled: i.e. the number of chunks loaded by a projectile will be unlimited.
+16. Einstellungen für das Laden von Chunks für Projektile (z.B. wenn ein Pfeil, Dreizack oder eine Enderperle einen ungeladenen Chunk betritt).
+17. Die maximale Anzahl an Chunks, die synchron von einem Projektil während seiner Lebenszeit geladen werden können.<br>
+  Wenn ein Wert < `0` angegeben ist, wird dies deaktiviert: Die Anzahl an Chunks, die ein Projektil laden kann, ist unbegrenzt.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>10</code></td><td><code>10</code></td><td><code>-1</code></td><td><code>-1</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>10</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>-1</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>10</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>-1</code></td></tr>
     </table>
 
-18. Whether to remove projectiles that cross the `max` threshold (described above) from the world entirely.<br>
+18. Gibt an ob Projektile komplett entfernt werden sollen, die den `max` Schwellenwert (siehe oben) überschreiben.<br>
   <br>
-  Removing projectiles from the world is risky, because this will also affect projectiles such as tridents that are valuable to players, so it is not recommended to set this value to `true` unless you accept that risk.
+  Projektile aus der Welt zu entfernen ist riskant, da hierdurch auch wertvolle Projektile wie Dreizäcke entfernt werden können. Daher wird ein Wert von `true` nicht empfohlen.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code> in extreme circumstances, but this is risky</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code> In extremen Fällen, dies ist riskant</td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-19. Whether to set the planar velocity of projectiles that cross the `max` threshold (described above) to `0`, so that they stop attempting to cross chunk boundaries.<br>
+19. Gibt an, ob die planare Geschwindigkeit von Projektilen, die den `max` Schwellenwert (siehe oben) überschreiben, auf `0` gesetzte werden soll, damit diese keine weiteren Chunkgrenzen erreichen.<br>
   <br>
-  This has no effect if `remove-from-world-after-reach-limit` (described above) is `true`.
+  Dies hat keine Auswirkung wenn `remove-from-world-after-reach-limit` (siehe oben) `true` ist.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td>-</td><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-20. The maximum number of chunks that can be synchronously loaded by all projectiles in one world in a tick.<br>
+20. Die maximale Anzahl an Chunks, die in einer Welt in einem Tick von allen Projektilen synchron geladen werden können.<br>
   <br>
-    If a value < `0` is given, this setting is disabled: i.e. the number of chunks loaded by projectiles per tick will be unlimited.
+    Wenn ein Wert < `0` gesetzt ist, wird dies deaktiviert: Die Anzahl an Chunks, die Projektile pro Tick laden können ist unbegrenzt.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>10</code></td><td><code>10</code></td><td><code>-1</code></td><td><code>-1</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>2</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>-1</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>2</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>-1</code></td></tr>
     </table>
 
-21. The extra interval (on top of the regular interval), given in ticks, for entities that are stuck (e.g. in a vehicle) to attempt to acquire a POI (such as a villager job block).<br>
-  If they become unstuck during this time, they will immediately be free to acquire a POI again.<br>
-  For example, if this value is set to `100`, stuck entities will try to find a POI every 5 seconds.<br>
+21. Das zusätzliche Intervall (zusätzlich zum regulären Intervall), angegeben in Ticks, das für Entitäten gilt, die feststecken (z. B. in einem Fahrzeug), um zu versuchen, einen POI (wie einen Dorfbewohner-Arbeitsblock) zu erwerben.<br>
+  Wenn sie sich während dieser Zeit befreien, können sie sofort einen neuen POI erwerben.<br>
+  Wenn dieser Wert z.B. auf `100` gesetzt ist, versuchen Entities, die feststecken, alle 5 Sekunden einen POI zu finden.<br>
   <br>
-  If a value < `0` is given, it will default to the same as Paper.
+  Wenn ein Wert < `0` angegeben wird, ist das Verhalten gleich wie bei Paper.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>60</code></td><td><code>60</code></td><td><code>200</code></td><td><code>0</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>200</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>0</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>200</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>0</code></td></tr>
     </table>
 
-22. Frequency with which hoppers check for items to pick up.<br>
-  This only affects picking up in-world (e.g. dropped) items, not pulling items from chests or other storage blocks.
+22. Frequenz, mit der Trichter nach Items zum Aufheben suchen.<br>
+  Dies beeinflusst nur das Aufheben von Items in der Welt (z.B. gedroppte Items). Dies beeinflusst nicht das Extrahieren von Items aus einer Truhe oder anderen Blöcken mit Items darin.
 
-23. Frequency, given in ticks, with which hopper blocks check for items to pick up.<br>
-  For example, if this value is set to `20`, hoppers will check for items above them every second.<br>
+23. Frequenz in Ticks, mit der Trichter nach Items zum Aufheben suchen.<br>
+  Wenn dieser Wert zum Beispiel `20` ist, suchen Trichter jede Sekunde nach Items über ihnen..<br>
   <br>
   If a value &leq; `0` is given, it will default to the same as Paper.
+  Wenn der Wert &leq; `0` ist, ist das Verhalten wie bei Paper.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>20</code></td><td><code>1</code></td><td><code>1</code></td><td><code>1</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>50</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>1</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>50</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>1</code></td></tr>
     </table>
 
-24. The same as the `interval` setting above, but for hopper minecarts.
+24. Gleich wie die obige `interval` Einstellung, aber für Loren mit Trichtern.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>20</code></td><td><code>1</code></td><td><code>1</code></td><td><code>1</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>20</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>1</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>20</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>1</code></td></tr>
     </table>
 
-25. Hopper minecarts can have temporary immunity from the `interval` setting above.<br>
-  While a minecart is immune, it can check for items every tick.
-26. How often, given in ticks, to check for hopper minecarts near items, to give the minecarts temporary immunity from the `interval` setting.<br>
+25. Loren mit Trichtern können durch die obige `interval` Einstellung kurzzeitig immun werden.<br>
+  Während eine Lore immun ist, kann sie jeden Tick nach Items suchen.
+26. Gibt an, wie oft in Ticks nach Loren mit Trichtern in der Nähe von Items gesucht werden soll, um den Loren kurzzeitige Immunität von der `interval` Einstellung zu geben.<br>
   If a value &leq; `0` is given, it behaves like `1`.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>20</code></td><td><code>20</code></td><td>-</td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>20</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td>- (for vanilla behavior, <code>interval</code> must be set to 1)</td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>20</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td>- (Für Vanilla Verhalten muss <code>interval</code> auf 1 gestellt sein)</td></tr>
     </table>
 
-27. Whether to check for hopper minecarts near items that are __active__, to give the minecarts temporary immunity from the `interval` setting.
+27. Gibt an, ob nach __aktiven__ Loren mit Trichtern in der Nähe von Items gesucht werden soll, um den Loren kurzzeitige Immunität von der `interval` Einstellung zu geben.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
-    <tr><td><code>true</code><br>(setting this value to <code>false</code> is strongly not recommended)</td><td><code>false</code></td><td>-</td><td>-</td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td><code>true</code><br>(Es wird stark davon abgeraten, diesen Wert auf <code>false</code> zu stellen)</td><td><code>false</code></td><td>-</td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>false</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td>- (for vanilla behavior, <code>interval</code> must be set to 1)</td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>false</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td>- (Für Vanilla Verhalten muss <code>interval</code> auf 1 gestellt sein)</td></tr>
     </table>
 
-28. Whether to check for hopper minecarts near items that are __inactive__, to give the minecarts temporary immunity from the `interval` setting.
+27. Gibt an, ob nach __inaktiven__ Loren mit Trichtern in der Nähe von Items gesucht werden soll, um den Loren kurzzeitige Immunität von der `interval` Einstellung zu geben.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
-    <tr><td><code>true</code><br>(setting this value to <code>false</code> is strongly not recommended)</td><td><code>true</code></td><td>-</td><td>-</td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td><code>true</code><br>(Es wird stark davon abgeraten, diesen Wert auf <code>false</code> zu stellen)</td><td><code>true</code></td><td>-</td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td>- (for vanilla behavior, <code>interval</code> must be set to 1)</td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td>- (Für Vanilla Verhalten muss <code>interval</code> auf 1 gestellt sein)</td></tr>
     </table>
 
-29. The duration, given in ticks, of temporary immunity from the `interval` setting for hopper minecarts.<br>
-  If a value &leq; `0` is given, hopper minecarts will never have temporary immunity from the `interval` setting.
+29. Die Dauer in Ticks, für die Loren mit Trichtern temporär von der `interval` Einstellung immun werden.<br>
+  Wenn ein Wert &leq; `0` gesetzt ist, werden Loren mit Trichtern niemals immun von der `interval` Einstellung.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>100</code></td><td><code>100</code></td><td>-</td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>75</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td>- (for vanilla behavior, <code>interval</code> must be set to 1)</td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>75</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td>- (Für Vanilla Verhalten muss <code>interval</code> auf 1 gestellt sein)</td></tr>
     </table>
 
-30. The maximum horizontal distance a dropped item can be away from a hopper minecart be to give it temporary immunity from the `interval` setting.<br>
-  If a value < `0` is given, hopper minecarts will never have temporary immunity from the `interval` setting.
+30. Die maximale horizontale Distanz, die ein gedropptes Item von einer Lore mit Trichter entfernt sein kann, um der Lore temporäre Immunität zu der `interval` zu geben.<br>
+  Wenn ein Wert < `0` gesetzt ist, werden Loren mit Trichtern niemals immun von der `interval` Einstellung.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>24.0</code><br></td><td><code>24.0</code></td><td>-</td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>24.0</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td>- (for vanilla behavior, <code>interval</code> must be set to 1)</td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>24.0</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td>- (Für Vanilla Verhalten muss <code>interval</code> auf 1 gestellt sein)</td></tr>
     </table>
 
-31. Same as `max-item-horizontal-distance`, but this is the maximum distance vertically.
+31. Genau wie `max-item-horizontal-distance`, aber für die maximale vertikale Distanz.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>4.0</code><br></td><td><code>4.0</code></td><td>-</td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>4.0</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td>- (for vanilla behavior, <code>interval</code> must be set to 1)</td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>4.0</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td>- (Für Vanilla Verhalten muss <code>interval</code> auf 1 gestellt sein)</td></tr>
     </table>
 
-32. Items with an age (given in ticks) higher than this value will not cause nearby hopper minecarts to become immune from the `interval` setting.<br>
-  If a value &leq; `0` is given, it means no minimum age: in other words, all items can give nearby hopper minecarts temporary immunity from the `interval` setting.
+32. Items mit einem Alter (in Ticks) höher als dieser Wert sorgen nicht dafür, dass Loren mit Trichtern temporär immun von der `interval` Einstellung werden können.<br>
+  Wenn der Wert &leq; `0` ist, gibt es kein minimales Alter: Alle Items können Loren mit Trichtern temporär immun von der `interval` Einstellung machen.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>1200</code></td><td><code>1200</code></td><td>-</td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>600</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td>- (for vanilla behavior, <code>interval</code> must be set to 1)</td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>600</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td>- (Für Vanilla Verhalten muss <code>interval</code> auf 1 gestellt sein)</td></tr>
     </table>
 
-33. The interval, given in ticks, at which to check whether an entity is stuck in a wall, to deal suffocation damage.<br>
+33. Das Interval in Ticks mit wem überprüft wird, ob ein Entity in einer Wand feststeckt, um Erstickungsschaden zu erteilen.<br>
   <br>
-  Since after dealing damage, there is an interval (this may change in the future, but approximately 1 second) at which entities cannot take repeated damage, delaying the suffocation check by less than 1 second is almost unnoticeable.<br>
+  Da es nach dem Erteilen von Schaden ein kurzes Zeitfenster (Aktuell etwa 1 Sekunde) gibt, in dem die Entites immun sind, bleibt es beinnahe unbemerkt, diese Überprüfung zur jede Sekunde durchzuführen.<br>
   <br>
-  For example:
-    * If this value is set to `10`, entities will check whether they are being suffocated every ½ second.
-    * If a value &leq; `0` is given, it will default to the same as Paper.
+  Zum Beispiel:
+    * Wenn dieser Wert `10` ist, überprüfen Entites alle ½ Sekunden, ob sie feststecken.
+    * Wenn dieser Wert &leq; `0` ist, ist das Verhalten wie bei Paper.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>10</code></td><td><code>10</code></td><td><code>1</code></td><td><code>1</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>10</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>1</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>10</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>1</code></td></tr>
     </table>
 
-34. The minimum delay, given in ticks, for items dropped by villagers to be picked up by (other) entities.
-    * Prevents villagers picking up farmed items before hoppers do in certain farm designs; that would otherwise be broken by the `check-nearby-item.hopper` setting described below.
-    * Reduces lag from villagers continuously throwing many items at each other when their inventories are full.
+34. Die Mindestverzögerung in Ticks, bis von Dorfbewohnern fallengelassene Items von (anderen) Entites aufgesammelt werden können.
+    * Verhindert, dass Dorfbewohner gefarmte Items wieder aufsammeln, bevor Trichter das können. Ansonsten könnte es Probleme durch die `check-nearby-item.hopper` Einstellung geben.
+    * Reduziert Lag von Dorfbewohner, die ständig Items werfen, wenn deren Inventare voll sind.
   <br><br>
-  For example:
-    * if this value is set to `100`, entities can pick up items dropped by villagers after 5 seconds.
-    * If a value < `0` is given, it will default to the same as vanilla, which is currently `10` ticks (½ second).
+  Zum Beispiel:
+    * Wenn dieser Wert `100` ist, können Entites die Items von Dorfbewohnern nach 5 Sekunden aufsammeln.
+    * Wenn der Wert < `0` ist, wird der Vanilla Standardwert genutzt (Aktuell `10` ticks oder ½ Sekunden).
 
       <table>
-      <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-      <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+      <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+      <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
       <tr><td><code>100</code></td><td><code>100</code></td><td><code>-1</code></td><td><code>-1</code></td></tr>
       </table>
       <table>
-      <tr><td><b>Values for goals</b></td><td></td></tr>
-      <tr><td><i>Optimization</i></td><td><code>100</code></td></tr>
-      <tr><td><i>Vanilla behavior</i></td><td><code>-1</code></td></tr>
+      <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+      <tr><td><i>Optimierung</i></td><td><code>100</code></td></tr>
+      <tr><td><i>Vanilla Verhalten</i></td><td><code>-1</code></td></tr>
       </table>
 
-35. Whether fireworks are saved when saving a chunk.<br>
-  Fireworks can bug out and not detonate, and an automated launcher can very easily fill a chunk.<br>
-  If this value is set to `true`, chunk unloads will remove any fireworks, preventing this scenario.
+35. Gibt an, ob Feuerwerk gespeichert wird, wenn ein Chunk gespeichert wird.<br>
+  Feuerwerk kann verbuggt werden und nicht zünden und eine automatische Redstone-Schaltung kann leicht einen ganzen Chunk damit füllen.<br>
+  Wenn dieser Wert `true` ist, wird jegliches Feuerwerk beim Entladen des Chunks entfernt, um dieses Problem zu verhindern.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
-    <tr><td>-<br>(See <i>Optimization</i> below)</td><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td>-<br>(See <i>Optimierung</i> below)</td><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><ul><li>Normally: - (doesn't matter much)<li>If you expect players to try to break your server: <code>false</code></li></ul></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>true</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><ul><li>Normalerweise: - (Ist egal)<li>Wenn Spieler vorhaben den Server zu ärgern: <code>false</code></li></ul></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>true</code></td></tr>
     </table>
 
-36. Whether to use a (much) faster way to choose a color when a new baby sheep is born.<br>
-  The color chosen is exactly the same as vanilla.<br>
+36. Gibt an. ob eine (viel) schnellere Methode genutzt werden soll, um die Farbe eines neuen Babyschafs zu bestimmen.<br>
+  Die Farbe wird auf die gleiche Weise wie in Vanilla bestimmt.<br>
   <br>
-  However, in vanilla, it is possible to change the new color by changing the crafting recipe for combining dyes using a data pack.<br>
-  If this value is set to `true`, any such crafting recipe changes will be ignored.
+  Allerdings ist es in Vanilla möglich, die neue Farbe durch Datapacks zu ändern, die das Crafting-Rezept für das Kombinieren von Farbstoffen ändern.<br>
+  Wenn dieser Wert `true` ist, werden solche Änderungen an Crafting-Rezepten ignoriert.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>

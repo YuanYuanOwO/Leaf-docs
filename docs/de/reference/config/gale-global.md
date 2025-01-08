@@ -64,333 +64,334 @@ small-optimizations:
 
 ```
 
-1. Whether books should be writeable.<br>
-  If set to `false`, players with the permission `gale.writebooks` (default: `op`) can still use books.
+1. Gibt an, ob Bücher beschreibbar sein sollen.<br>
+  Wenn diese Option auf `false` gesetzt wird, können Spieler mit der Permission `gale.writebooks` (Standard: `op`) trotzdem Bücher nutzen.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td>-</td><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>true</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>true</code></td></tr>
     </table>
 
-2. Whether to log specific text and events to the console and the log files.
-3. When a player sends a message packet that is empty.<br>
-  (this is harmless, it usually happens when the player's client is outdated)
+2. Gibt an, ob bestimmte Texte und Ereignisse in der Konsole und in den Logdateien geloggt werden sollen.
+3. Wenn ein Spieler ein leeres Nachrichtenpaket sendet.<br>
+  (Dies ist harmlos und passiert meistens, wenn der Client des Spielers veraltet ist)
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td></tr>
     </table>
 
-4. When a player's message packet has expired.<br>
-  (this is harmless, it usually happens when the player's client's chat is a bit out-of-sync)
+4. Wenn das Nachrichtenpaket eines Spielers abgelaufen ist.<br>
+  (Dies ist harmlos und passiert meistens, wenn ein Bit des Clients des Spielers nicht mehr synchron ist)
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td></tr>
     </table>
 
-5. Whether to add a [NOT SECURE] marker in front of unsigned chat packets.
+5. Gibt an, ob ein [NOT SECURE] Marker vor unsignierte Chatpakete angefügt werden soll.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td>-</td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-6. When a player's data is loaded, and they have advancements that don't exist anymore.
-  (this is harmless, it usually happens when the server upgraded to the newer Minecraft version)
+6. Wenn Spielerdaten geladen werden und Advancements beinhalten, die nicht mehr existieren.<br>
+  (Dies ist harmlos und passiert meistens, wenn der Server auf eine neue Minecraft Version aktualisiert wurde)
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td><code>false</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-7. The logging level for errors when the server encounters *invalid pool elements* in world data.<br>
+7. Das Logging-Level für Fehler, wenn *ungültige Pool-Elemente* in den Weltdaten auftreten.<br>
   <br>
-  *Invalid pool elements* are parts of generated structures (such as Mineshafts) that are corrupted or not updated from old versions properly.<br>
+  *Ungültige Pool-Elemente* sind Teil von generierten Strukturen (wie Minenschachte), die korrupt sind oder nicht richtig von älteren Versionen übernommen wurden.<br>
   <br>
-  The errors generated by this are huge, and happen often on old servers that have updated across many Minecraft versions.<br>
+  Diese Fehler sind sehr groß und treten häufig auf alten Servern auf, die zwischen Minecraft versionen wechseln.<br>
   <br>
-  The error logs are usually pointless: there is nothing you can do about it.<br>
+  Die Fehler sind meistens nutzlos: Man kann nichts dagegen tun.<br>
   <br>
-  The valid values for this setting are: `"none"`, `"info"`, `"warn"` and `"error"`.
+  Gültige Werte sind: `"none"`, `"info"`, `"warn"` und `"error"`.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>"none"</code> 🛈</td><td><code>"info"</code></td><td><code>"error"</code></td><td><code>"error"</code></td></tr>
     </table>
 
-    > 🛈 = The default value is `"info"` to prevent any errors going unnoticed by default, but the recommended value is `"none"` because these errors are usually meaningless and unsolvable anyway.
+    > 🛈 = Der Standardwert ist `"info"` um zu verhindern, dass Fehler nicht gesehen werden, aber der empfohlene Wert ist `"none"` weil die Fehler meistens nutzlos und sowieso nicht lösbar sind.
 
-8. When a player's data is loaded, and they have statistics that don't exist anymore.
+8. Wenn Spielerdaten geladen werden und Statistiken beinhalten, die nicht mehr existieren.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td><code>false</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-9. When a very old Bukkit plugin is loaded.
+9. Wenn ein sehr altes Bukkit Plugin geladen wird
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td></tr>
     </table>
 
-10. When a player did not send a valid profile during login.<br>
-  (this usually indicates a hacker is trying to flood your server's joining capacity)
+
+10. Wenn ein Spieler kein gültiges Profil während dem Login gesendet hat.<br>
+  (Dies bedeutet meistens, dass ein Hacker versucht die Join-Kapazität des Servers zu überlasten)
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td>-</td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-11. Whether to include a player's coordinates in the join message logged to the console.
+11. Gibt an, ob die Koordinaten eines Spielers in der Join-Nachricht in der Konsole enthalten sein soll.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td>-</td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-12. When the plugin library loader starts downloading libraries.
+12. Wenn der Plugin Library-Loader mit dem Download der Libraries beginnt.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-13. When the plugin library loader finished loading a library.
+13. Wenn der Plugin Library-Loader mit dem Download einer Library fertig ist.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-14. When the plugin library loader starts loading libraries for a plugin.
+14. Wenn der Plugin Library-Loader mit dem Laden der Libraries für ein Plugin beginnt.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-15. When a player attempts to set a block that is *very* far away.<br>
-  (this usually indicates a hacker is trying to get information about other players' locations, or is using the hack client)
+15. Wenn ein Spieler versucht, einen Block zu platzieren, der *sehr* weit entfernt ist.<br>
+  (Dies bedeutet meistens, dass ein Hacker versucht, Informationen über die Standorte anderer Spieler zu erhalten oder einen Hack Client nutzt)
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td><code>false</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-16. When a player's data is loaded, and they have recipe book recipes that don't exist anymore.
+16. Wenn Spielerdaten geladen werden und Rezeptbuch-Rezepte beinhaltet, die nicht mehr existieren.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td></tr>
     </table>
 
-17. Whether to ignore any legacy structure data, for which the NBT tag parser returns null for some reason.
-    * If `true`, no warning will be given when this happens.
-    * If `false`, an exception will be thrown in the console when this happens.
+17. Gibt an, ob veraltete Strukturdaten ignoriert werden sollen, für die der NBT Tag Parser aus irgendeinem Grund null zurückgegeben hat.
+    * Bei `true` wird in diesem Fall keine Warnung ausgegeben.
+    * Bei `false` wird in diesem Fall eine Exception geworfen und in der Konsole geworfen.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>true</code> 🛈</td><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-    > 🛈 = The default value is `false` to prevent any errors going unnoticed by default, but the recommended value is `true` because these errors are usually meaningless and unsolvable anyway.
+    > 🛈 = Der Standardwert ist `"info"` um zu verhindern, dass Fehler nicht gesehen werden, aber der empfohlene Wert ist `"none"` weil die Fehler meistens nutzlos und sowieso nicht lösbar sind.
 
-18. Whether to send more frequent keepalive packets than vanilla.
-    * If `true`, a keepalive packet is sent to every client every second, and they are not kicked if they respond to at least one of them within 30 seconds.
-    * If `false`, a keepalive packet is sent to every client every 15 seconds, and they are kicked if they do not respond to it within 30 seconds.
+18. Gibt an, ob Keepalive-Pakete häufiger als in Vanilla gesendet werden sollen
+    * Bei `true` wird ein Keepalive-Paket jedem Client jede Sekunde gesendet und diese werden nicht gekickt, solange sie innerhalb von 30 Sekunden mindestens einmal antworten.
+    * Bei `false` wird ein Keepalive-Paket jedem Client alle 15 Sekunden gesendet und werden gekickt, falls diese nicht innerhalb von 30 Sekunden antworten.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td>- (this doesn't affect gameplay)</td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td>- (Dies hat keinen Einfluss auf das Gameplay)</td></tr>
     </table>
 
-19. Whether to add the oversleep portion of the last tick's time to the `/tps` command.<br>
-  This only has any effect if `enabled` above is `true`.
+19. Gibt an, ob der Oversleep-Anteil der letzten Tickzeit im `/tps` Command enthalten sein soll.<br>
+  Diese Option wird ignoriert, wenn `enabled` auf `false` gestellt ist.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td>-</td><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Paper behavior</i></td><td>-</td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Paper Verhalten</i></td><td>-</td></tr>
     </table>
 
-20. Whether to include the time that the last tick took in the `/tps` command.<br>
-  The time that the last tick took only represents that one tick, so it is normally not very useful.
+20. Gibt an, ob die Zeit, die der letzte Tick gedauert hat, im `/tps` Command enthalten sein soll.<br>
+  Die Zeit des letzten Ticks ist meistens nicht sehr nützlich, das es sich nur um einen einzelnen Tick handelt.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Paper behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Paper Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-21. The maximum time, given in ticks, that a premium account login can take.
-    * If this time is exceeded, the connection is closed.
-    * If a value &leq; `0` is given, it will default to the same as vanilla, which is currently `600` ticks (30 seconds).
+21. Die maximale Zeit in Ticks, die ein Login Vorgang eines Premium-Accounts dauern kann.
+    * Wenn die Zeit abläuft, wird die Verbindung geschlossen.
+    * Wenn ein Wert &leq; `0` gesetzt wird, wird der Vanilla-Wert genutzt, der aktuell bei `600` Ticks (30 Sekunden) liegt.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td>-</td><td><code>-1</code></td><td><code>-1</code></td><td><code>-1</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>-1</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>-1</code></td></tr>
     </table>
 
-22. Whether to verify the order of chat messages.
-    * If this option is set to `true`, and a player sends an out-of-order chat packet for some reason, they will be kicked.
-    * If this option is set to `false`, no verification will occur, and players will not be kicked.
+22. Gibt an, ob die Reihenfolge der Chatnachrichten verifiziert werden soll.
+    * Bei `true` wird ein Spieler gekickt, wenn er ein Chat-Paket senden sollte, das nicht in der korrekten Reihenfolge entspricht.
+    * Bei `false` findet keine Überprüfung statt und Spieler werden nicht gekickt.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td>-</td><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>true</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>true</code></td></tr>
     </table>
 
-23. The interval, given in ticks, at which to increase the time-related statistics such as total playtime, time since the last death, etc.<br>
-  Changing this value does not change the speed with which statistics increase from vanilla.<br>
+23. Das Interval in Ticks, in welchem die zeitbasierten Statistiken, wie Spielzeit oder Zeit seit dem letzten Tod erhöht werden sollen.<br>
+  Das Ändern dieses Werten ändert nicht die Geschwindigkeit, mit der Statistiken von Vanilla erhöht werden.<br>
   <br>
-  For example:
-    * If this value is set to `20`, the total playtime in ticks will be increased by 20 every second.
-    * If this value is set to `100`, the total playtime in ticks will be increased by 100 every 5 seconds.
-    * If a value &leq; `0` is given, it will default to the same as Paper.
+  Zum Beispiel:
+    * Wenn dieser Wert `20` beträgt, wird die Spielzeit in Ticks jede Sekunde um 20 erhöht.
+    * Wenn dieser Wert `100` beträgt, wird die Spielzeit in Ticks alle 5 Sekunden um 100 erhöht.
+    * Wenn ein Wert &leq; `0` gesetzt ist, ist der Wert gleich wie bei Paper.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>100</code></td><td><code>20</code></td><td><code>1</code></td><td><code>1</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>100</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td>Lower is more like vanilla<br>(<code>20</code> is fine though, <code>1</code> is normally unnecessary)</td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>100</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td>Geringere Werte sind mehr wie Vanilla<br>(<code>20</code> ist aber auch in Ordnung, <code>1</code> ist meistens unnötig)</td></tr>
     </table>
 
-24. The interval, given in ticks, at which to update whether one entity is within another entity's line of sight.<br>
-  If a value &leq; `0` is given, it will default to the same as Paper.
+24. Das Interval in Ticks, in welchem aktualisiert wird, ob ein Entity in der Sicht eines anderen Entity ist.<br>
+  Wenn ein Wert &leq; `0` gesetzt ist, ist der Wert gleich wie bei Paper.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>4</code></td><td><code>4</code></td><td><code>1</code></td><td><code>1</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>10</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>1</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>10</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>1</code></td></tr>
     </table>
 
-25. Whether to use a [xor-shift](https://www.codeproject.com/Articles/9187/A-fast-equivalent-for-System-Random) random number generator instead of the Java's default.
-26. Whether to use a xor-shift random generator for refilling lootables for the Paper `auto-replenish` feature.<br>
-  This does not affect normal Minecraft lootable chests.
+25. Gibt an, ob ein [XOR-Shift](https://www.codeproject.com/Articles/9187/A-fast-equivalent-for-System-Random) Zufallsgenerator anstelle des Standardgenerators von Java genutzt werden soll.
+26. Gibt an, ob der XOR-Shift Generator für das Auffüllen von Lootables des Paper `auto-replenish` Features genutzt werden soll.<br>
+  Dies hat keine Auswirkung auf normale Minecraft Lootable Truhen.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>false</code></td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Paper behavior</i></td><td>- (players can't notice the difference anyway)</td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Paper Verhalten</i></td><td>- (Spieler merken sowieso keinen Unterschied)</td></tr>
     </table>
 
-27. Whether to use a xor-shift random generator for the speed boost of using a rocket while gliding.
+27. Gibt an, ob der XOR-Shift Generator für den Speed-Boost einer Rakete beim Gleiten genutzt werden soll.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>false</code></td><td><code>false</code></td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-28. Whether to use a xor-shift random generator for variation in entity activation durations.
+28. Gibt an, ob der XOR-Shift Generator für Variationen in Entity-Aktivierung-Zeiten genutzt werden soll.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td>-</td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
     </table>
 
-29. Whether to use a xor-shift random generator to generate trees with the Bukkit API (`World#generateTree`).
+29. Gibt an, ob der XOR-Shift Generator für die Generierung von Bäumen mit der Bukkit API (`World#generateTree`) genutzt werden soll.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>false</code></td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Paper behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Paper Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-30. Whether to use a xor-shift random generator for the chance of lightning strike.
+30. Gibt an, ob der XOR-Shift Generator für die Chance eines Blitzes genutzt werden soll.
 
     <table>
-    <tr><td></td><td><b>Default</b></td><td></td><td></td></tr>
-    <tr><td><b>Recommended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
+    <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
+    <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td><td><i>Vanilla</i></td></tr>
     <tr><td><code>true</code></td><td><code>true</code></td><td><code>false</code></td><td>-</td></tr>
     </table>
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Paper behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Paper Verhalten</i></td><td><code>false</code></td></tr>
     </table>
