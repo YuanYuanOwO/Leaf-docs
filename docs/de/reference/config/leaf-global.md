@@ -21,7 +21,7 @@ async: #(1)!
     compat-mode: false #(3)!
     max-threads: 0 #(4)!
     keepalive: 60 #(5)!
-  # **Experimental feature, may cause data lost in some circumstances!**
+  # **Experimentelle Funktionen, die unter Umständen zu Datenverlust führen können!**
   async-playerdata-save: #(6)!
     enabled: false
   async-pathfinding: #(7)!
@@ -54,10 +54,10 @@ performance: #(14)!
   optimize-minecart: #(26)!
     enabled: false
     skip-tick-count: 30 #(27)!
-  # This may cause the inconsistent order of future compose tasks.
+  # Dies könnte zu einer inkonsistenten Reihenfolge zukünftiger Kompositionsaufgaben führen.
   faster-structure-gen-future-sequencing: true #(28)!
-  # Requires a JVM that supports RandomGenerator and the LXM generators.
-  # Some JREs don't support this and will cause a crash.
+  # Erfordert eine JVM, die RandomGenerator und LXM Generatoren unterstützt.
+  # Manche JREs unterstützten dies nicht und werden abstürzen.
   faster-random-generator: #(29)!
     enabled: false
     random-generator: Xoroshiro128PlusPlus #(30)!
@@ -204,9 +204,9 @@ fixes: #(44)!
 ##############
 gameplay-mechanisms: #(46)!
   use-spigot-item-merging-mechanism: true #(47)!
-  # **Experimental feature, report any bugs you encounter!**
+  # **Experimentelle Funktion, bitte melde jegliche Fehler!**
   smooth-teleport: false #(48)!
-  # Don't touch this unless you know what you are doing!
+  # Dies sollte nur mit äußerster Vorsicht geändert werden!
   max-item-stack-count: #(49)!
     max-dropped-items-stack-count: 0 #(50)!
     max-container-destroy-count: 0 #(51)!
@@ -244,7 +244,7 @@ misc: #(70)!
     server-mod-name: Leaf #(72)!
     server-gui-name: Leaf Console #(73)!
   sentry: #(74)!
-    # Obtain DSN key from https://sentry.io/
+    # Erhalte einen DSN Schlüssel bei https://sentry.io/
     dsn: '' #(75)!
     log-level: WARN #(76)!
     only-log-thrown: true #(77)!
@@ -263,7 +263,7 @@ misc: #(70)!
     enable-for-water: false #(88)!
     enable-for-lava: false #(89)!
   including-5s-in-get-tps: true #(90)!
-  # NOTICE: You must know what you're filling in and how it works! It handles all item stacks!
+  # INFO: Bei dieser Option ist Kenntnis darüber erforderlich, was eingegeben werden soll und wie es funktioniert! Dies betrifft alle ItemStacks!
   hidden-item-components: [] #(91)!
   connection-message: #(92)!
     join:
@@ -277,205 +277,206 @@ misc: #(70)!
     cache-player-profile-result-timeout: 1440 #(96)!
 ```
 
-1. This section contains asynchronous features intended to reduce the load on the main thread (Server Thread) by processing tasks asynchronously.
-2. Make entity tracking asynchronously, can improve performance significantly, especially in some massive entities in small area situations.<br>
+1. Dieser Abschnitt beinhaltet asynchrone Funktionen, die die Last auf dem Hauptthread (Server Thread) reduzieren sollen, indem Aufgaben asynchron bearbeitet werden.
+2. Macht Entity-Tracking asynchron. Kann die Leistung deutlich verbessern, vor allem wenn viele Entities in kleinen Bereichen sind.<br>
   <br>
-  __Recommended value: `true` (set `enabled` below to true)__
+  __Empfohlener Wert: `true` (Setze `enabled` unten auf true)__
 
-    !!! note "Attention"
+    !!! note "Achtung"
 
-        If you installed plugins like Citizens, which uses real, and player type entity as "NPC", also read `async-entity-tracker.compat-mode` below for more infomration.
+        Wenn Plugins wie Citizens vorhanden sind, die echte, NPCs vom Typ Spieler nutzen, muss `async-entity-tracker.compat-mode` unten für weitere Informationen beachtet werden.
 
-3. Enable compat mode to be compatible with plugins like Citizens or NPC plugins that use real, and player-type entity.<br>
-  If `true`,  visibility issue that player-type NPCs may disappear sometimes can be fixed.<br>
+3. Aktiviere den Kompatibilitätsmodus um mit Plugins wie Citizens oder anderen Plugins, die reale NPCs vom Typ Spieler nutzen, kompatibel zu sein.<br>
+  Bei `true`, können Sichtbarkeitsprobleme von NPCs des Typ Spieler manchmal behoben werden.<br>
   <br>
-  You should enable `compat-mode` to use async entity tracker feature ==ONLY IF== you installed Citizens or any other kind of real entity NPC plugins.<br>
+  `compat-mode` sollte nur aktiviert werden, wenn tatsächlich Citizens oder andere Plugins, die reale NPCs vom Typ Spieler nutzen, vorhanden sind.<br>
   <br>
-  But we still recommend to use packet-based / virtual entity NPC plugin to gain better performance, e.g. [ZNPC Plus](https://github.com/Pyrbu/ZNPCsPlus), [Adyeshach](https://github.com/TabooLib/Adyeshach), [Fancy NPC](https://modrinth.com/plugin/fancynpcs), or else, and then `compat-mode` can be disabled.
-4. Maximum number of threads for async entity tracker to use.<br>
-   If the value is set to `0`, it automatically uses 1/4 of the number of CPU cores and no less than 1.<br>
+  Wie empfehlen trotzdem die Nutzung von Paket-basierten oder virtuellen Entity NPC Plugins für eine bessere Leistung, z.B. [ZNPC Plus](https://github.com/Pyrbu/ZNPCsPlus), [Adyeshach](https://github.com/TabooLib/Adyeshach), [Fancy NPC](https://modrinth.com/plugin/fancynpcs), oder andere. Dann kann `compat-mode` deaktiviert bleiben.
+4. Die maximale Anzahl an Threads, die für das asynchrone Entity-Tracking genutzt werden.<br>
+   Wenn dieser Wert `0` ist, werden automatisch 1/4 der Anzahl an CPU Kernen genutzt, allerdings niemals weniger als 1.<br>
   <br>
-  __Recommended value: 1/2 of CPU cores__
-5. Thread keepalive time, threads with no tasks will be terminated if they exceed the time.<br>
-  (Unit: seconds)
-6. Make PlayerData saving asynchronously.
+  __Empfohlener Wert: 1/2 der CPU Kerne__
+5. Thread Keepalive Zeit. Threads ohne Aufgabe werden nach dieser Zeit beendet.<br>
+  (Einheit: Sekunden)
+6. Macht das Speichern von Spielerdaten asynchron.
 
-    !!! warning "Warning"
+    !!! warning "Warnung"
 
-        Experimental feature, may cause data lost in some circumstances!
+        Experimentelle Funktion, die in manchen Fällen zu Datenverlust führen kann!
 
-7. Make mob pathfinding calculation asynchronously.<br>
+7. Macht Mob-Pathfinding Berechnungen asynchron.<br>
   <br>
-  __Recommended value: `true` (set `enabled` below to true)__
-8. Maximum number of threads for async entity pathfinding to use.<br>
-   If the value is set to `0`, it automatically uses 1/4 of the number of CPU cores and no less than 1.<br>
+  __Empfohlener Wert: `true` (Setze `enabled` unten auf true)__
+8. Die maximale Anzahl an Threads, die für das asynchrone Entity-Pathfinding genutzt werden.<br>
+   Wenn dieser Wert `0` ist, werden automatisch 1/4 der Anzahl an CPU Kernen genutzt, allerdings niemals weniger als 1.<br>
   <br>
-  __Recommended value: 1/3 of CPU cores__
-9. Thread keepalive time, threads with no tasks will be terminated if they exceed the time.<br>
-  (Unit: seconds)
-10. Whether asynchronous mob spawning should be enabled.<br>
-  On servers with many entities, this can improve performance by up to 15%. You must have Paper's `per-player-mob-spawns` config set to `true` for this to work.<br>
-  One quick note: this does not actually spawn mobs async (that would be very unsafe). This just offloads some expensive calculations that are required for mob spawning.<br>
+  __Empfohlener Wert: 1/3 der CPU Kerne__
+9. Thread Keepalive Zeit. Threads ohne Aufgabe werden nach dieser Zeit beendet.<br>
+  (Einheit: Sekunden)
+10. Gibt an, ob asynchrones Mob-Spawning aktiviert sein soll.<br>
+  Auf Servern mit vielen Entities, kann dies die Leistung um bis zu 15% steigern. Hierfür muss `per-player-mob-spawns` der Paper Konfiguration auf `true` gestellt sein.<br>
+  Anmerkung: Hierdurch werden Mobs nicht wirklich asynchron gespawnt (Das wäre sehr unsicher). Hierdurch werden nur einige aufwändige Berechnungen ausgelagert, die für das Mob-Spawning erforderlich sind.<br>
   <br>
-  __Recommended value: `true`__
-11. Whether asynchronous locator should be enabled.<br>
-  This offloads structure locating to other threads.<br>
-  Currently available for:
-    * `/locate` command
-    * Dolphin treasure finding
-    * Eye of ender stronghold finding
+  __Empfohlener Wert: `true`__
+11. Gibt an, ob der asynchrone Locator aktiviert sein soll.<br>
+  Hierdurch wird das Lokalisieren von Strukturen auf andere Threads ausgelagert.<br>
+  Aktuell verfügbar für:
+    * `/locate` Befehl
+    * Delfin Schatzsuche
+    * Enderauge Festung Suche
   <br><br>
-  __Recommended value: `true` (set `enabled` below to true)__
-12. Maximum number of threads for async locator to use.<br>
-   If a value &leq; `0` is given, it automatically uses 1 thread.<br>
+  __Empfohlener Wert: `true` (Setze `enabled` unten auf true)__
+12. Die maximale Anzahl an Threads, die für den asynchronen Locator genutzt werden.<br>
+   Wenn dieser Wert &leq; `0` ist, wird immer 1 Thread genutzt.<br>
   <br>
-  __Recommended value: `1` or `2`__
-13. Thread keepalive time, threads with no tasks will be terminated if they exceed the time.<br>
-  (Unit: seconds)
+  __Empfohlener Wert: `1` oder `2`__
+13. Thread Keepalive Zeit. Threads ohne Aufgabe werden nach dieser Zeit beendet.<br>
+  (Einheit: Sekunden)
 
 
 
-14. This section contains performance tuning intended to reduce unnecessary calculations or use more efficient methods to optimize the server.
-15. Whether to use the [Virtual Thread](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html) introduced in JDK 21 for Async Chat Executor.<br>
+14. Dieser Abschnitt beinhaltet Performance-Einstellungen um unnötige Berechnungen zu reduzieren oder effizientere Methoden zu nutzen um den Server zu optimieren.
+15. Gibt an, ob [virtuelle Threads](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html) ab JDK 21 für den Aync Chat Executer genutzt werden sollen.<br>
   <br>
-  __Recommended value: `true`__
-16. Whether to use the [Virtual Thread](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html) introduced in JDK 21 for CraftAsyncScheduler, which could improve performance of plugin that uses async scheduler.<br>
+  __Empfohlener Wert: `true`__
+16. Gibt an, ob [virtuelle Threads](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html) ab JDK 21 für den CraftAsyncScheduler genutzt werden sollen. Dies kann die Leistung von Plugins verbessern, die den asynchronen Scheduler nutzen.<br>
   <br>
-  __Recommended value: `true`__
-17. Whether to create the snapshot of TileEntity / BlockState when retrieving them.<br>
+  __Empfohlener Wert: `true`__
+17. Gibt an, ob ein Snapshot von TileEntity / BlockState erstellt werden soll, wenn diese empfangen werden.<br>
   <br>
-  Some plugins may use `getHolder` to get the holder for an inventory, which involved getting the BlockState.<br>
-  For example, if there are tons of hoppers and plugins call this method when listening to some events (e.g. hopper related events). It is very expensive to re-create BlockState and parse item stack in massive and frequent calls.<br>
-  See Paper's [API-to-get-a-BlockState-without-a-snapshot.patch#L6](https://github.com/PaperMC/Paper-archive/blob/b48403bd69f534ffd43fe2afb4e8e1f1ffa95fe1/patches/server/0160-API-to-get-a-BlockState-without-a-snapshot.patch#L6) for more information.
-    * If `true`, it will create snapshot (copy) of BlockState everytime when the plugin call related methods.
-    * If `false`, it will get real BlockState itself when plugins call related methods, unless the plugin defines to use snapshot.
+  Manche Plugins könnten `getHolder` nutzen, um den Halter eines Inventars zu erhalten, der das holen des BlockStates involvierte.<br>
+  Wenn es zum Beispiel sehr viele Trichter gibt und Plugins diese Methode aufrufen während sie auf manche Events hören (z.B. Trichter Events), ist es sehr aufwändig den BlockState neu zu erstellen und den ItemStack in häufigen Aufrufen zu parsen.<br>
+  Siehe [API-to-get-a-BlockState-without-a-snapshot.patch#L6](https://github.com/PaperMC/Paper-archive/blob/b48403bd69f534ffd43fe2afb4e8e1f1ffa95fe1/patches/server/0160-API-to-get-a-BlockState-without-a-snapshot.patch#L6) von Paper für weitere Informationen.
+    * Bei `true`, wird ein Snapshot (Kopie) des BlockStates jedes Mal erstellt, wenn ein Plugin die Methoden aufruft.
+    * Bei `false`, wird der echte BlockState geholt beim Aufruf er Methoden, außer das Plugin gibt an, den Snapshot zu nutzen.
   <br><br>
-  __Recommended value: `false` (Only if you encounter specific lag described above)__
-18. Throttles the *AI goal selector* calculation in entity's *inactive tick* to every second. This can improve performance by a few percent, but has minor gameplay implications.<br>
+  __Empfohlener Wert: `false` (Nur wenn der oben beschriebene Lag auftritt)__
+18. Verlangsamt die *AI Zielauswahl* Berechnung, die jeden *inaktiven Tick* durchgeführt wird. Dies kann die Performance um ein paar Prozent verbessern, hat aber leichte Einflüsse auf das Gameplay.<br>
   <br>
-  __Recommended value: `true`__
+  __Empfohlener Wert: `true`__
 
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-19. Whether to throttle attempts on moving items for hopper if the target container is full.<br>
+19. Gibt an, ob Versuche eines Trichters, Items in einen vollen Container zu bewegen, verlangsamt werden sollen.<br>
   <br>
-  __Recommended value: `true` (set `enabled` below to true)__
+  __Empfohlener Wert: `true` (Setze `enabled` unten auf true)__
 
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-20. How many ticks to wait before the next move item attempt when the hopper is throttled.<br>
-  If a value &leq; `0` is given, this throttling feature is disabled.<br>
+20. Wie viele Ticks gewartet wird, bevor das nächste Mal versucht wird Items zu bewegen, wenn der Trichter verlangsamt ist.<br>
+  Wenn der Wert &leq; `0` ist, ist dieses Feature deaktiviert.<br>
   <br>
-  __Recommended value: `8`__
+  __Empfohlener Wert: `8`__
 
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>8</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>0</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>8</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>0</code></td></tr>
     </table>
 
-21. Whether to skip map item data update if the map doesn't have a renderer.<br>
-  This can improve performance if using image map kind of plugins.<br>
+21. Gibt an, ob Updates für Itemdaten von Karten übersprungen werden sollen, wenn die Karte keinen Renderer hat.<br>
+  Dies kann die Leistung verbessern, wenn Plugins genutzt werden, die mit Karten zu tun haben.<>br
   <br>
-  __Recommended value: `true`__
+  __Empfohlener Wert: `true`__
 
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-    !!! note "Attention"
+    !!! note "Achtung"
 
-        This may cause vanilla map item data to stop be updated.
+        Hierdurch könnten Vanilla Karten sich nicht mehr richtig aktuallisieren.
 
-22. Whether to skip AI ticks if the mob is *inactive* and *unaware*. Unaware mobs are nerd and will not make actions themselves or when interacted with them.<br>
+22. Gibt an, ob AI Ticks übersprungen werden sollen, falls das Entity *inaktiv* und *unaufmerksam*. Unaufmerksame Entities führen keine Aktionen bei sich selbst aus oder wenn mit ihnen interagiert wird.<br>
   <br>
-  __Recommended value: `true`__
+  __Empfohlener Wert: `true`__
 
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-23. This section is for the useless packet reducing features.
-24. Whether to reduce the useless entity movement packets sent to players.<br>
+23. Dieser Abschnitt ist für die Reduktion von unnötigen Paketen.
+24. Gibt an, ob das unnötige Entity Bewegungspaket reduziert werden soll, welches an Spieler gesendet wird.<br>
   <br>
-  __Recommended value: `true`__
-25. Whether to use optimized powered rails. Uses fully rewritten version of powered rail iteration logic, can achieve 4x faster performance.<br>
+  __Empfohlener Wert: `true`__
+25. Gibt an, ob optimierte Aktivierungsschienen genutzt werden sollen. Nutzt eine vollständig neu geschriebene Iterationslogik für Aktivierungsschienen, die bis zu 4x schneller sein kann.<br>
   <br>
-  __Recommended value: `true`__
-26. Whether to optimize minecart ticking. By skipping tick collisions to reduce expensive `getEntities()` calls and bukkit event calls.<br>
-  This can handle a large amount of stacked minecarts better which is useful for [Anarchy servers](https://minecraftservers.org/type/anarchy).<br>
+  __Empfohlener Wert: `true`__
+26. Gibt an, ob Minecart Ticking optimiert werden soll. Durch das Überspringen von Tick Kollisionen, werden aufwändige `getEntities()` Aufrufe und Bukkit Eventaufrufe reduziert.<br>
+  Dadurch können große Mengen an gestapelten Minecarts besser gehandhabt werden, was nützlich für [Anarchy Server](https://minecraftservers.org/type/anarchy) ist.<br>
   <br>
-  __Recommended value: `true`__
+  __Empfohlener Wert: `true`__
 
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-27. How many ticks to skip before checking for the next minecart collisions.<br>
+27. WIe viele Ticks übersprungen werden sollen, bevor die nächste Minecart Kollision überprüft wird.<br>
   <br>
-  __Recommended value: `30`__
-28. Whether to use faster task sequencing for generating structures.
+  __Empfohlener Wert: `30`__
 
-    !!! note "Attention"
+28. Gibt an, ob eine schnellere Aufgabensequenzierung für das Generieren von Strukturen genutzt werden soll.
 
-        This may cause the inconsistent order of future compose tasks.
+    !!! note "Achtung"
 
-29. Whether to use the faster random generator.<br>
-  Random is used almost everywhere in Minecraft, enable this can get a decent performance improvement.<br>
+        Dadurch kann die Reihenfolge von zukünftigen Compose-Aufgaben inkonsistent werden.
+
+29. Gibt an, ob der schnellere Zufallsgenerator genutzt werden soll.<br>
+  Zufalls wird fast überall in Minecraft genutzt. Diese Einstellung kann eine gute Performanceverbesserung zur Folge haben.<br>
   <br>
-  __Recommended value: `true` (set `enabled` below to true)__
+  __Empfohlener Wert: `true` (Setze `enabled` unten auf true)__
 
-    !!! note "Attention"
+    !!! note "Achtung"
 
-        Requires a JVM that supports `RandomGenerator` and the LXM generators. Some JREs don't support this and will cause a crash.
+        Erfordert eine JVM, die `RandomGenerator` und die LXM Generatoren unterstützt. Manche JREs unterstützen dies nicht und werden abstürzen.
 
-30. Which random generator will be used?<br>
-  Available random generators can be found in [Random Number Generators in Java](https://www.baeldung.com/java-17-random-number-generators#1-api-design-1).<br>
+30. Welcher Zufallsgenerator soll genutzt werden?<br>
+  Verfügbare Zufallsgeneratoren können hier gefunden werden [Zufallsgeneratoren in Java](https://www.baeldung.com/java-17-random-number-generators#1-api-design-1).<br>
   <br>
-  __Recommended value: `Xoroshiro128PlusPlus`__
-31. Whether to use the faster random generator for world generation.<br>
-    * If `true`, `Random` calls involved in world generation will use faster random generator you chose in `random-generator` above. The world generation will be slightly different from vanilla.
-    * If `false`, `Random` calls involved in world generation will use legacy random generator of vanilla.
+  __Empfohlener Wert: `Xoroshiro128PlusPlus`__
+31. Gibt an, ob der schnellere Zufallsgenerator für Weltgenerierung genutzt werden soll.<br>
+    * Bei `true` werden `Random` Aufrufe, die mit Weltgenerierung zu tun haben, den schnelleren Zufallsgenerator nutzen, der oben in `random-generator` angegeben ist. Die Weltgenerierung wird sich leicht von Vanilla unterscheiden.
+    * Bei `false` werden `Random` Aufrufe, die mit Weltgenerierung zu tun haben, den normalen Vanilla Generator nutzen.
   <br><br>
-  __Recommended value: `true`__
+  __Empfohlener Wert: `true`__
 
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-32. Whether server prints a warning message on startup if you are using faster random generator for slime chunk generation.
-33. Whether to use legacy random source for slime chunk generation to follow the vanilla behavior.<br>
-  If your server has existing slime farms or related facilities need slime chunk, enable this, otherwise the location of slime chunk will offset.<br>
+32. Gibt an, ob der Server eine Warnung beim Start ausgibt, wenn der schnellere Zufallsgenerator für Schleimchunk Generierung genutzt wird.
+33. Gibt an, ob der Vanilla Generator für die Schleimchunk Generierung genutzt werden soll.<br>
+  Wenn es bereits Schleimfarms oder andere Bauwerke, die Schleimchunks benötigen auf dem Server gibt, sollte dies aktiviert werden, da sonst der Standort der Schleimchunks verändert wird.<br>
   <br>
-  __Recommended value:__ (Depends on your server type, see `Values for goals` below for more.)
+  __Empfohlener Wert:__ (Hängt vom Server ab, siehe `Werte für Ziele` unten.)
 
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>false</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>true</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>false</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>true</code></td></tr>
     </table>
 
-34. These values, in ticks, define an entity's maximum lifespan (i.e. Entity TTL).<br>
-  If an entity is in this list, and it has survived for longer than that number of ticks, then it will be removed. 🛈<br>
-  If a value `-1` is given, the Entity TTL check will disable for specific entity.<br>
+34. Diese Werte geben in Ticks die maximale Lebensspanne eines Entites an (Wie eine Art TTL).<br>
+  Wenn ein Entity in dieser Liste ist und länger als diese Zeit überlebt hat, wird es entfernt. 🛈<br>
+  Wenn ein Wert `-1` ist, wird die Überprüfung für dieses Entity deaktiviert.<br>
   <br>
-  __Recommended values:__
+  __Empfohlene Werte:__
 
     | Entity             | Value |
     |--------------------|-------|
@@ -489,133 +490,133 @@ misc: #(70)!
     | BREEZE_WIND_CHARGE | 200   |
     | WITHER_SKULL       | 200   |
 
-    > 🛈 = In here, the time that the entity survived means the total living time of entity, and will not be reset by chunk unloading or loading.
+    > 🛈 = Die Zeit, die ein Entity lebt, wird nicht durch das Laden und Entladen eines Chunks zurückgesetzt.
 
-35. Whether to cache the result of *Minecraft EntityType* to *Bukkit EntityType* conversion. It can get a tiny improvement.<br>
+35. Gibt an, ob das Ergebnis von Konversionen von *Minecraft EntityType* zu *Bukkit EntityType* zwischengespeichert werden soll. Dies gibt eine winzige Verbesserung.<br>
   <br>
-  __Recommended value: `true`__
-36. Dynamic Activation of Brain, optimizes entity's brain to decrease the frequency of their brain ticking when they are far away from players.<br>
+  __Empfohlener Wert: `true`__
+36. Dynamische Aktivierung von Mob AIs. Optimiert die AI von Entites um die Tick-Frequenz zu reduzieren, wenn sie weit von Spielern entfernt sind.<br>
   <br>
-  __Recommended value: `true` (set `enabled` below to true)__
+  __Empfohlener Wert: `true` (Setze `enabled` unten auf true)__
 
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td><code>true</code></td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code> (or see <code>dab.blacklisted-entities</code> below for more)</td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td><code>true</code></td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code> (oder siehe <code>dab.blacklisted-entities</code> unten für mehr)</td></tr>
     </table>
 
-37. Whether non-aquatic entities in the water will not be affected by DAB.<br>
-  If `true`, this could fix entities suffocate in the water if they are far from the player. This fixed [Pufferfish's issue#58](https://github.com/pufferfish-gg/Pufferfish/issues/58).<br>
+37. Gibt an, ob Entites im Wasser, die dort eigentlich nicht hingehören, von DAB beeinflusst werden sollen.<br>
+  Falls `true`, könnte dies beheben, dass Entites im Wasser ertrinken, die weit vom Spieler entfernt sind. Dies behebt [Issue#58 von Pufferfish](https://github.com/pufferfish-gg/Pufferfish/issues/58).<br>
   <br>
-  __Recommended value: `true`__
-38. This value determines how far away an entity has to be from the player to start being affected by DAB.<br>
+  __Empfohlener Wert: `true`__
+38. Dieser Wert gibt an, wie weit Entites vom Spieler entfernt sein müssen, um von DAB beeinflusst zu werden.<br>
   <br>
-  __Recommended value: `8`__
-39. This value defines how often in ticks, the furthest entity will get their pathfinders and behaviors ticked (Note: 20 ticks = 1s).
-40. This value defines how much distance modifies an entity's tick frequency. `freq = (distanceToPlayer^2) / (2^value)`.
-    * If you want entities further away to tick __less__ often, use `7`.
-    * If you want entities further away to tick __more__ often, try `9`.
+  __Empfohlener Wert: `8`__
+39. Dieser Wert gibt an, wie oft in Ticks das Pathfinding und Verhalten von dem am weitesten entfernten Entity getickt wird. (Beachte: 20 Ticks = 1s).
+40. Dieser Wert gibt an, wie stark die Entfernt die Tickfrequenz des Entites beeinflusst. `freq = (distanceToPlayer^2) / (2^value)`.
+    * Wenn weit entfernte Entites __weniger__ häufig getickt werden sollen, nutze `7`.
+    * Wenn weit entfernte Entites __häufiger__ getickt werden sollen, nutze `9`.
   <br><br>
-  __Recommended value: `7`__
-41. A list of entities that will not be affected by DAB.<br>
+  __Empfohlener Wert: `7`__
+41. Eine Liste an Entites, die nicht von DAB beeinflusst werden.<br>
   <br>
-  Some survival servers have mob farms which need mobs to have a target. This kind of "pathfinding" mob farm may break by DAB. This situation can be solved by adding specific mob of mob farm into this DAB blacklist.<br>
-  If some specific mob farms are broken in your server, mobs freeze and don't move, and you are not sure whether it is caused by DAB. You can try to add them into this blacklist to see if it fixes the issue.<br>
+  Mache Survival-Server haben Mobfarms, wie erfordern, dass Mobs ein Ziel haben. Diese Arten von "Pathfinding" Mobfarmen könnten durch DAB kaputt gehen. Dies kann behoben werden, indem entsprechende Mobs in diese DAB Blackliste eingetragen werden.<br>
+  Wenn einige, bestimmte Mobfarms nicht funktionieren, die Mobs sich nicht bewegen und du nicht sicher bist, ob DAB der Grund ist, kannst du versuchen sie zu dieser Blackliste hinzuzufügen.<br>
   <br>
-  Format: `[VILLAGER]` or `[VILLAGER, ZOMBIFIED_PIGLIN]` (You can find all entity types in [Paper's Javadoc](https://jd.papermc.io/paper/1.21.1/org/bukkit/entity/EntityType.html)).
+  Format: `[VILLAGER]` oder `[VILLAGER, ZOMBIFIED_PIGLIN]` (Alle Entity Typen finden sich hier: [Paper Javadoc](https://jd.papermc.io/paper/1.21.1/org/bukkit/entity/EntityType.html)).
 
-    ??? note "Want to Go Deeper?"
+    ??? note "Tiefgehendere Informationen gefällig?"
 
-        For the format of `dab.blacklisted-entities`, it accepts all valid format of a YAML list.<br>
+        Das Format von `dab.blacklisted-entities` akzeptiert alles, das eine gültige YAML Liste ist.<br>
         <br>
-        If you only need to add one entity into blacklist, these formats below are allowed:
+        Wenn nur ein Entity zur Blackliste hinzugefügt werden soll, sind diese Formate erlaubt:
         ```yaml
         dab:
           blacklisted-entities: [VILLAGER]
         ```
-        or
+        oder
         ```yaml
         dab:
           blacklisted-entities:
             - VILLAGER
         ```
-        And if you need to add multiple entities into blacklist, these formats below are allowed:
+        Wenn mehrere Entites zur Blackliste hinzugefügt werden sollen, sind diese Formate erlaubt:
         ```yaml
         dab:
           blacklisted-entities: [VILLAGER, ZOMBIFIED_PIGLIN]
         ```
-        or
+        oder
         ```yaml
         dab:
           blacklisted-entities:
             - VILLAGER
             - ZOMBIFIED_PIGLIN
         ```
-        If you are not sure, use [YAML Checker](https://yamlchecker.org/), or any online YAML syntax validator to check your config.
+        Der [YAML Checker](https://yamlchecker.org/) kann helfen, den Syntax oder die Konfiguration zu überprüfen.
 
-42. Disable save primed tnt on chunk unloads.<br>
-  It can prevent machines from being exploded by TNT when the player accidentally disconnected or chunk unloads when the player is far away. Useful for survival servers which have machines involved TNT.<br>
+42. Deaktiviert das Speichern von gezündetem TNT, wenn Chunks entladen werden.<br>
+  Dies kann verhindern, dass Maschinen durch TNT explodieren, wenn der Spieler aus Versehen den Server verlässt oder der Chunk entladen wird denn der Spieler weit entfernt ist. Nützlich für Survival Server, die Maschinen mit TNT haben.<br>
   <br>
-  __Recommended value: `true`__
-43. Disable save falling block on chunk unloads.<br>
+  __Empfohlener Wert: `true`__
+43. Deaktiviert das Speichern von fallenden Blöcken (falling_sand), wenn Chunks entladen werden.<br>
   <br>
-  __Recommended value: `true`__
+  __Empfohlener Wert: `true`__
 
 
 
-44. This section contains bugfixes for specific issues.
-45. Whether to disallow player join a server if the server is full.<br>
-  If `true`, you should give player `purpur.joinfullserver` permission instead of using `PlayerLoginEvent#allow` to enable player to join a full server.
+44. Dieser Abschnitt beinhaltet Fehlerbehebungen für spezifische Probleme.
+45. Gibt an, ob das Joinen auf den Server verboten werden soll, wenn der Server voll ist.<br>
+  Bei `true`, sollten die Spieler die Permission `purpur.joinfullserver` erhalten, anstatt `PlayerLoginEvent#allow` zu nutzen, um Spielern das Joinen auf einen vollen Server zu erlauben.
 
 
 
-46. This section contains the features that modify the game mechanics.
-47. Whether to use Spigot's dropped item merging mechanism.
-48. Whether to make a "smooth teleport" when players change dimension.<br>
-  This requires original world and target world that have the same logical height to work.
+46. Dieser Abschnitt beinhaltet Funktionen, die das Spielverhalten beeinflussen.
+47. Gibt an, ob der Zusammenfügungsmechanismus von gedroppten Items von Spigot genutzt werden soll.
+48. Gibt an, ob ein "smooth teleport" durchgeführt werden soll, wenn ein Spieler die Dimension wechselt.<br>
+  Dies erfordert, dass die Ursprungs- und Zielwelt die gleiche logische Höhe haben.
 
-    !!! warning "Warning"
+    !!! warning "Warnung"
 
-        Experimental feature, report any bugs you encounter!
+        Experimentelle Funktion, bitte melde jegliche Bugs!
 
-49. Configurable max stack size of dropped item.
+49. Konfigurierbare maximale Stapelgröße von gedroppten Items.
 
-    !!! warning "Warning"
+    !!! warning "Warnung"
 
-        We __do not__ recommended to use this feature. It is working in progress and has known issues.<br>
-        This feature also maybe remove in the future. __Do not__ touch this unless you know what you are doing!
+        Wir empfehlen diese Funktion __nicht__. Es wird daran gearbeitet und gibt bekannte Probleme<br>
+        Möglicherweise wird die Funktion auf in Zukunft entfernt. Diese Option sollte mit __höchster Vorsicht__ benutzt werden!
 
-50. Maximum number of dropped items to stack.
-51. Maximum count of items to drop when container is destroyed.
-52. This section contains options to adjust knockback related behaviors.
-53. Whether the snowball can knockback players.
-54. Whether the egg can knockback players.
-55. Whether the player can knockback zombies.
-56. Whether to disable the Spigot built-in moved too quickly / wrongly checks for players and vehicles.<br>
-  If `true`, players can move or use vehicles to move with abnormal speed.<br>
+50. Maximale Anzahl an gedroppten Items, die gestapelt werden sollen.
+51. Maximale Anzahl an Items, die gedroppt werden sollen, wenn ein Container zerstört wird.
+52. Dieser Abschnitt beinhaltet Optionen, um Verhalten bezüglich Rückstoß anzupassen.
+53. Gibt an, ob Schneebälle Spieler zurückstoßen können.
+54. Gibt an, ob Eier Spieler zurückstoßen können.
+55. Gibt an, ob Spieler Zombies zurückstoßen können.
+56. Gibt an, ob die "moved too quickly" / "moved wrongly" Überprüfungen von Spigot für Spieler und Fahrzeuge deaktiviert werden sollen.<br>
+  Bei `true`, können sich Spieler oder ihre Fahrzeuge mit extremen Geschwindigkeiten bewegen.<br>
   <br>
-  __Recommended value: `true`__
-57. The max distance that the player is allowed to interact with an item.<br>
+  __Empfohlener Wert: `true`__
+57. Die maximale Distanz über die ein Spieler mit einem Item interagieren darf.<br>
   <br>
-  Some [Anarchy servers](https://minecraftservers.org/type/anarchy) or similar type of servers may allow players to use hacks / cheats. If you want players able to use crystal related modules that are packet-based (e.g. CEV Breaker, BedAura), you may need to adjust this value.<br>
-  It's better to set value to `10.0000001`, to allow using related hack modules.
+  Manche [Anarchy Server](https://minecraftservers.org/type/anarchy) oder ähnliche Server könnten Spielern das Hacken / Cheaten erlauben. Wenn Spieler Endkristall-Cheats nutzen können sollen, die Paket-basiert sind (z.B. CEV Breaker, BedAura), sollte dieser Wert eventuell angepasst werden.<br>
+  Es ist besser diesen Wert auf `10.0000001` zu setzen, damit die Hack-Module genutzt werden können.
   <br>
-  If a value `-1` is given, the check of max allowed distance to use an item will be disabled.<br>
+  Wenn der Wert `-1` ist, wird die Überprüfung der maximal erlaubten Distanz ein Item zu nutzen deaktiviert.<br>
   <br>
-  __Recommended value: `10.0000001` (For anarchy server)__
+  __Empfohlener Wert: `10.0000001` (Für Anarchy Server)__
 
-    !!! note "Attention"
+    !!! note "Achtung"
 
-        If set to `-1`, players are able to use some packet modules of hack clients, and also [Nocom Exploit](https://github.com/nerdsinspace/nocom-explanation)!
+        Wenn der Wert `-1` ist, können Spieler manche Paket-basierte Cheats nutzen und außerdem den [Nocom Exploit](https://github.com/nerdsinspace/nocom-explanation)!
 
 
 
-58. This section contains features for server networking related.
+58. Dieser Abschnitt beinhaltet Funktionen, die mit dem Server Netzwerk zu tun haben.
 59. This section contains features that provide extra protocol support for some QoL / Utility mods.<br>
   <br>
   The extra protocol support is only functional if there is corresponding client-side mod installed. It means if a specific protocol support is enabled, and a player installed that mod on client, they can get the additional features described in each config below. But for players who have no corresponding mod installed, then everything is the same as before.
 
-    !!! note "Attention"
+    !!! note "Achtung"
 
         The protocol support may cause incompatibility with the [ViaVersion](https://modrinth.com/plugin/viaversion).<br>
         We recommend players to use client that has same version with the server core and install latest corresponding mod, otherwise they may unable to join the server.
@@ -638,7 +639,7 @@ misc: #(70)!
 69. Whether to enable chat message signature which introduced since Minecraft 1.19.1.<br>
   If `false`, players' chat messages become unable to report, and the insecure warning popup when player joined the server will be disabled.<br>
   <br>
-  __Recommended value: `false`__
+  __Empfohlener Wert: `false`__
 
 
 
@@ -670,12 +671,12 @@ misc: #(70)!
   All ores and structures are generated with 1024-bit seed instead of using 64-bit seed in vanilla, made seed cracker become impossible.<br>
   If used in the existing world, then the secure seed will only apply to new generating chunks.<br>
   <br>
-  __Recommended value: `true` (set `enabled` below to true)__
+  __Empfohlener Wert: `true` (set `enabled` below to true)__
 
     <table>
-    <tr><td><b>Values for goals</b></td><td></td></tr>
-    <tr><td><i>Optimization</i></td><td>-</td></tr>
-    <tr><td><i>Vanilla behavior</i></td><td><code>false</code></td></tr>
+    <tr><td><b>Werte für Ziele</b></td><td></td></tr>
+    <tr><td><i>Optimierung</i></td><td>-</td></tr>
+    <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
 79. Whether to remove vanilla's username check to allow __all characters__ as username, including Chinese, etc. (It's only useful for offline servers).<br>
@@ -684,12 +685,12 @@ misc: #(70)!
 81. Whether the server prints warning when players tried to edit the sign that they are not allowed to edit.<br>
   Enable this to prevent console spam in some cases.<br>
   <br>
-  __Recommended value: `true`__
+  __Empfohlener Wert: `true`__
 
 82. Linear is a region file format that uses [ZSTD compression](https://facebook.github.io/zstd/) instead of ZLIB in vanilla Minecraft. This format saves about ~50% of disk space.<br>
   To use Linear region format, make sure you __Read [Linear Documentation](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools)__, and have done all steps required, then change `region-format-settings.region-format` below to `LINEAR`.
 
-    !!! warning "Warning"
+    !!! warning "Warnung"
 
         Experimental feature, there is potential risk to lose chunk data. Backup your server before switching to Linear.<br>
         Also, we do not recommend using Linear, since vanilla's ANVIL format (.mca) is enough. Leaf uses the refactored version of the Linear flush system, which is safer but slower to save chunks to make data lost less possible. However this change is worth it, data is invaluable.
@@ -700,13 +701,13 @@ misc: #(70)!
 86. The flush interval in seconds for Linear region format file data.
 87. Lag compensation, which could ensure the basic game experience for players when server is lagging or low TPS situation.<br>
   <br>
-  __Recommended value: `true` (set `enabled` below to true)__
+  __Empfohlener Wert: `true` (set `enabled` below to true)__
 88. Whether to enable lag compensation for water flowing.<br>
   <br>
-  __Recommended value: `true`__
+  __Empfohlener Wert: `true`__
 89. Whether to enable lag compensation for lava flowing.<br>
   <br>
-  __Recommended value: `true`__
+  __Empfohlener Wert: `true`__
 90. Whether to include 5-second TPS in the result of API `Bukkit#getTPS` and `Server#getTPS`.<br>
     * If `true`, you can use `getTPS` method to get a TPS long array with 4 elements (`5s, 1m, 5m, 15m`).
     * If `false`, you can use `getTPS` method to get a TPS long array with 3 elements (`1m, 5m, 15m`).
@@ -719,7 +720,7 @@ misc: #(70)!
 91. Controls whether specified component information is sent to clients. This may break resource packs and client mods that rely on this information. It needs a component type list, incorrect things will not work.<br>
   For example, you can fill it with `["custom_data"]` to hide components of *CUSTOM_DATA*. Also, it can avoid some frequent client animations.
 
-    !!! note "Attention"
+    !!! note "Achtung"
 
         You must know what you're filling in and how it works! It handles all item stacks!
 
