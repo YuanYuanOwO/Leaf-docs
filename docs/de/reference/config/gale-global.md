@@ -105,7 +105,7 @@ small-optimizations:
     <tr><td>-</td><td><code>true</code></td><td><code>true</code></td></tr>
     </table>
 
-6. Wenn Spielerdaten geladen werden und Advancements beinhalten, die nicht mehr existieren.<br>
+6. Wenn Spielerdaten geladen werden und Advancements beinhalten, die nicht mehr existieren.
   (Dies ist harmlos und passiert meistens, wenn der Server auf eine neue Minecraft Version aktualisiert wurde)
 
     <table>
@@ -147,7 +147,6 @@ small-optimizations:
     <tr><td><b>Empfohlen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td><td><i>Gale</i></td><td><i>Paper</i></td></tr>
     <tr><td><code>false</code></td><td><code>false</code></td><td><code>true</code></td></tr>
     </table>
-
 
 10. Wenn ein Spieler kein gültiges Profil während dem Login gesendet hat.<br>
   (Dies bedeutet meistens, dass ein Hacker versucht die Join-Kapazität des Servers zu überlasten)
@@ -224,7 +223,7 @@ small-optimizations:
 
     > 🛈 = Der Standardwert ist `"info"` um zu verhindern, dass Fehler nicht gesehen werden, aber der empfohlene Wert ist `"none"` weil die Fehler meistens nutzlos und sowieso nicht lösbar sind.
 
-18. Gibt an, ob Keepalive-Pakete häufiger als in Vanilla gesendet werden sollen
+18. Gibt an, ob Keepalive-Pakete häufiger als in Vanilla gesendet werden sollen.
     * Bei `true` wird ein Keepalive-Paket jedem Client jede Sekunde gesendet und diese werden nicht gekickt, solange sie innerhalb von 30 Sekunden mindestens einmal antworten.
     * Bei `false` wird ein Keepalive-Paket jedem Client alle 15 Sekunden gesendet und werden gekickt, falls diese nicht innerhalb von 30 Sekunden antworten.
 

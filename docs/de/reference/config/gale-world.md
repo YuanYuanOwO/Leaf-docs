@@ -120,7 +120,7 @@ small-optimizations:
   Dies beeinflusst nicht, wo die Animation gezeigt wird: Sie wird immer bei dem Entity gezeigt, das den kritischen Treffer erleidet.<br>
   Allerdings wird normalerweise (Wenn die Einstellung auf `false` gestellt ist) die Animation durch den Spieler gezeigt, der den kritischen Treffer landet. Dadurch kann jemand, der den Spieler nicht sehen kann, auch nicht die Animation sehen.<br>
   <br>
-  Wenn die Einstellung auf `true` ist, wird die Animation durch das Entity gezeigt, das den kritischen Treffer erleidet. Dadurch kann jeder die Animation sehen, der auch das Entity sehen kann. 
+  Wenn die Einstellung auf `true` ist, wird die Animation durch das Entity gezeigt, das den kritischen Treffer erleidet. Dadurch kann jeder die Animation sehen, der auch das Entity sehen kann.
 
     <table>
     <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>

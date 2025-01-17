@@ -425,10 +425,9 @@ misc: #(70)!
     <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-27. WIe viele Ticks übersprungen werden sollen, bevor die nächste Minecart Kollision überprüft wird.<br>
+27. Wie viele Ticks übersprungen werden sollen, bevor die nächste Minecart Kollision überprüft wird.<br>
   <br>
   __Empfohlener Wert: `30`__
-
 28. Gibt an, ob eine schnellere Aufgabensequenzierung für das Generieren von Strukturen genutzt werden soll.
 
     !!! note "Achtung"
