@@ -383,7 +383,7 @@ misc: #(70)!
     </table>
 
 21. Gibt an, ob Updates für Itemdaten von Karten übersprungen werden sollen, wenn die Karte keinen Renderer hat.<br>
-  Dies kann die Leistung verbessern, wenn Plugins genutzt werden, die mit Karten zu tun haben.<>br
+  Dies kann die Leistung verbessern, wenn Plugins genutzt werden, die mit Karten zu tun haben.<br>
   <br>
   __Empfohlener Wert: `true`__
 
@@ -478,17 +478,17 @@ misc: #(70)!
   <br>
   __Empfohlene Werte:__
 
-    | Entity             | Value |
-    |--------------------|-------|
-    | SNOWBALL           | 200   |
-    | LLAMA_SPIT         | 150   |
-    | DRAGON_FIREBALL    | 150   |
-    | EGG                | 300   |
-    | FIREBALL           | 600   |
-    | SMALL_FIREBALL     | 400   |
-    | WIND_CHARGE        | 200   |
-    | BREEZE_WIND_CHARGE | 200   |
-    | WITHER_SKULL       | 200   |
+    | Entity             | Wert |
+    |--------------------|------|
+    | SNOWBALL           | 200  |
+    | LLAMA_SPIT         | 150  |
+    | DRAGON_FIREBALL    | 150  |
+    | EGG                | 300  |
+    | FIREBALL           | 600  |
+    | SMALL_FIREBALL     | 400  |
+    | WIND_CHARGE        | 200  |
+    | BREEZE_WIND_CHARGE | 200  |
+    | WITHER_SKULL       | 200  |
 
     > 🛈 = Die Zeit, die ein Entity lebt, wird nicht durch das Laden und Entladen eines Chunks zurückgesetzt.
 
@@ -717,30 +717,30 @@ misc: #(70)!
         Wenn du die Gale API oder Leaf API für deine Plugins verwendest oder Reflektion auf einem Leaf Server nutzt, um die TPS zu erhalten, kann `Bukkit#getTPSIncluding5SecondAverage` verwendet werden, um ein TPS Array mit der 5-Sekunden TPS zu erhalten (`5s, 1m, 5m, 15m`).<br>
         Außerdem kann `Bukkit#get5SecondTPSAverage` verwendet werden, um den Durchschnittswert der 5-Sekunden TPS als `double` zu erhalten.
 
-91. Controls whether specified component information is sent to clients. This may break resource packs and client mods that rely on this information. It needs a component type list, incorrect things will not work.<br>
-  For example, you can fill it with `["custom_data"]` to hide components of *CUSTOM_DATA*. Also, it can avoid some frequent client animations.
+91. Steuert, ob die angegebene Komponenten-Informationen an die Clients gesendet werden. Dadurch könnten Resource Packs oder Client Mods nicht mehr funktionieren, die diese Informationen benötigen. Es wird eine Liste an Komponententypen erfordert, falsche Dinge funktionieren nicht.<br>
+  Die Liste kann zum Beispiel mit `["custom_data"]` gefüllt werden, um Komponenten von *CUSTOM_DATA* zu verstecken. Außerdem kann es einige häufige Clientanimationen verhindern.
 
     !!! note "Achtung"
 
-        You must know what you're filling in and how it works! It handles all item stacks!
+        Kenntnis darüber ist erforderlich, was eingegeben werden soll und wie es funktioniert! Dies betrifft alle ItemStacks!
 
-92. Connection message, broadcasts to all online players, when they join or quit the server.<br>
-  The message needs to use [MiniMessage](https://docs.advntr.dev/minimessage/format) format.<br>
-  If set message to `default` or leave the default value, the vanilla join / quit message will be used.<br>
+92. Verbindungsnachrichten, werden an alle Spieler auf dem Server gesendet, wenn jemand dem Server beitritt oder ihn verlässt.
+  Diese Nachricht muss das [MiniMessage](https://docs.advntr.dev/minimessage/format) Format nutzen.<br>
+  Wenn die Nachricht `default` oder der Standardwert ist, werden die Vanilla Nachrichten genutzt.<br>
   <br>
-  Available placeholders:
-    * __`%player_name%`__ - player name.
-    * __`%player_displayname%`__ - player display name.
+  Verfügbare Platzhalter:
+    * __`%player_name%`__ - Name des Spielers.
+    * __`%player_displayname%`__ - Anzeigename des Spielers.
 
-    !!! note "API / Plugin Friendly"
+    !!! note "API / Plugin Kompatibilität"
 
-        This feature is API / plugin friendly.
-        It means that the connection message can be overrided by plugins using `PlayerJoinEvent` or `PlayerQuitEvent`.
+        Diese Funktion ist gut mit der API / Plugins kompatibel.
+        Das bedeutet, dass die Nachrichten von Plugins durch das `PlayerJoinEvent` oder `PlayerQuitEvent` überschrieben werden können.
 
-93. The join message of the player.
-94. The quit message of the player.
-95. Whether to cache the player profile result when they joined server.<br>
-  It's useful if Mojang's authentication server is down.
-96. The timeout of the player profile cache.<br>
-  (Unit: minutes)<br>
-  If the given timeout is exceeded, it will send another request to Mojang's authentication server to get profile data on player's next join.<br>
+93. Die Nachricht beim Beitreten eines Spielers.
+94. Die Nachricht beim Verlassen eines Spielers.
+95. Gibt an, ob das Ergebnis für das Spielerprofil beim Joinen auf den Server zwischengespeichert werden soll.<br>
+  Dies ist nützlich, falls die Authentifizierungsserver von Mojang offline sind.
+96. Der Timeout des Zwischenspeichers für Spielerprofile.<br>
+  (Einheit: Minuten)<br>
+  Wenn der gegebene Timeout abläuft, wird eine weitere Anfrage an die Authentifizierungsserver von Mojang gesendet, um die Profildaten des Spielers beim nächsten Joinen zu holen.<br>

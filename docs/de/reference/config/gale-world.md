@@ -100,7 +100,7 @@ small-optimizations:
   <br>
   Dieser Wert ist der [Variationskoeffizient](https://de.wikipedia.org/wiki/Variationskoeffizient) bzw. `σ / μ` (Das Verhältnis der Standardabweichung und dem Mittelwert) der Inaktivitätsdauer.<br>
   <br>
-  In anderen Worten ist diese Option der Wert `σ`, sodass the reguläre Inaktivitätsdauer mit dem Faktor `normal_distribution(μ = 1, σ)` multipliziert wird.<br>
+  In anderen Worten ist diese Option der Wert `σ`, sodass die reguläre Inaktivitätsdauer mit dem Faktor `normal_distribution(μ = 1, σ)` multipliziert wird.<br>
   <br>
   Wenn der Wert &leq; `0` ist, ist die Variation deaktiviert.
 
@@ -218,8 +218,8 @@ small-optimizations:
     <tr><td><i>Vanilla Verhalten</i></td><td><code>true</code></td></tr>
     </table>
 
-13. Gibt an, ob chunks in bestimmten Fällen geladen werden sollen.
-14. Gibt an, ob chunks geladen werden sollen, um kletternde Entities zu laden.<br>
+13. Gibt an, ob Chunks in bestimmten Fällen geladen werden sollen.
+14. Gibt an, ob Chunks geladen werden sollen, um kletternde Entities zu laden.<br>
   <br>
   In Paper erhalten Entites wie Zombies die klettern (z.B. eine Leiter heruntergehen) eine Priorität um aktiviert zu werden.<br>
   Um zu überprüfen, ob ein Entity klettert, muss der Block, in dem es sich befindet, überprüft werden.<br>
@@ -238,7 +238,7 @@ small-optimizations:
     <tr><td><i>Paper Verhalten</i></td><td><code>true</code></td></tr>
     </table>
 
-15. Gibt an, ob chunks geladen werden sollen um Phantome zu spawnen.<br>
+15. Gibt an, ob Chunks geladen werden sollen um Phantome zu spawnen.<br>
   Wenn dieser Wert `false` ist, wird nichts passieren, wenn der Server versucht ein Phantom in einem ungeladenen Chunk zu spawnen.
 
     <table>
@@ -335,7 +335,6 @@ small-optimizations:
 23. Frequenz in Ticks, mit der Trichter nach Items zum Aufheben suchen.<br>
   Wenn dieser Wert zum Beispiel `20` ist, suchen Trichter jede Sekunde nach Items über ihnen..<br>
   <br>
-  If a value &leq; `0` is given, it will default to the same as Paper.
   Wenn der Wert &leq; `0` ist, ist das Verhalten wie bei Paper.
 
     <table>
@@ -365,7 +364,7 @@ small-optimizations:
 25. Loren mit Trichtern können durch die obige `interval` Einstellung kurzzeitig immun werden.<br>
   Während eine Lore immun ist, kann sie jeden Tick nach Items suchen.
 26. Gibt an, wie oft in Ticks nach Loren mit Trichtern in der Nähe von Items gesucht werden soll, um den Loren kurzzeitige Immunität von der `interval` Einstellung zu geben.<br>
-  If a value &leq; `0` is given, it behaves like `1`.
+  Wenn der Wert &leq; `0` ist, ist das Verhalten wie bei `1`.
 
     <table>
     <tr><td></td><td><b>Standard</b></td><td></td><td></td></tr>
