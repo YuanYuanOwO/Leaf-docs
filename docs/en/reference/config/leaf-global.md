@@ -645,7 +645,7 @@ misc: #(70)!
 70. This section contains some miscellaneous features.
 71. Unknown command message, will send to player if they execute an unknown command.<br>
   The message needs to use [MiniMessage](https://docs.advntr.dev/minimessage/format) format.<br>
-  If set message to `default`or leave the default value, the vanilla unknown command message will be used.<br>
+  If set message to `default` or leave the default value, the vanilla unknown command message will be used.<br>
   <br>
   Available placeholders:
     * __`<detail>`__ - the detailed information of the unknown command.

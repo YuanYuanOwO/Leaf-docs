@@ -612,66 +612,66 @@ misc: #(70)!
 
 
 58. Dieser Abschnitt beinhaltet Funktionen, die mit dem Server Netzwerk zu tun haben.
-59. This section contains features that provide extra protocol support for some QoL / Utility mods.<br>
+59. Dieser Abschnitt beinhaltet Funktionen, die Protokollunterstützung für manche QoL oder Utility mods bieten.<br>
   <br>
-  The extra protocol support is only functional if there is corresponding client-side mod installed. It means if a specific protocol support is enabled, and a player installed that mod on client, they can get the additional features described in each config below. But for players who have no corresponding mod installed, then everything is the same as before.
+  Die Protokollunterstützung funktioniert nur, wenn der entsprechende Mod auf dem Client installiert ist. Das bedeutet, dass wenn eine spezifische Protokollunterstützung aktiviert ist und der Spieler den Mod auf seinem Client installiert hat, der Spieler zusätzliche Funktionen erhalten kann, die in den einzelnen Optionen unten beschrieben werden. Für Spieler, die den entsprechenden Mod nicht installiert haben, ändert sich nichts.
 
     !!! note "Achtung"
 
-        The protocol support may cause incompatibility with the [ViaVersion](https://modrinth.com/plugin/viaversion).<br>
-        We recommend players to use client that has same version with the server core and install latest corresponding mod, otherwise they may unable to join the server.
+        Die Protokollunterstützungen könnten Inkompatibilitäten mit [ViaVersion](https://modrinth.com/plugin/viaversion) zur Folge haben.<br>
+        Wir empfehlen, dass die Spieler einen Client mit der selben Version wie der Server nutzen und die neuste Version des entsprechenden Mods installieren. Sonst könnten sie nicht in der Lage sein den Server beizutreten.
 
-60. Whether to enable [Jade](https://modrinth.com/mod/jade) protocol support.<br>
-  If `true`, player who has Jade mod installed, can display item information inside the storage container, progress of furnace, brewing stand, foods on the campfire, bee data in beehive, and more vanilla-friendly features.
-61. Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin) protocol support.<br>
-  If `true`, player who has AppleSkin mod installed, can display the accurate saturation / exhaustion values on the client.
-62. Whether to enable [AsteorBar](https://modrinth.com/mod/asteorbar) protocol support.<br>
-  If `true`, player who has AsteorBar mod installed, can display the accurate saturation / exhaustion values on the client.
-63. Whether to enable [ChatImage](https://modrinth.com/mod/chatimage) protocol support.<br>
-  If `true`, player who has ChatImage mod installed, can see the image sent by others using CICode format.
-64. Whether to enable [XaeroMap](https://modrinth.com/mod/xaeros-minimap) protocol support.<br>
-  If `true`, player who has Xaero's MiniMap mod or Xaero's WorldMap mod installed, can store players' coordinate points and death points based on server's `protocol-support.xaero-map-server-id` below, to prevent points from been deleted / refreshed if server name or IP address changed.
-65. Numeric id for XaeroMap to identify the server. This will generate randomly on first start.
-66. Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica) protocol support.<br>
-  If `true`, player who has Syncmatica mod installed, can upload their [Litematica](https://modrinth.com/mod/litematica) schematics files or download shared schematics files from the server. Every player with Syncmatica mod installed can access shared schematics uploaded by others.
-67. Whether to enable maximum file size limit for each shared schematics file of Litematica mod.
-68. Maximum file size, in bytes, for each shared schematics file uploading to server. (40,000,000 bytes ≈ 38 MB)
-69. Whether to enable chat message signature which introduced since Minecraft 1.19.1.<br>
-  If `false`, players' chat messages become unable to report, and the insecure warning popup when player joined the server will be disabled.<br>
+60. Gibt an, ob die [Jade](https://modrinth.com/mod/jade) Protokollunterstützung aktiviert werden soll.<br>
+  Bei `true` können Spieler, die die Jade Mod installiert haben, zusätzliche Informationen wie Items in Containern, Fortschritte von Öfen, Brauständen, Essen auf Lagerfeuern, Bienen in Bienenstöcken und weitere Vanilla funktionen erhalten.
+61. Gibt an, ob die [AppleSkin](https://modrinth.com/mod/appleskin) Protokollunterstützung aktiviert werden soll.<br>
+  Bei `true` können Spieler, die die AppleSkin Mod installiert haben, genaue Sättigungs- und Erschöpfungswerte auf dem Client anzeigen.
+62. Gibt an, ob die [AsteorBar](https://modrinth.com/mod/asteorbar) Protokollunterstützung aktiviert werden soll.<br>
+  Bei `true` können Spieler, die die AsteorBar Mod installiert haben, genaue Sättigungs- und Erschöpfungswerte auf dem Client anzeigen.
+63. Gibt an, ob die [ChatImage](https://modrinth.com/mod/chatimage) Protokollunterstützung aktiviert werden soll.<br>
+  Bei `true` können Spieler, die die ChatImage Mod installiert haben, Bilder sehen, die andere durch das CICode Format gesendet haben.
+64. Gibt an, ob die [XaeroMap](https://modrinth.com/mod/xaeros-minimap) Protokollunterstützung aktiviert werden soll.<br>
+  Bei `true` können Spieler, die die Xaero's MiniMap oder Xaero's WorldMap Mod installiert haben, die Koordinaten und Todespunkte anderer Spieler basierend auf der `protocol-support.xaero-map-server-id` des Servers unten speichern, um zu verhindern, dass diese Daten gelöscht oder verändert werden, wenn sich der Servername oder die IP Adresse änert.
+65. Numerische ID für XaeroMap um den Server zu identifizieren. Die ID wird beim ersten Start zufällig generiert.
+66. Gibt an, ob die [Syncmatica](https://modrinth.com/mod/syncmatica) Protokollunterstützung aktiviert werden soll.<br>
+  Bei `true` können Spieler, die die Syncmatica Mod installiert haben, ihre [Litematica](https://modrinth.com/mod/litematica) Schematics Dateien hochladen oder andere Schematics vom Server herunterladen. Jeder Spieler mit der Mod kann auf geteilte Schematics anderer zugreifen.
+67. Gibt an, ob das Limit für die maximale Dateigroße von geteilten Schematics Dateien der Litematica Mod aktiviert sein soll.
+68. Die maximale Dateigröße in Bytes für jede geteilte Schematics Datei, die auf den Server hochgeladen wird. (40.000.000 Bytes ≈ 38 MB)
+69. Gibt an, ob die Signatur von Chatnachrichten aktiviert sein soll, die es seit Minecraft 1.19.1 gibt.<br>
+  Bei `false` ist es nicht mehr möglich die Chatnachrichten von Spielern zu melden. Außerdem wird das Pop-Up deaktiviert, Spieler beim Joinen vor unsicheren Nachrichten warnt.<br>
   <br>
   __Empfohlener Wert: `false`__
 
 
 
-70. This section contains some miscellaneous features.
-71. Unknown command message, will send to player if they execute an unknown command.<br>
-  The message needs to use [MiniMessage](https://docs.advntr.dev/minimessage/format) format.<br>
-  If set message to `default`or leave the default value, the vanilla unknown command message will be used.<br>
+70. Dieser Abschnitt beinhaltet einige verschiedene, andere Funktionen.
+71. Nachricht für unbekannte Befehle. Wird gesendet, wenn ein Spieler einen unbekannten Befehl ausführt.<br>
+  Die Nachricht muss das [MiniMessage](https://docs.advntr.dev/minimessage/format) Format verwenden.<br>
+  Wenn die Nachricht auf `default` oder den Standardwert gesetzt wird, wird die Vanilla Nachricht für unbekannte Befehle genutzt.<br>
   <br>
-  Available placeholders:
-    * __`<detail>`__ - the detailed information of the unknown command.
+  Verfügbare Platzhalter:
+    * __`<detail>`__ - Detaillierte Informationen über den unbekannten Befehl.
 
-    !!! note "API / Plugin Friendly"
+    !!! note "API / Plugin Kompatibilität"
 
-        This feature is API / plugin friendly.
-        It means that this message can be overrided by plugins using `UnknownCommandEvent#message` or `UnknownCommandEvent#setMessage`.
+        Diese Funktion ist gut mit der API / Plugins kompatibel.
+        Das bedeutet, dass die Nachricht von Plugins durch `UnknownCommandEvent#message` oder `UnknownCommandEvent#setMessage` überschrieben werden kann.
 
-72. Server brand name that shows in F3 menu and server MOTD.
-73. Server GUI window name, if you launched server without adding `--nogui` option in the startup flag.
-74. [Sentry](https://sentry.io/welcome/) is an application monitor service for improved error logging, tracing. Helping the server dev team to maintain better.<br>
+72. Der Server Markenname, der im F3 Menü und in der MOTD angezeigt wird.
+73. Der Server GUI Fenstername, falls der Server ohne die `--nogui` Option gestartet wurde.
+74. [Sentry](https://sentry.io/welcome/) ist ein Service für das Monitoring von Anwendung um das Loggen und Nachverfolgen von Fehlern zu verbessern. Es kann dem Entwicklungsteam des Servers bei der Verwaltung helfen.<br>
   <br>
-  After enabled Sentry integration for your server, you don't need to audit long logs to find errors manually. Sentry can collect errors happened in your server, enable you to track errors on Sentry's web panel and help you to locate and fix them easier and faster.<br>
+  Nachdem Sentry auf dem Server eingerichtet wurde, ist es nicht mehr notwendig Fehler manuell in den Logs zu untersuchen. Sentry kann die Fehler sammeln, wodurch es einfacher wird diese auf dem Webpanel von Sentry nachzuverfolgen, zu lokalisieren und schließlich einfacher und schneller zu beheben.<br>
   <br>
-  See __[How to Setup Sentry](../../how-to/setup-sentry.md)__ to know how to set up and get the DSN key for `sentry.dsn` below.<br>
-75. The DSN key of your Sentry.<br>
-  If an empty value `''` is given, the Sentry will be disabled.
-76. Logs with a level higher than or equal to this level will be recorded.
-77. Only to log with a Throwable will be recorded after enabling this. 
-78. Whether to use secure seed.<br>
-  All ores and structures are generated with 1024-bit seed instead of using 64-bit seed in vanilla, made seed cracker become impossible.<br>
-  If used in the existing world, then the secure seed will only apply to new generating chunks.<br>
+  Siehe __[Einrichten von Sentry](../../how-to/setup-sentry.md)__ um zu erfahren, wie der DSN Schlüssel eingerichtet und für `sentry.dsn` unten erhalten werden kann.<br>
+75. Dein DSN Schlüssel für Sentry.<br>
+  Wenn ein leerer Wert `''` angegeben ist, wird Sentry deaktiviert.
+76. Logs mit einem Level gleich oder höher als dieser Wert werden aufgezeichnet.
+77. Wenn dies aktiv ist, werden nur `Throwables` (z.B. Exceptions und Errors) aufgezeichnet.
+78. Gibt an, ob der Seed geschützt werden soll.<br>
+  Alle Erze und Strukturen werden mit einem 1024-bit Seed anstelle einem 64-bit Seed generiert, was es nahezu unmöglich macht den Seed herauszufinden.<br>
+  Wenn dies in einer bestehenden Welt aktiviert wird, sind nur neu generierte Chunks hiervon betroffen.<br>
   <br>
-  __Empfohlener Wert: `true` (set `enabled` below to true)__
+  __Empfohlener Wert: `true` (Setze `enabled` unten auf true)__
 
     <table>
     <tr><td><b>Werte für Ziele</b></td><td></td></tr>
@@ -679,43 +679,43 @@ misc: #(70)!
     <tr><td><i>Vanilla Verhalten</i></td><td><code>false</code></td></tr>
     </table>
 
-79. Whether to remove vanilla's username check to allow __all characters__ as username, including Chinese, etc. (It's only useful for offline servers).<br>
-  If `true`, players are allowed to use non-English name to join the server.
-80. Whether player can enter backend server via proxy, without the backend server to enable bungeecord mode in `spigot.yml`.
-81. Whether the server prints warning when players tried to edit the sign that they are not allowed to edit.<br>
-  Enable this to prevent console spam in some cases.<br>
+79. Gibt an, ob die Vanilla Überprüfung der Nutzernamen entfernt werden soll, um __alle Buchstaben__ wie z.B. Chinesische Zeichen zu erlauben. (Ist nur für Server im Offline-Modus nützlich).<br>
+  Bei `true` können Spieler den Server betreten, deren Name nicht dem [lateinischen Alphabet](https://de.wikipedia.org/wiki/Lateinisches_Alphabet) entspricht.
+80. Gibt an, ob Spieler einen Backendserver durch den Proxy betreten können, ohne auf dem Backendserver den Bungeecord Modus in der `spigot.yml` zu aktivieren.
+81. Gibt an, ob der Server Warnungen ausgeben soll, wenn ein Spieler versucht ein Schild zu bearbeiten, wofür er keine Berechtigung hat.<br>
+  Dies sollte aktiviert werden, um zu verhindern, dass die Konsole in manchen Fällen überflutet wird.<br>
   <br>
   __Empfohlener Wert: `true`__
 
-82. Linear is a region file format that uses [ZSTD compression](https://facebook.github.io/zstd/) instead of ZLIB in vanilla Minecraft. This format saves about ~50% of disk space.<br>
-  To use Linear region format, make sure you __Read [Linear Documentation](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools)__, and have done all steps required, then change `region-format-settings.region-format` below to `LINEAR`.
+82. Linear ist ein Region-Dateiformat, das [ZSTD Kompression](https://facebook.github.io/zstd/) anstelle von ZLIB wie in Vanilla Minecraft nutzt. Dieses Format spart etwa ~50% an Speicherplatz.<br>
+  Um das Linear Regionsformat zu nutzen __ließ zuerst die [Linear Dokumentation](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools)__ um die nötigen Schritte auszuführen. Dann kann `region-format-settings.region-format` unten auf `LINEAR` gesetzt werden.
 
     !!! warning "Warnung"
 
-        Experimental feature, there is potential risk to lose chunk data. Backup your server before switching to Linear.<br>
-        Also, we do not recommend using Linear, since vanilla's ANVIL format (.mca) is enough. Leaf uses the refactored version of the Linear flush system, which is safer but slower to save chunks to make data lost less possible. However this change is worth it, data is invaluable.
+        Experimentelle Funktion, die zu Datenverlust führen kann. Vor der Nutzung ist ein Backup des Servers notwendig.<br>
+        Wir empfehlen die Nutzung von Linear nicht, da das ANVIL Format von Vanilla (.mca) ausreichend ist. Leaf nutzt eine angepasst Version des Linear Speichersystems, welches sicherer aber etwas langsamer beim Speichern von Chunks ist, um Datenvertlust unwahrscheinlicher zu machen. Obwohl die Vorteile gut ist, ist der Wert von den Daten höher.
 
-83. Available region formats: `"MCA"`, `"LINEAR"`.
-84. The compression level for Linear region format file.
-85. Whether to throw error to crash the server when unknown region format extension is detected.
-86. The flush interval in seconds for Linear region format file data.
-87. Lag compensation, which could ensure the basic game experience for players when server is lagging or low TPS situation.<br>
+83. Verfügbare Regionsformate: `"MCA"`, `"LINEAR"`.
+84. Das Level der Kompression für das Linear Regionsformat.
+85. Gibt an, ob ein Fehler geworfen soll, um den Server abzustürzen, wenn ein unbekanntes Regionsformat erkannt wird.
+86. Das Speicherintervall in Sekunden für die Dateien des Linear Regionsformat.
+87. Lag-Kompensation, die sicherstellen könnte, dass die grundlegende Spielerfahrung erhalten bleibt, wenn der Server laggt oder die TPS gering sind.<br>
   <br>
-  __Empfohlener Wert: `true` (set `enabled` below to true)__
-88. Whether to enable lag compensation for water flowing.<br>
-  <br>
-  __Empfohlener Wert: `true`__
-89. Whether to enable lag compensation for lava flowing.<br>
+  __Empfohlener Wert: `true` (Setze `enabled` unten auf true)__
+88. Gibt an, ob die Lag-Kompensation für fließendes Wasser aktiviert sein soll.<br>
   <br>
   __Empfohlener Wert: `true`__
-90. Whether to include 5-second TPS in the result of API `Bukkit#getTPS` and `Server#getTPS`.<br>
-    * If `true`, you can use `getTPS` method to get a TPS long array with 4 elements (`5s, 1m, 5m, 15m`).
-    * If `false`, you can use `getTPS` method to get a TPS long array with 3 elements (`1m, 5m, 15m`).
+89. Gibt an, ob die Lag-Kompensation für fließende Lava aktiviert sein soll.<br>
+  <br>
+  __Empfohlener Wert: `true`__
+90. Gibt an, ob die 5-Sekunden TPS in den Ergebnissen von `Bukkit#getTPS` und `Server#getTPS` enthalten sein soll.<br>
+    * Bei `true` liefert die `getTPS` Methode ein Long-Array mit 4 TPS Werten (`5s, 1m, 5m, 15m`).
+    * Bei `false` liefert die `getTPS` Methode ein Long-Array mit 3 TPS Werten (`1m, 5m, 15m`).
 
-    ??? note "Want to Go Deeper?"
+    ??? note "Tiefgehendere Informationen gefällig?"
 
-        If you are using Gale API or Leaf API for your plugins. Or runinng on Leaf and use reflection to get TPS, you can use `Bukkit#getTPSIncluding5SecondAverage`, to get the TPS array including 5-seconds TPS (`5s, 1m, 5m, 15m`).<br>
-        Also, you can use `Bukkit#get5SecondTPSAverage` to get the average value of 5-seconds TPS in `double`.
+        Wenn du die Gale API oder Leaf API für deine Plugins verwendest oder Reflektion auf einem Leaf Server nutzt, um die TPS zu erhalten, kann `Bukkit#getTPSIncluding5SecondAverage` verwendet werden, um ein TPS Array mit der 5-Sekunden TPS zu erhalten (`5s, 1m, 5m, 15m`).<br>
+        Außerdem kann `Bukkit#get5SecondTPSAverage` verwendet werden, um den Durchschnittswert der 5-Sekunden TPS als `double` zu erhalten.
 
 91. Controls whether specified component information is sent to clients. This may break resource packs and client mods that rely on this information. It needs a component type list, incorrect things will not work.<br>
   For example, you can fill it with `["custom_data"]` to hide components of *CUSTOM_DATA*. Also, it can avoid some frequent client animations.
