@@ -60,6 +60,9 @@ plugins:
           default: true
           name: English
           build: true
+        - locale: de
+          name: Deutsch
+          build: true
         - locale: zh
           name: 简体中文
           build: true
